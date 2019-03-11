@@ -69,9 +69,6 @@ class SignUp extends Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicChecbox">
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
               <Button disabled={isLoading} variant="primary" type="submit">
                 Sign Up
               </Button>
