@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-// import { connect } from "react-redux";
-// import { loginThenGoToUserProfile as login } from "../actions";
+import { connect } from "react-redux";
+import { registerThenGoToUserProfile as register } from "../actions";
 import Spinner from "react-spinkit";
 
 class SignUp extends Component {
-  state = { username: "", password: "", email: "" };
+  state = { username: "", displayName: "", password: "" };
 
-  handleLogin = e => {
+  handleRegister = e => {
     e.preventDefault();
-    this.props.login(this.state);
+    this.props.register(this.state);
   };
 
   handleChange = e => {
@@ -20,7 +20,7 @@ class SignUp extends Component {
     return (
       <React.Fragment>
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleLogin}>
+        <form onSubmit={this.handleRegister}>
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -36,10 +36,10 @@ class SignUp extends Component {
             required
             onChange={this.handleChange}
           />
-          <label htmlFor="email">Email</label>
+          <label htmlFor="displayName">Display Name</label>
           <input
-            type="email"
-            name="email"
+            type="text"
+            name="displayName"
             required
             onChange={this.handleChange}
           />
@@ -53,6 +53,10 @@ class SignUp extends Component {
     );
   }
 }
-export default SignUp;
-// export default connect(
-// )(SignUp);
+export default connect(
+  ({ auth }) => ({
+    isLoading: auth.registerLoading,
+    err: auth.registerError
+  }),
+  { register }
+)(SignUp);
