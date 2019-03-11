@@ -7,9 +7,10 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path="/" render={() => <LoginForm />} />
+        <Route exact path="/signup" render={() => <SignUp />} />
         <Route exact path="/profile" render={() => <UserProfile />} />
       </Switch>
-    );
+    )
   }
 }
 
