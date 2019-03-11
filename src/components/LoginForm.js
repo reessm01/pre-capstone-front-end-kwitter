@@ -71,29 +71,6 @@ class LoginForm extends Component {
             <Link to="signup">Register Here</Link>
           </Card.Body>
         </Card>
-        {/* <Link to="signup">Register Here</Link>
-        <form onSubmit={this.handleLogin}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            autoFocus
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            required
-            onChange={this.handleChange}
-          />
-          <button type="submit" disabled={isLoading}>
-            Login
-          </button>
-        </form>
-        {isLoading && <Spinner name="circle" color="blue" />}
-        {err && <p style={{ color: "red" }}>{err}</p>} */}
       </React.Fragment>
     );
   }
