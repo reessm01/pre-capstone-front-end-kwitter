@@ -21,7 +21,7 @@ class LoginForm extends Component {
     return (
       <React.Fragment>
         <h1>Login</h1>
-        <Link to="signup"></Link>
+        <Link to="signup">Register Here</Link>
         <form onSubmit={this.handleLogin}>
           <label htmlFor="username">Username</label>
           <input
