@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
+import SignUp from "./SignUp"
 import { LoginForm, UserProfile } from ".";
 
 class App extends Component {
