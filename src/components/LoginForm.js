@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginThenGoToUserProfile as login } from "../actions";
+import { Link } from "react-router-dom";
 import Spinner from "react-spinkit";
 
 class LoginForm extends Component {
@@ -20,6 +21,7 @@ class LoginForm extends Component {
     return (
       <React.Fragment>
         <h1>Login</h1>
+        <Link to="signup"></Link>
         <form onSubmit={this.handleLogin}>
           <label htmlFor="username">Username</label>
           <input
