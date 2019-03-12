@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from "react"
+import { connect } from "react-redux"
 import { loginThenGoToUserProfile as login } from "../actions"
 import { Link } from "react-router-dom"
 import Card from 'react-bootstrap/Card'
@@ -80,4 +80,4 @@ export default connect(
     err: auth.loginError
   }),
   { login }
-)(LoginForm);
+)(LoginForm)

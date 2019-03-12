@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
-import { LoginForm, Timeline, Register } from ".";
+import React, { Component } from "react"
+import { Switch, Route } from "react-router-dom"
+import { LoginForm, Timeline, Register } from "."
+import ProfileBox from "./ProfileBox"
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
         <Route exact path="/" render={() => <LoginForm />} />
         <Route exact path="/register" render={() => <Register />} />
         <Route exact path="/timeline" render={() => <Timeline />} />
+        <Route exact path="/profileBox" render={() => <ProfileBox />} />
       </Switch>
     );
   }
