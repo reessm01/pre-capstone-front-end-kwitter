@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { signUpThenGoToUserProfile as signUp } from "../actions";
-import Spinner from "react-spinkit";
-import { Link } from "react-router-dom";
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { registerUpThenGoToUserProfile as register } from "../actions"
+import Spinner from "react-spinkit"
+import { Link } from "react-router-dom"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
@@ -15,20 +15,20 @@ const cardStyle = {
   width: '20rem'
 }
 
-class SignUp extends Component {
-  state = { username: "", displayName: "", password: "" };
+class Register extends Component {
+  state = { username: "", displayName: "", password: "" }
 
   handleRegister = e => {
-    e.preventDefault();
-    this.props.register(this.state);
+    e.preventDefault()
+    this.props.register(this.state)
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value })
   };
 
   render() {
-    const { isLoading, err } = this.props;
+    const { isLoading, err } = this.props
     return (
       <React.Fragment>
         <Card style={cardStyle}>
@@ -59,18 +59,18 @@ class SignUp extends Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label htmlFor="displayName">displayName</Form.Label>
+              <Form.Group controlId="formBasicDisplay">
+                <Form.Label htmlFor="displayName">Display Name</Form.Label>
                 <Form.Control 
                   type="text"
-                  placeholder="displayName"
+                  placeholder="display name"
                   name="displayName"
                   required
                   onChange={this.handleChange}
                 />
               </Form.Group>
               <Button disabled={isLoading} variant="primary" type="submit">
-                Sign Up
+                Register
               </Button>
             </Form>
             {isLoading && <Spinner name="circle" color="blue" />}
@@ -78,10 +78,10 @@ class SignUp extends Component {
             <Link to="/">Here to Login</Link>
           </Card.Body>
         </Card>
-        {isLoading && <Spinner name="circle" color="blue" />}
-        {err && <p style={{ color: "red" }}>{err}</p>}
+        { isLoading && <Spinner name="circle" color="blue" /> }
+        { err && <p style={{ color: "red" }}>{ err }</p> }
       </React.Fragment>
-    );
+    )
   }
 }
 export default connect(
@@ -89,5 +89,5 @@ export default connect(
     isLoading: auth.registerLoading,
     err: auth.registerError
   }),
-  { signUp }
-)(SignUp);
+  { register }
+)(Register)
