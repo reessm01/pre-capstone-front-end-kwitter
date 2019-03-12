@@ -16,11 +16,11 @@ const cardStyle = {
 }
 
 class LoginForm extends Component {
-  state = { username: "", password: "" };
+  state = { username: "", password: "" }
 
   handleLogin = e => {
-    e.preventDefault();
-    this.props.login(this.state);
+    e.preventDefault()
+    this.props.login(this.state)
   }
 
   handleChange = e => {
@@ -28,7 +28,8 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { isLoading, err } = this.props;
+    const { isLoading, err } = this.props
+    
     return (
       <React.Fragment>
         <Card style={cardStyle}>
@@ -69,7 +70,7 @@ class LoginForm extends Component {
           </Card.Body>
         </Card>
       </React.Fragment>
-    );
+    )
   }
 }
 

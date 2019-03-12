@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { registerUpThenGoToUserProfile as register } from "../actions"
+import { registerThenGoToUserProfile as register } from "../actions"
 import Spinner from "react-spinkit"
 import { Link } from "react-router-dom"
 import Card from 'react-bootstrap/Card'
@@ -21,14 +21,14 @@ class Register extends Component {
   handleRegister = e => {
     e.preventDefault()
     this.props.register(this.state)
-  };
+  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
-  };
+  }
 
   render() {
-    const { isLoading, err } = this.props
+    const { registerLoading, registerError } = this.props
     return (
       <React.Fragment>
         <Card style={cardStyle}>
@@ -36,7 +36,7 @@ class Register extends Component {
           <Card.Body>
             <Card.Title>Welcome to Kwitter</Card.Title>
             <hr />
-            <Form onSubmit={this.handleLogin}>
+            <Form onSubmit={this.handleRegister}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label htmlFor="username">Username</Form.Label>
                 <Form.Control 
@@ -69,25 +69,25 @@ class Register extends Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <Button disabled={isLoading} variant="primary" type="submit">
+              <Button disabled={registerLoading} variant="primary" type="submit">
                 Register
               </Button>
             </Form>
-            {isLoading && <Spinner name="circle" color="blue" />}
-            {err && <p style={{ color: "red" }}>{err}</p>}
+            {registerLoading && <Spinner name="circle" color="blue" />}
+            {registerError && <p style={{ color: "red" }}>{registerError}</p>}
             <Link to="/">Here to Login</Link>
           </Card.Body>
         </Card>
-        { isLoading && <Spinner name="circle" color="blue" /> }
-        { err && <p style={{ color: "red" }}>{ err }</p> }
+        { registerLoading && <Spinner name="circle" color="blue" /> }
+        { registerError && <p style={{ color: "red" }}>{ registerError }</p> }
       </React.Fragment>
     )
   }
 }
 export default connect(
   ({ auth }) => ({
-    isLoading: auth.registerLoading,
-    err: auth.registerError
+    registerLoading: auth.registerLoading,
+    registerError: auth.registerError
   }),
   { register }
 )(Register)

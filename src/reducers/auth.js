@@ -1,10 +1,10 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAIL } from "../actions";
+import { LOGIN, LOGIN_SUCCESS, LOGIN_FAIL } from "../actions"
 
 const initialState = {
   loginLoading: false,
   login: null,
   loginError: null
-};
+}
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -15,11 +15,18 @@ export default (state = initialState, action) => {
         loginError: null
       };
     case LOGIN_SUCCESS:
-      return { ...state, login: action.payload, loginLoading: false };
+      return {
+        ...state,
+        login: action.payload,
+        loginLoading: false
+      }
     case LOGIN_FAIL:
-      return { ...state, loginError: action.payload, loginLoading: false };
-
+      return { 
+        ...state,
+        loginError: action.payload,
+        loginLoading: false
+      }
     default:
-      return state;
+      return state
   }
-};
+}

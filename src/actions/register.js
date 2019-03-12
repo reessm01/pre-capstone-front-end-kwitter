@@ -11,7 +11,6 @@ const register = registerData => dispatch => {
   dispatch({
     type: REGISTER
   })
-  console.log(JSON.stringify(registerData));
   return fetch(url + "/register", {
     method: "POST",
     headers: jsonHeaders,
@@ -24,14 +23,6 @@ const register = registerData => dispatch => {
         payload: result
       })
     })
-    .then(() => {
-      return dispatch(
-        login({
-          username: registerData.username,
-          password: registerData.password
-        })
-      )
-    })
     .catch(err => {
       return Promise.reject(
         dispatch({ type: REGISTER_FAIL, payload: err.message })
@@ -40,5 +31,6 @@ const register = registerData => dispatch => {
 }
 
 export const registerThenGoToUserProfile = registerData => dispatch => {
-  return dispatch(register(registerData));
-};
+  return dispatch(register(registerData))
+    .then(() => dispatch(login(registerData)))
+}
