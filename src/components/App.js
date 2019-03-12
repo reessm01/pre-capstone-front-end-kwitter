@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import { LoginForm, UserProfile, SignUp } from ".";
+import { LoginForm, UserProfile, SignUp } from "./";
 
 class App extends Component {
   render() {
