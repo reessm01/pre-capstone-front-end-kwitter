@@ -7,7 +7,6 @@ export const REGISTER_FAIL = "REGISTER_FAIL"
 
 const url = domain + "/auth"
 
-// action creators
 const register = registerData => dispatch => {
   dispatch({
     type: REGISTER
