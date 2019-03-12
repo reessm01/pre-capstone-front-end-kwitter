@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { registerThenGoToUserProfile as register } from "../actions";
+import { signUpThenGoToUserProfile as signUp } from "../actions";
 import Spinner from "react-spinkit";
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
@@ -31,7 +31,6 @@ class SignUp extends Component {
     const { isLoading, err } = this.props;
     return (
       <React.Fragment>
-<<<<<<< HEAD
         <Card style={cardStyle}>
           <Card.Img variant="top" src="./img/kenzieLogo.png" />
           <Card.Body>
@@ -61,11 +60,11 @@ class SignUp extends Component {
                 />
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
-                <Form.Label htmlFor="email">email</Form.Label>
+                <Form.Label htmlFor="displayName">displayName</Form.Label>
                 <Form.Control 
-                  type="email"
-                  placeholder="email"
-                  name="email"
+                  type="text"
+                  placeholder="displayName"
+                  name="displayName"
                   required
                   onChange={this.handleChange}
                 />
@@ -79,52 +78,16 @@ class SignUp extends Component {
             <Link to="/">Here to Login</Link>
           </Card.Body>
         </Card>
-=======
-        <h1>Sign Up</h1>
-        <form onSubmit={this.handleRegister}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            autoFocus
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="displayName">Display Name</label>
-          <input
-            type="text"
-            name="displayName"
-            required
-            onChange={this.handleChange}
-          />
-          <button type="submit" disabled={isLoading}>
-            Submit
-          </button>
-        </form>
->>>>>>> 2f01ef2644d7e4465ca7e7e546df3342f772ed5b
         {isLoading && <Spinner name="circle" color="blue" />}
         {err && <p style={{ color: "red" }}>{err}</p>}
       </React.Fragment>
     );
   }
 }
-<<<<<<< HEAD
-export default SignUp
-// export default connect(
-// )(SignUp);
-=======
 export default connect(
   ({ auth }) => ({
     isLoading: auth.registerLoading,
     err: auth.registerError
   }),
-  { register }
+  { signUp }
 )(SignUp);
->>>>>>> 2f01ef2644d7e4465ca7e7e546df3342f772ed5b

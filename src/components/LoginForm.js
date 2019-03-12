@@ -65,7 +65,7 @@ class LoginForm extends Component {
             </Form>
             {isLoading && <Spinner name="circle" color="blue" />}
             {err && <p style={{ color: "red" }}>{err}</p>}
-            <Link to="signup">Register Here</Link>
+            <Link to="register">Register Here</Link>
           </Card.Body>
         </Card>
       </React.Fragment>
