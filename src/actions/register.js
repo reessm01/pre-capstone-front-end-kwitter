@@ -11,7 +11,6 @@ const register = registerData => dispatch => {
   dispatch({
     type: REGISTER
   })
-  console.log(registerData)
   return fetch(url + "/register", {
     method: "POST",
     headers: jsonHeaders,
