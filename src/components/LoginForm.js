@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loginThenGoToUserProfile as login } from "../actions";
-import { Link } from "react-router-dom";
+import { loginThenGoToUserProfile as login } from "../actions"
+import { Link } from "react-router-dom"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import Spinner from "react-spinkit";
+import Spinner from "react-spinkit"
 
 const cardStyle = {
   display: 'flex',
@@ -21,11 +21,11 @@ class LoginForm extends Component {
   handleLogin = e => {
     e.preventDefault();
     this.props.login(this.state);
-  };
+  }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
   render() {
     const { isLoading, err } = this.props;
