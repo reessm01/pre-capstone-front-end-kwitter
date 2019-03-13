@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import TimeLinePost from './TimelinePost'
+import { TimelinePost } from '.'
 import {getMessages} from '../actions/getMessages'
 import {connect} from 'react-redux'
 
@@ -14,13 +14,13 @@ class Timeline extends Component {
   }
 
   render() {
-    const messages = this.props.messages.messages.map(message => (
-      <TimeLinePost text={message.text}></TimeLinePost>
+    const timeLinePosts = this.props.messages.messages.map(message => (
+      <TimelinePost text={message.text}></TimelinePost>
     ))
     return(
-      <React.Fragment>
-        {messages}
-      </React.Fragment>
+      <div>
+        {timeLinePosts}
+      </div>
     )
   }
 }
