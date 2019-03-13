@@ -2,17 +2,18 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { loginThenGoToUserProfile as login } from "../actions"
 import { Link } from "react-router-dom"
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
+import Form from "react-bootstrap/Form"
 import Spinner from "react-spinkit"
+import GeneralHeader from "./GeneralHeader"
 
 const cardStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: '2rem',
-  width: '20rem'
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "2rem",
+  width: "20rem"
 }
 
 class LoginForm extends Component {
@@ -29,9 +30,10 @@ class LoginForm extends Component {
 
   render() {
     const { isLoading, err } = this.props
-    
+
     return (
       <React.Fragment>
+        <GeneralHeader />
         <Card style={cardStyle}>
           <Card.Img variant="top" src="./img/kenzieLogo.png" />
           <Card.Body>
@@ -40,8 +42,8 @@ class LoginForm extends Component {
             <Form onSubmit={this.handleLogin}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label htmlFor="username">Username</Form.Label>
-                <Form.Control 
-                  type="text" 
+                <Form.Control
+                  type="text"
                   placeholder="username"
                   name="username"
                   autoFocus
@@ -52,7 +54,7 @@ class LoginForm extends Component {
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label htmlFor="password">Password</Form.Label>
-                <Form.Control 
+                <Form.Control
                   type="password"
                   placeholder="password"
                   name="password"
