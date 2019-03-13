@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Switch, Route } from "react-router-dom"
 import { LoginForm, HomePage, Register } from "."
-import ProfileBox from "./ProfileBox"
 
 class App extends Component {
   render() {
