@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import TimeLinePost from './TimelinePost'
+import { TimelinePost } from '.'
 import {getMessages} from '../actions/getMessages'
 import {addLike} from '../actions/likes'
 import {connect} from 'react-redux'
@@ -11,19 +11,18 @@ class Timeline extends Component {
   }
 
   componentDidMount() {
-   this.props.getMessages()
+    this.props.getMessages()
   }
 
   render() {
-    console.log(this.props.messages)
+    const timeLinePosts = this.props.messages.messages.map(message => (
+      <TimelinePost text={message.text}></TimelinePost>
+    ))
     return(
-    <div>
-    {this.props.messages.messages.map(message => (
-        <TimeLinePost likes={message.likes} text={message.text}></TimeLinePost>
-    ))}
-    </div>
+      <div>
+        {timeLinePosts}
+      </div>
     )
-    
   }
 }
 

@@ -1,4 +1,7 @@
 export { default as App } from "./App"
 export { default as LoginForm } from "./LoginForm"
 export { default as Timeline } from "./Timeline"
+export { default as TimelinePost } from "./TimelinePost"
 export { default as Register } from "./Register"
+export { default as ProfileBox } from "./ProfileBox"
+export { default as HomePage } from "./HomePage"

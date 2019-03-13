@@ -19,6 +19,8 @@ const login = loginData => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
+      console.log(result)
+      localStorage.setItem("token", result.token)
       return dispatch({
         type: LOGIN_SUCCESS,
         payload: result
@@ -32,5 +34,5 @@ const login = loginData => dispatch => {
 }
 
 export const loginThenGoToUserProfile = loginData => dispatch => {
-  return dispatch(login(loginData)).then(() => dispatch(push("/timeline")))
+  return dispatch(login(loginData)).then(() => dispatch(push("/home")))
 }
