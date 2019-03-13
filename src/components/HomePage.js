@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ProfileBox, Timeline } from '.'
+import { ProfileBox, Timeline, UsersSidebar } from '.'
 
 class HomePage extends Component {
   render() {
@@ -7,6 +7,7 @@ class HomePage extends Component {
       <React.Fragment>
         <ProfileBox />
         <Timeline />
+        <UsersSidebar />
       </React.Fragment>
     )
   }
