@@ -34,4 +34,4 @@ export default connect(
         bio: user.bio
     }),
     null
-  )(ProfileBox)
+)(ProfileBox)

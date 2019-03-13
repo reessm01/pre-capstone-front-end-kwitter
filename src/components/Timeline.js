@@ -10,19 +10,18 @@ class Timeline extends Component {
   }
 
   componentDidMount() {
-   this.props.getMessages()
+    this.props.getMessages()
   }
 
   render() {
-    console.log(this.props.messages)
+    const messages = this.props.messages.messages.map(message => (
+      <TimeLinePost text={message.text}></TimeLinePost>
+    ))
     return(
-    <div>
-    {this.props.messages.messages.map(message => (
-        <TimeLinePost text={message.text}></TimeLinePost>
-    ))}
-    </div>
+      <React.Fragment>
+        {messages}
+      </React.Fragment>
     )
-    
   }
 }
 
@@ -30,7 +29,6 @@ function mapStateToProps(state) {
   return {
     messages: state.messages
   }
-  
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -39,7 +37,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(getMessages())
     }
   }
-  
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Timeline)
