@@ -20,6 +20,8 @@ const login = loginData => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
+      console.log(result)
+      localStorage.setItem("token", result.token)
       return dispatch({
         type: LOGIN_SUCCESS,
         payload: result
@@ -33,6 +35,11 @@ const login = loginData => dispatch => {
 }
 
 export const loginThenGoToUserProfile = loginData => dispatch => {
+<<<<<<< HEAD
   return dispatch(login(loginData))
     .then(() => dispatch(push("/home")))
 }
+=======
+  return dispatch(login(loginData)).then(() => dispatch(push("/home")))
+}
+>>>>>>> d804eeffea5156bb6ed2e606f8c42ceb1cd54807
