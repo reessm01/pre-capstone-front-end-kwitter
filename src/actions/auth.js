@@ -1,6 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants"
 import { push } from "connected-react-router"
-import { setCurrentUserInfo } from "../actions"
 
 export const LOGIN = "LOGIN"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
@@ -35,11 +34,6 @@ const login = loginData => dispatch => {
 }
 
 export const loginThenGoToUserProfile = loginData => dispatch => {
-<<<<<<< HEAD
   return dispatch(login(loginData))
     .then(() => dispatch(push("/home")))
 }
-=======
-  return dispatch(login(loginData)).then(() => dispatch(push("/home")))
-}
->>>>>>> d804eeffea5156bb6ed2e606f8c42ceb1cd54807
