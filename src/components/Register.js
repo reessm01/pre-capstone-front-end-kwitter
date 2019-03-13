@@ -84,6 +84,7 @@ class Register extends Component {
     )
   }
 }
+
 export default connect(
   ({ auth }) => ({
     registerLoading: auth.registerLoading,
