@@ -78,8 +78,6 @@ class Register extends Component {
             <Link to="/">Here to Login</Link>
           </Card.Body>
         </Card>
-        { registerLoading && <Spinner name="circle" color="blue" /> }
-        { registerError && <p style={{ color: "red" }}>{ registerError }</p> }
       </React.Fragment>
     )
   }
