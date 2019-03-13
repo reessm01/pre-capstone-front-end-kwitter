@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
     case MESSAGES_SUCCEEDED:
       return {
         ...state,
-        messages: [...state.messages, action.payload.messages],
+        messages: [...state.messages, ...action.payload.messages],
         messages_succeeded: true,
         messages_failed: false
       }
