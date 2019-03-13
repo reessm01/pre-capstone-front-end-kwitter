@@ -13,7 +13,7 @@ export default class TimeLinePost extends Component{
           {this.props.text}
           </Card.Text>
           <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link>
+          <Card.Link onClick={this.props.onClick} href="#">{this.props.likes.length}</Card.Link>
         </Card.Body>
       </Card>
       )
