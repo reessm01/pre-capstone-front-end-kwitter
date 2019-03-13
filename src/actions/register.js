@@ -1,5 +1,6 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants"
 import { loginThenGoToUserProfile as login } from "../actions"
+import { setCurrentUserInfo } from "../actions"
 
 export const REGISTER = "REGISTER"
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS"
@@ -18,6 +19,7 @@ const register = registerData => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
+      dispatch(setCurrentUserInfo(result.id))
       return dispatch({
         type: REGISTER_SUCCESS,
         payload: result

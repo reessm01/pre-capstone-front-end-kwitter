@@ -1,6 +1,5 @@
 import {domain, handleJsonResponse} from './constants'
 
-
 export const MESSAGES_SUCCEEDED = 'MESSAGES_SUCCEEDED'
 export const MESSAGES_FAILED = 'MESSAGES_FAILED'
 
