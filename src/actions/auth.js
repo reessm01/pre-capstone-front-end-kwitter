@@ -32,5 +32,5 @@ const login = loginData => dispatch => {
 }
 
 export const loginThenGoToUserProfile = loginData => dispatch => {
-  return dispatch(login(loginData)).then(() => dispatch(push("/timeline")))
+  return dispatch(login(loginData)).then(() => dispatch(push("/home")))
 }
