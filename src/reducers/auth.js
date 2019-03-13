@@ -18,7 +18,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         login: action.payload,
-        loginLoading: false
+        loginLoading: false,
+        id: action.payload.id
       }
     case LOGIN_FAIL:
       return { 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import Card from "react-bootstrap/Card"
+import { setCurrentUserInfo } from "../actions"
 
 const cardStyle = {
     width: '25rem',
@@ -9,6 +10,10 @@ const cardStyle = {
 }
 
 class ProfileBox extends Component {
+    componentDidMount() {
+        this.props.setCurrentUserInfo(this.props.id)
+    }
+
     render() {
         const { displayName, username, bio } = this.props
 
@@ -28,10 +33,11 @@ class ProfileBox extends Component {
 }
 
 export default connect(
-    ({ user }) => ({
-        displayName: user.displayName,
-        username: user.username,
-        bio: user.bio
+    ({ auth, currentUser }) => ({
+        id: auth.id,
+        displayName: currentUser.displayName,
+        username: currentUser.username,
+        bio: currentUser.bio
     }),
-    null
+    { setCurrentUserInfo }
 )(ProfileBox)

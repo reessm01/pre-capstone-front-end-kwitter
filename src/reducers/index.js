@@ -5,7 +5,7 @@ import likes from "./likes"
 import messages from "./messages"
 import users from "./users"
 import register from "./register"
-import user from "./user"
+import currentUser from "./currentUser"
 
 export default history =>
   combineReducers({
@@ -15,5 +15,5 @@ export default history =>
     messages,
     users,
     register,
-    user
+    currentUser
   });

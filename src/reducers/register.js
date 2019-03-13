@@ -18,7 +18,8 @@ export default (state = initialState, action) => {
       return { 
         ...state,
         register: action.payload,
-        registerLoading: false 
+        registerLoading: false,
+        id: action.payload.id
       }
     case REGISTER_FAIL:
       return {
