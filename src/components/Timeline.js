@@ -33,8 +33,7 @@ class Timeline extends Component {
 
 function mapStateToProps({ messages }) {
   return {
-    messages: messages.messages,
-    id: messages.id
+    messages: messages.messages
   }
 }
 
