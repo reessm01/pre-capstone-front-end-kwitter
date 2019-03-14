@@ -1,8 +1,12 @@
 import React, { Component } from "react"
-import { TimelinePost } from '.'
-import {getMessages} from '../actions/getMessages'
-import {addLike} from '../actions/likes'
-import {connect} from 'react-redux'
+import { TimelinePost, KweetInput } from '.'
+import { getMessages } from '../actions/getMessages'
+import { addLike } from '../actions/likes'
+import { connect } from 'react-redux'
+
+const timelineStyle = {
+  width: '32rem'
+}
 
 class Timeline extends Component {
 
@@ -19,7 +23,8 @@ class Timeline extends Component {
       <TimelinePost text={message.text} id={message.userId}></TimelinePost>
     ))
     return(
-      <div>
+      <div style={ timelineStyle }>
+        <KweetInput />
         {timeLinePosts}
       </div>
     )
@@ -28,8 +33,7 @@ class Timeline extends Component {
 
 function mapStateToProps({ messages }) {
   return {
-    messages: messages.messages,
-    id: messages.id
+    messages: messages.messages
   }
 }
 

@@ -5,12 +5,12 @@ import { LoginForm, HomePage, Register } from "."
 
 class App extends Component {
   render() {
-    const { loggedIn } = this.props
+    const { login } = this.props
 
     return (
       <Switch>
-        <Route exact path="/" render={() => loggedIn ? <HomePage /> : <LoginForm />} />
-        <Route exact path="/register" render={() => <Register />} />
+        <Route exact path="/" render={ () => login ? <HomePage /> : <LoginForm /> } />
+        <Route exact path="/register" render={ () => <Register /> } />
       </Switch>
     )
   }
@@ -18,6 +18,6 @@ class App extends Component {
 
 export default connect(
   ({ auth }) => ({
-    loggedIn: auth.login
+    login: auth.login
   })
 )(App)

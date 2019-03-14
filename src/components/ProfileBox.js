@@ -4,9 +4,9 @@ import Card from "react-bootstrap/Card"
 import { setCurrentUserInfo } from "../actions"
 
 const cardStyle = {
-    width: '25rem',
+    width: '18rem',
     height: 'fit-content',
-    padding: '3rem'
+    padding: '2rem'
 }
 
 class ProfileBox extends Component {
@@ -34,7 +34,7 @@ class ProfileBox extends Component {
 
 export default connect(
     ({ auth, currentUser }) => ({
-        id: auth.id,
+        id: auth.login.id,
         displayName: currentUser.displayName,
         username: currentUser.username,
         bio: currentUser.bio

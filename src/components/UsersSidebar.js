@@ -3,6 +3,10 @@ import Card from 'react-bootstrap/Card'
 import {getUsers} from '../actions/getUsers'
 import {connect} from 'react-redux'
 
+const cardStyle = {
+    width: '18rem',
+    padding: '2rem'
+}
 
 export class UsersSidebar extends Component{
     componentDidMount(){
@@ -10,24 +14,26 @@ export class UsersSidebar extends Component{
         
     }
     
-
     render(){
-        const user = this.props.users.users.map(user => (
+        const { users } = this.props
+
+        const userBodies = users.map(user => (
             <Card.Body>{user.displayName}</Card.Body>
-          ))
+        ))
+
         return (
             <React.Fragment>
-                <Card>
-                    {user}
+                <Card style={cardStyle}>
+                    {userBodies}
                 </Card>
             </React.Fragment>
         )
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps({ users }){
     return {
-       users: state.users
+       users: users.users
     }
 }
 
