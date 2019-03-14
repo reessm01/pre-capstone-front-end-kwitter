@@ -16,8 +16,8 @@ code {
 #root {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  width: 90%;
+  align-items: flex-start;
+  width: 100%; 
   padding: 50px 0px;
   margin: 0 auto;
 }
@@ -25,7 +25,7 @@ code {
 #main-wrap {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items:flex-start;
   width: 90%;
   padding: 50px 0px;
   margin: 0 auto;
