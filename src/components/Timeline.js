@@ -5,7 +5,7 @@ import { addLike } from '../actions/likes'
 import { connect } from 'react-redux'
 
 const timelineStyle = {
-  width: '400px'
+  width: '32rem'
 }
 
 class Timeline extends Component {

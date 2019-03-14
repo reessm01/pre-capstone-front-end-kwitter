@@ -4,7 +4,7 @@ import {getUsers} from '../actions/getUsers'
 import {connect} from 'react-redux'
 
 const cardStyle = {
-    width: '400px',
+    width: '18rem',
     padding: '2rem'
 }
 
