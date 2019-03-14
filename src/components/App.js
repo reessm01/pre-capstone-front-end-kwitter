@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import { Switch, Route } from "react-router-dom"
 import { LoginForm, HomePage, Register } from "."
 
@@ -6,12 +7,15 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" render={() => <LoginForm />} />
+        <Route exact path="/" render={() => this.props.loggedIn ? <HomePage /> : <LoginForm />} />
         <Route exact path="/register" render={() => <Register />} />
-        <Route exact path="/home" render={() => <HomePage />} />
       </Switch>
     );
   }
 }
 
-export default App;
+export default connect(
+  ({ auth }) => ({
+    loggedIn: auth.login
+  })
+)(App)

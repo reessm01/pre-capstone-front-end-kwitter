@@ -3,7 +3,8 @@ import { LOGIN, LOGIN_SUCCESS, LOGIN_FAIL } from "../actions"
 const initialState = {
   loginLoading: false,
   login: null,
-  loginError: null
+  loginError: null,
+  loggedIn: false
 }
 
 export default (state = initialState, action) => {
@@ -19,7 +20,8 @@ export default (state = initialState, action) => {
         ...state,
         login: action.payload,
         loginLoading: false,
-        id: action.payload.id
+        id: action.payload.id,
+        loggedIn: true
       }
     case LOGIN_FAIL:
       return { 
