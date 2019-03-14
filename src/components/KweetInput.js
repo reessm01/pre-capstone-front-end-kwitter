@@ -10,6 +10,7 @@ class KweetInput extends Component {
         text: ''
     }
 
+<<<<<<< HEAD
     handleSubmit = (e) => {
         e.preventDefault()
 
@@ -17,6 +18,13 @@ class KweetInput extends Component {
         const { value } = this.state
 
         handleKweetSubmit({ text: value })
+=======
+    handleSubmit = e => {
+        const { handleKweetSubmit, token } = this.props
+
+        e.preventDefault()
+        handleKweetSubmit({ text: this.state, token})
+>>>>>>> 9b3dc4ac8df8df01d455eac5eb92d51ba170a5d4
 
         e.target.value = ''
         
@@ -28,14 +36,20 @@ class KweetInput extends Component {
         return (
             <React.Fragment>
                 <Card bg="primary" variant="dark" style={{ padding: '2rem' }}>
+<<<<<<< HEAD
                     <Form onSubmit={ handleSubmit}>
                         <Form.Group controlId="formBasicEmail">
+=======
+                    <Form onSubmit={ handleSubmit }>
+                        <Form.Group>
+>>>>>>> 9b3dc4ac8df8df01d455eac5eb92d51ba170a5d4
                             <Form.Label>Kweet</Form.Label>
                             <Form.Control
-                                onChange={ (e) => this.setState({ value: e.target.value }) }
+                                onChange={ (e) => this.setState({ text: e.target.value }) }
                                 name="kweet"
-                                type="text-area"
+                                type="text"
                                 placeholder="What are you thinking about?"
+                                autocomplete="off"
                             />
                         </Form.Group>
                         <Button variant="primary" type="submit">
@@ -50,7 +64,7 @@ class KweetInput extends Component {
 
 export default connect(
     ({ auth }) => ({
-        userId: auth.id,
+        token: auth.login.token
     }),
     { handleKweetSubmit }
 )(KweetInput)

@@ -34,7 +34,7 @@ class ProfileBox extends Component {
 
 export default connect(
     ({ auth, currentUser }) => ({
-        id: auth.id,
+        id: auth.login.id,
         displayName: currentUser.displayName,
         username: currentUser.username,
         bio: currentUser.bio
