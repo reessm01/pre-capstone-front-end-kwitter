@@ -18,6 +18,3 @@ export const getMessages = () => dispatch => {
     })
   }
 
-
-  
-  
