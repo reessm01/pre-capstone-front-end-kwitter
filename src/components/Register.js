@@ -13,6 +13,7 @@ const cardStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   padding: '2rem',
+  marginTop: "2rem",
   width: '20rem'
 }
 
