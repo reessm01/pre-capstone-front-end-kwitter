@@ -7,26 +7,28 @@ import { handleKweetSubmit } from "../actions"
 
 class KweetInput extends Component {
     state = {
-        value: ''
+        text: ''
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
+        e.preventDefault()
+
         const { handleKweetSubmit } = this.props
         const { value } = this.state
 
-        e.preventDefault()
         handleKweetSubmit({ text: value })
 
         e.target.value = ''
+        
     }
 
     render() {
-        const { handleSubmit } = this
+        const { handleSubmit} = this
 
         return (
             <React.Fragment>
                 <Card bg="primary" variant="dark" style={{ padding: '2rem' }}>
-                    <Form onSubmit={ handleSubmit }>
+                    <Form onSubmit={ handleSubmit}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Kweet</Form.Label>
                             <Form.Control

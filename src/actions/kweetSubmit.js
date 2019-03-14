@@ -4,7 +4,7 @@ export const NEW_KWEET = "NEW_KWEET"
 
 const url = domain + "/messages/"
 
-export const handleKweetSubmit = kweetData => dispatch => {
+export const handleKweetSubmit = (kweetData) => dispatch => {
     return fetch(url, {
         method: "POST",
         headers: jsonHeaders,
@@ -12,10 +12,10 @@ export const handleKweetSubmit = kweetData => dispatch => {
     })
         .then(handleJsonResponse)
         .then(result => {
-            console.log(result)
             return dispatch({
                 type: NEW_KWEET,
                 payload: result
             })
+            
         })
 }

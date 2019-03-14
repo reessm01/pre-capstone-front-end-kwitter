@@ -18,6 +18,8 @@ class Timeline extends Component {
     this.props.getMessages()
   }
 
+  
+
   render() {
     const timeLinePosts = this.props.messages.map(message => (
       <TimelinePost text={message.text} id={message.userId}></TimelinePost>
