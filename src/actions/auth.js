@@ -19,7 +19,7 @@ const login = loginData => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
-      localStorage.setItem("token", result.token)
+      localStorage.setItem("id", result.token)
       return dispatch({
         type: LOGIN_SUCCESS,
         payload: result

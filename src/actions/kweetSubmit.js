@@ -7,15 +7,18 @@ const url = domain + "/messages/"
 export const handleKweetSubmit = kweetData => dispatch => {
     return fetch(url, {
         method: "POST",
-        headers: jsonHeaders,
-        body: JSON.stringify(kweetData)
+        headers: {
+            ...jsonHeaders,
+            Authorization: `Bearer ${kweetData.token}`
+        },
+        body: JSON.stringify( kweetData.text ),
     })
         .then(handleJsonResponse)
         .then(result => {
             console.log(result)
             return dispatch({
                 type: NEW_KWEET,
-                payload: result
+                payload: result.message
             })
         })
 }

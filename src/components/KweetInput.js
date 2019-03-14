@@ -7,15 +7,14 @@ import { handleKweetSubmit } from "../actions"
 
 class KweetInput extends Component {
     state = {
-        value: ''
+        text: ''
     }
 
-    handleSubmit(e) {
-        const { handleKweetSubmit } = this.props
-        const { value } = this.state
+    handleSubmit = e => {
+        const { handleKweetSubmit, token } = this.props
 
         e.preventDefault()
-        handleKweetSubmit({ text: value })
+        handleKweetSubmit({ text: this.state, token})
 
         e.target.value = ''
     }
@@ -30,7 +29,7 @@ class KweetInput extends Component {
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Kweet</Form.Label>
                             <Form.Control
-                                onChange={ (e) => this.setState({ value: e.target.value }) }
+                                onChange={ (e) => this.setState({ text: e.target.value }) }
                                 name="kweet"
                                 type="text-area"
                                 placeholder="What are you thinking about?"
@@ -48,7 +47,7 @@ class KweetInput extends Component {
 
 export default connect(
     ({ auth }) => ({
-        userId: auth.id,
+        token: auth.login.token
     }),
     { handleKweetSubmit }
 )(KweetInput)
