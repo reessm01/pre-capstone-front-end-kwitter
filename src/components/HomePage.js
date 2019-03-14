@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import { ProfileBox, Timeline } from '.'
+import GeneralHeader from "./GeneralHeader"
 
 class HomePage extends Component {
-    componentDidMount() {
-        
-    }
 
     render() {
         return (
-        <React.Fragment>
-            <ProfileBox />
-            <Timeline />
-        </React.Fragment>
+            <React.Fragment>
+                <GeneralHeader />
+                <div id="main-wrap">
+                    <ProfileBox />
+                    <Timeline />
+                </div>
+            </React.Fragment>
         )
     }
 }

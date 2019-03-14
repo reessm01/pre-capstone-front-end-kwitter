@@ -14,8 +14,8 @@ class Timeline extends Component {
   }
 
   render() {
-    const timeLinePosts = this.props.messages.messages.map(message => (
-      <TimelinePost text={message.text}></TimelinePost>
+    const timeLinePosts = this.props.messages.map(message => (
+      <TimelinePost text={message.text} id={message.userId}></TimelinePost>
     ))
     return(
       <div>
@@ -25,9 +25,10 @@ class Timeline extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({ messages }) {
   return {
-    messages: state.messages
+    messages: messages.messages,
+    id: messages.id
   }
 }
 

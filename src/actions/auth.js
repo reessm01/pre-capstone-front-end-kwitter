@@ -1,6 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants"
 import { push } from "connected-react-router"
-import { setCurrentUserInfo } from "../actions"
 
 export const LOGIN = "LOGIN"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
