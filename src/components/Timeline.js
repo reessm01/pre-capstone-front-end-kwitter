@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { TimelinePost } from '.'
 import {getMessages} from '../actions/getMessages'
+import {addLike} from '../actions/likes'
 import {connect} from 'react-redux'
 
 class Timeline extends Component {
@@ -36,6 +37,9 @@ const mapDispatchToProps = (dispatch) => {
   return{
     getMessages: () => {
       dispatch(getMessages())
+    },
+    addLike: () => {
+      dispatch(addLike())
     }
   }
 }
