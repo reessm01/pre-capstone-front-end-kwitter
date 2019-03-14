@@ -26,13 +26,14 @@ class KweetInput extends Component {
             <React.Fragment>
                 <Card bg="primary" variant="dark" style={{ padding: '2rem' }}>
                     <Form onSubmit={ handleSubmit }>
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group>
                             <Form.Label>Kweet</Form.Label>
                             <Form.Control
                                 onChange={ (e) => this.setState({ text: e.target.value }) }
                                 name="kweet"
-                                type="text-area"
+                                type="text"
                                 placeholder="What are you thinking about?"
+                                autocomplete="off"
                             />
                         </Form.Group>
                         <Button variant="primary" type="submit">

@@ -15,10 +15,9 @@ export const handleKweetSubmit = kweetData => dispatch => {
     })
         .then(handleJsonResponse)
         .then(result => {
-            console.log(result)
             return dispatch({
                 type: NEW_KWEET,
-                payload: result.message
+                payload: result
             })
         })
 }

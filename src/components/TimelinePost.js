@@ -73,8 +73,8 @@ export default class TimelinePost extends Component{
           <Card.Text>
             { text }
           </Card.Text>
-          <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#"></Card.Link>
+          <Card.Link href="#">Like</Card.Link>
+          <Card.Link href="#">Dislike</Card.Link>
         </Card.Body>
       </Card>
     )
