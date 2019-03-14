@@ -1,6 +1,11 @@
 import React, {Component} from 'react'
 import Card from 'react-bootstrap/Card'
 import { domain, handleJsonResponse } from "../actions/constants"
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faHeart)
 
 const url = domain + '/users/'
 
@@ -73,7 +78,7 @@ export default class TimelinePost extends Component{
           <Card.Text>
             { text }
           </Card.Text>
-          <Card.Link href="#">Like</Card.Link>
+          <Card.Link href="#"><FontAwesomeIcon icon="heart"></FontAwesomeIcon></Card.Link>
           <Card.Link href="#">Dislike</Card.Link>
         </Card.Body>
       </Card>

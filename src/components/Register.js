@@ -13,7 +13,7 @@ const cardStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   padding: '2rem',
-  marginTop: "2rem",
+  marginTop: "4rem",
   width: '20rem'
 }
 
@@ -35,7 +35,7 @@ class Register extends Component {
       <React.Fragment>
         <GeneralHeader />
         <Card style={cardStyle}>
-          <Card.Img variant="top" src="./img/kenzieLogo.png" />
+          <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
             <Card.Title>Welcome to Kwitter</Card.Title>
             <hr />
