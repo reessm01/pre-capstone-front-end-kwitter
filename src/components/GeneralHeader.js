@@ -12,9 +12,9 @@ class GeneralHeader extends Component {
         <Navbar bg="primary" variant="dark" fixed="top">
           <Navbar.Brand href="/">
             <img
-              src="./img/kenzieLogo.png"
-              width="30"
-              height="30"
+              src="./img/dodo.png"
+              width="50"
+              height="50"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
