@@ -6,11 +6,10 @@ export const getUsers = () => dispatch => {
     return fetch(`${domain}/users`)
     .then(handleJsonResponse)
     .then(data => {
-        console.log(data)
-        return {
+        return dispatch({
             type: USERS_OBTAINED,
             payload: data
-        }
+        })
     })
     .catch(err => {
         console.log(err)

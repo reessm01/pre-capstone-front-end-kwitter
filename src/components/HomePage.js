@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ProfileBox, Timeline } from '.'
+import { ProfileBox, Timeline, UsersSidebar } from '.'
 import GeneralHeader from "./GeneralHeader"
 
 class HomePage extends Component {
@@ -14,6 +14,7 @@ class HomePage extends Component {
             <div id="main-wrap">
                 <ProfileBox />
                 <Timeline />
+                <UsersSidebar />
             </div>
         </React.Fragment>
         )
