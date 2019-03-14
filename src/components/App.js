@@ -5,7 +5,7 @@ import { LoginForm, HomePage, Register } from "."
 
 class App extends Component {
   render() {
-    const { loggedIn } = this.props
+    const loggedIn = localStorage.getItem("token")
 
     return (
       <Switch>

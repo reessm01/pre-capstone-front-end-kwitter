@@ -5,7 +5,7 @@ import { domain, handleJsonResponse } from "../actions/constants"
 const url = domain + '/users/'
 
 const cardStyle = {
-  width: '18rem'
+  width: '100%'
 }
 
 const postHeaderStyle = {
@@ -43,7 +43,6 @@ export default class TimelinePost extends Component{
     
     fetch(url + this.props.id + '/picture')
       .then(result => {
-        console.log(result)
         if(result.status === 200) {
           this.setState({
             photoUrl: result.url
