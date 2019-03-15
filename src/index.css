@@ -29,6 +29,11 @@ code {
   width: 90%;
   padding: 50px 0px;
   margin: 0 auto;
+  overflow: hidden;
+}
+
+.wrap {
+  border: 1px solid darkgrey;
 }
 
 #timeline-posts {

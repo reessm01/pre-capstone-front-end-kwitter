@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 import Spinner from "react-spinkit"
 import { GeneralHeader } from "../"
-import { cardStyle } from "./style"
+import { cardStyle, cardTitleStyle } from "./style"
 
 class LoginForm extends Component {
   state = { username: "", password: "" }
@@ -27,10 +27,10 @@ class LoginForm extends Component {
     return (
       <React.Fragment>
         <GeneralHeader />
-        <Card style={cardStyle}>
+        <Card className="wrap" style={ cardStyle }>
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={ cardTitleStyle }>
               <Card.Title>Kweet, kweet motha...</Card.Title>
             </div>
             <hr />

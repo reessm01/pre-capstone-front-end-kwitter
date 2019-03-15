@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import { handleKweetSubmit } from "../../actions"
-// import { } from "./style"
+import { errorStyle, submitStyle } from "./style"
 
 class KweetInput extends Component {
   state = {
@@ -21,17 +21,7 @@ class KweetInput extends Component {
 
   render() {
     const { handleSubmit } = this
-    const errorStyling = {
-      display: "flex",
-      flexDirection: "column",
-      marginTop: "25px",
-      color: "red",
-      background: "white",
-      textAlign: "center",
-      borderRadius: "5px",
-      justifyContent: "center",
-      lineHeight: "2em"
-    }
+    
     const ErrorMessage = (
       <div>{"Message text must be between 2 and 255 characters"}</div>
     )
@@ -50,7 +40,7 @@ class KweetInput extends Component {
               />
             </Form.Group>
             <Button
-              style={{ color: "black", backgroundColor: "#DCDCDC" }}
+              style={ submitStyle }
               variant="primary"
               type="submit"
             >
@@ -58,7 +48,7 @@ class KweetInput extends Component {
             </Button>
           </Form>
           {this.props.messages_failed ? (
-            <div style={errorStyling}>{ErrorMessage}</div>
+            <div style={errorStyle}>{ErrorMessage}</div>
           ) : null}
         </Card>
       </React.Fragment>

@@ -4,7 +4,7 @@ import { domain, handleJsonResponse } from "../../actions/constants"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import { cardStyle, postHeaderStyle, cardImgStyle, namesDivStyle } from './style'
+import { cardStyle, postHeaderStyle, cardImgStyle, cardTextStyle, namesDivStyle } from './style'
 
 library.add(faHeart)
 
@@ -56,7 +56,7 @@ export default class TimelinePost extends Component{
               <Card.Subtitle className="mb-2 text-muted">@{ username }</Card.Subtitle>
             </div>
           </div>
-          <Card.Text style={{ fontSize: "1.6rem", marginLeft: "1rem", marginBottom: "1.5rem" }}>
+          <Card.Text style={ cardTextStyle }>
             { text }
           </Card.Text>
           <Card.Link style={{ marginLeft: '0.75rem' }} href="#"><FontAwesomeIcon icon="heart"></FontAwesomeIcon></Card.Link>

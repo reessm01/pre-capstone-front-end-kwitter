@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { GeneralHeader } from "../"
-import { cardStyle } from "./style" 
+import { cardStyle, titleStyle } from "./style" 
 
 class Register extends Component {
   state = { username: "", displayName: "", password: "" }
@@ -26,10 +26,10 @@ class Register extends Component {
     return (
       <React.Fragment>
         <GeneralHeader />
-        <Card style={cardStyle}>
+        <Card lassName="wrap" style={cardStyle}>
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={ titleStyle }>
               <Card.Title>Kweet, kweet motha...</Card.Title>
             </div>
             <hr />

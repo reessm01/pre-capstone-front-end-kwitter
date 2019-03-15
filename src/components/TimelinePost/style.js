@@ -19,6 +19,12 @@ export const cardImgStyle = {
     width: '3rem',
     marginRight: '1rem'
 }
+
+export const cardTextStyle = { 
+    fontSize: "1.6rem",
+    marginLeft: "1rem",
+    marginBottom: "1.5rem"
+}
   
 export const namesDivStyle = {
     display: 'flex',
