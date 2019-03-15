@@ -2,29 +2,7 @@ import React, {Component} from 'react'
 import Card from 'react-bootstrap/Card'
 import {getUsers} from '../../actions'
 import {connect} from 'react-redux'
-
-const userCard = {
-    display: 'flex',
-    flexDirection: 'row',
-    marginTop: '1rem',
-    marginBottom: '1rem',
-    padding: '1rem',
-    paddingTop: '1.5rem',
-    paddingLeft: '1.5rem',
-    backgroundColor: "white",
-    borderRadius: '5px'
-}
-
-const cardImgStyle = { 
-    height: '3rem',
-    width: '3rem',
-    marginRight: '1rem'
-}
-
-const namesDivStyle = {
-    display: 'flex',
-    flexDirection: 'column'
-}
+import { userCard, cardImgStyle, namesDivStyle } from './style'
 
 export class UsersSidebar extends Component{
     componentDidMount(){

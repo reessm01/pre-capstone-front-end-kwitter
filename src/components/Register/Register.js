@@ -7,16 +7,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { GeneralHeader } from "../"
-
-const cardStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: '2rem',
-  marginTop: "4rem",
-  width: '20rem',
-  backgroundColor: "#DCDCDC"
-}
+import { cardStyle } from "./style" 
 
 class Register extends Component {
   state = { username: "", displayName: "", password: "" }

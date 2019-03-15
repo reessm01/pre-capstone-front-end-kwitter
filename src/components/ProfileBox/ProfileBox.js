@@ -7,15 +7,9 @@ import { setCurrentUserInfo, editUser } from "../../actions"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import { cardStyle } from "./style"
 
 library.add(faEdit)
-
-const cardStyle = {
-    width: '18rem',
-    height: 'fit-content',
-    padding: '2rem',
-    backgroundColor: "#DCDCDC"
-}
 
 class ProfileBox extends Component {
     state = {

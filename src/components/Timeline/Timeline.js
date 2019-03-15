@@ -3,10 +3,7 @@ import { TimelinePost, KweetInput } from "../"
 import { getMessages } from "../../actions/"
 import { addLike } from "../../actions/"
 import { connect } from "react-redux"
-
-const timelineStyle = {
-  width: "32rem"
-}
+import { timelineStyle } from "./style"
 
 class Timeline extends Component {
   state = {
