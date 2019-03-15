@@ -34,8 +34,8 @@ class Register extends Component {
             </div>
             <hr />
             <Form onSubmit={this.handleRegister}>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label htmlFor="username">nickname</Form.Label>
+              <Form.Group controlId="username">
+                <Form.Label>nickname</Form.Label>
                 <Form.Control 
                   type="text" 
                   placeholder="username"
@@ -46,8 +46,8 @@ class Register extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label htmlFor="password">magic word</Form.Label>
+              <Form.Group controlId="password">
+                <Form.Label>magic word</Form.Label>
                 <Form.Control 
                   type="password"
                   placeholder="password"
@@ -56,8 +56,8 @@ class Register extends Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicDisplay">
-                <Form.Label htmlFor="displayName">stage name</Form.Label>
+              <Form.Group controlId="displayName">
+                <Form.Label>stage name</Form.Label>
                 <Form.Control 
                   type="text"
                   placeholder="display name"

@@ -35,8 +35,8 @@ class LoginForm extends Component {
             </div>
             <hr />
             <Form onSubmit={this.handleLogin}>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label htmlFor="username">nickname</Form.Label>
+              <Form.Group controlId="username">
+                <Form.Label>nickname</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="username"
@@ -47,8 +47,8 @@ class LoginForm extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label htmlFor="password">magic word</Form.Label>
+              <Form.Group controlId="password">
+                <Form.Label>magic word</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="password"
