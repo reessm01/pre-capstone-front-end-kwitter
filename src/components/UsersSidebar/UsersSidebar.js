@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Card from 'react-bootstrap/Card'
-import {getUsers} from '../actions/getUsers'
+import {getUsers} from '../../actions'
 import {connect} from 'react-redux'
 
 const userCard = {

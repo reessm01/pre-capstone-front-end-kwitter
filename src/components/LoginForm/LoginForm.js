@@ -1,29 +1,29 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { registerThenGoToUserProfile as register } from "../actions"
-import Spinner from "react-spinkit"
+import { loginThenGoToUserProfile as login } from "../../actions"
 import { Link } from "react-router-dom"
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
-import GeneralHeader from "./GeneralHeader"
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
+import Form from "react-bootstrap/Form"
+import Spinner from "react-spinkit"
+import { GeneralHeader } from "../"
 
 const cardStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: '2rem',
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "2rem",
   marginTop: "4rem",
-  width: '20rem',
+  width: "20rem",
   backgroundColor: "#DCDCDC"
 }
 
-class Register extends Component {
-  state = { username: "", displayName: "", password: "" }
+class LoginForm extends Component {
+  state = { username: "", password: "" }
 
-  handleRegister = e => {
+  handleLogin = e => {
     e.preventDefault()
-    this.props.register(this.state)
+    this.props.login(this.state)
   }
 
   handleChange = e => {
@@ -31,7 +31,8 @@ class Register extends Component {
   }
 
   render() {
-    const { registerLoading, registerError } = this.props
+    const { isLoading, err } = this.props
+
     return (
       <React.Fragment>
         <GeneralHeader />
@@ -42,11 +43,11 @@ class Register extends Component {
               <Card.Title>Kweet, kweet motha...</Card.Title>
             </div>
             <hr />
-            <Form onSubmit={this.handleRegister}>
+            <Form onSubmit={this.handleLogin}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label htmlFor="username">nickname</Form.Label>
-                <Form.Control 
-                  type="text" 
+                <Form.Control
+                  type="text"
                   placeholder="username"
                   name="username"
                   autoFocus
@@ -57,7 +58,7 @@ class Register extends Component {
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label htmlFor="password">magic word</Form.Label>
-                <Form.Control 
+                <Form.Control
                   type="password"
                   placeholder="password"
                   name="password"
@@ -65,23 +66,18 @@ class Register extends Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicDisplay">
-                <Form.Label htmlFor="displayName">stage name</Form.Label>
-                <Form.Control 
-                  type="text"
-                  placeholder="display name"
-                  name="displayName"
-                  required
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-              <Button disabled={registerLoading} variant="primary" type="submit" style={{ marginBottom: '2rem' }}>
+              <Button 
+                style={{ marginBottom: '2rem' }}
+                disabled={isLoading}
+                variant="primary"
+                type="submit"
+              >
                 fly away
               </Button>
             </Form>
-            {registerLoading && <Spinner name="circle" color="blue" />}
-            {registerError && <p style={{ color: "red" }}>{registerError}</p>}
-            <Link to="/">here to login</Link>
+            {isLoading && <Spinner name="circle" color="blue" />}
+            {err && <p style={{ color: "red" }}>{err}</p>}
+            <Link to="/register">to register</Link>
           </Card.Body>
         </Card>
       </React.Fragment>
@@ -91,8 +87,8 @@ class Register extends Component {
 
 export default connect(
   ({ auth }) => ({
-    registerLoading: auth.registerLoading,
-    registerError: auth.registerError
+    isLoading: auth.loginLoading,
+    err: auth.loginError
   }),
-  { register }
-)(Register)
+  { login }
+)(LoginForm)

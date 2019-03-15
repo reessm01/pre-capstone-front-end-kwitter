@@ -1,7 +1,7 @@
 import React, { Component } from "react"
-import { TimelinePost, KweetInput } from "."
-import { getMessages } from "../actions/getMessages"
-import { addLike } from "../actions/likes"
+import { TimelinePost, KweetInput } from "../"
+import { getMessages } from "../../actions/"
+import { addLike } from "../../actions/"
 import { connect } from "react-redux"
 
 const timelineStyle = {

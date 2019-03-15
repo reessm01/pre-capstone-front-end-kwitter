@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
-import { setCurrentUserInfo, editUser } from "../actions"
+import { setCurrentUserInfo, editUser } from "../../actions"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
