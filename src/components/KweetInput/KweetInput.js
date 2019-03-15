@@ -36,7 +36,7 @@ class KweetInput extends Component {
                 name="kweet"
                 type="textarea"
                 placeholder="What are you thinking about?"
-                autocomplete="off"
+                autoComplete="off"
               />
             </Form.Group>
             <Button
