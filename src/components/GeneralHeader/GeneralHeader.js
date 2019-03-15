@@ -15,7 +15,7 @@ class GeneralHeader extends Component {
 
   render() {
     const { login } = this.props
-    console.log(login)
+    
     return (
       <React.Fragment>
         <Navbar bg="primary" variant="dark" fixed="top">
