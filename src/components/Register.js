@@ -39,7 +39,7 @@ class Register extends Component {
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Card.Title>Kweet, kweet..</Card.Title>
+              <Card.Title>Kweet, kweet motha...</Card.Title>
             </div>
             <hr />
             <Form onSubmit={this.handleRegister}>
