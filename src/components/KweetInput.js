@@ -27,7 +27,6 @@ class KweetInput extends Component {
                 <Card bg="primary" variant="dark" style={{ padding: '2rem' }}>
                     <Form onSubmit={ handleSubmit }>
                         <Form.Group>
-                            <Form.Label>Kweet</Form.Label>
                             <Form.Control
                                 onChange={ (e) => this.setState({ text: e.target.value }) }
                                 name="kweet"
@@ -36,7 +35,7 @@ class KweetInput extends Component {
                                 autocomplete="off"
                             />
                         </Form.Group>
-                        <Button variant="primary" type="submit">
+                        <Button style={{ color: 'black', backgroundColor: '#DCDCDC' }} variant="primary" type="submit">
                             Submit
                         </Button>
                     </Form>    
