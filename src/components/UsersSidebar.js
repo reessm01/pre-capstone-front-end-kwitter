@@ -5,7 +5,8 @@ import {connect} from 'react-redux'
 
 const cardStyle = {
     width: '18rem',
-    padding: '2rem'
+    padding: '2rem',
+    backgroundColor: "#DCDCDC"
 }
 
 export class UsersSidebar extends Component{

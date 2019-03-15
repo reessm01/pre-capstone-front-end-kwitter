@@ -14,7 +14,8 @@ const cardStyle = {
   alignItems: "center",
   padding: "2rem",
   marginTop: "4rem",
-  width: "20rem"
+  width: "20rem",
+  backgroundColor: "#DCDCDC"
 }
 
 class LoginForm extends Component {
@@ -39,12 +40,12 @@ class LoginForm extends Component {
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Card.Title>Welcome to Kwitter</Card.Title>
+              <Card.Title>Kwitter, kwitter..</Card.Title>
             </div>
             <hr />
             <Form onSubmit={this.handleLogin}>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label htmlFor="username">Username</Form.Label>
+                <Form.Label htmlFor="username">nickname</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="username"
@@ -56,7 +57,7 @@ class LoginForm extends Component {
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
-                <Form.Label htmlFor="password">Password</Form.Label>
+                <Form.Label htmlFor="password">magic word</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="password"
@@ -71,12 +72,12 @@ class LoginForm extends Component {
                 variant="primary"
                 type="submit"
               >
-                Login
+                fly away
               </Button>
             </Form>
             {isLoading && <Spinner name="circle" color="blue" />}
             {err && <p style={{ color: "red" }}>{err}</p>}
-            <Link to="register">Register Here</Link>
+            <Link to="register"></Link>
           </Card.Body>
         </Card>
       </React.Fragment>
