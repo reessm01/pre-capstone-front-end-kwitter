@@ -19,14 +19,15 @@ export default (state = initialState, action) => {
     case MESSAGES_FAILED:
       return {
         ...state,
-        messages: [],
+        messages: [...state.messages],
         messages_succeeded: false,
         messages_failed: true
       }
     case NEW_KWEET:
       return {
         ...state,
-        messages: [action.payload.message, ...state.messages]
+        messages: [action.payload.message, ...state.messages],
+        messages_failed: false
       }
     default:
       return state
