@@ -31,7 +31,7 @@ class KweetInput extends Component {
                             <Form.Control
                                 onChange={ (e) => this.setState({ text: e.target.value }) }
                                 name="kweet"
-                                type="text"
+                                type="textarea"
                                 placeholder="What are you thinking about?"
                                 autocomplete="off"
                             />
