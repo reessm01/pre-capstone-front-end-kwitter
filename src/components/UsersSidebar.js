@@ -24,7 +24,7 @@ export class UsersSidebar extends Component{
 
         return (
             <React.Fragment>
-                <Card style={cardStyle}>
+                <Card id="show-users" style={cardStyle}>
                     {userBodies}
                 </Card>
             </React.Fragment>

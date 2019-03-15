@@ -5,7 +5,7 @@ import { addLike } from '../actions/likes'
 import { connect } from 'react-redux'
 
 const timelineStyle = {
-  width: '32rem'
+  width: '32rem',
 }
 
 class Timeline extends Component {
@@ -25,7 +25,9 @@ class Timeline extends Component {
     return(
       <div style={ timelineStyle }>
         <KweetInput />
-        {timeLinePosts}
+        <div id="timeline-posts">
+          {timeLinePosts}
+        </div>
       </div>
     )
   }

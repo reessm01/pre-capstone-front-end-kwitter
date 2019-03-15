@@ -87,9 +87,9 @@ class ProfileBox extends Component {
                     </Form>
                 :
                     <Card.Body>
-                        <Card.Title>{ displayName }</Card.Title>
+                        <Card.Title style={{ fontSize: '2rem', marginBottom: '0px' }}>{ displayName }</Card.Title>
                         <small>@{ username }</small>
-                        <Card.Text>
+                        <Card.Text style={{ marginTop: '1rem', marginBottom: '1rem' }}>
                             { bio }
                         </Card.Text>
                         <Button onClick={ () => this.setState({ edit: !edit }) }>
