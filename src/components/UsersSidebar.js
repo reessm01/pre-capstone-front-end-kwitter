@@ -4,8 +4,9 @@ import {getUsers} from '../actions/getUsers'
 import {connect} from 'react-redux'
 
 const cardStyle = {
-    width: '400px',
-    padding: '2rem'
+    width: '18rem',
+    padding: '2rem',
+    backgroundColor: "#DCDCDC"
 }
 
 export class UsersSidebar extends Component{

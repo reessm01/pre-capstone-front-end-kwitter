@@ -1,16 +1,28 @@
 import React, {Component} from 'react'
 import Card from 'react-bootstrap/Card'
 import { domain, handleJsonResponse } from "../actions/constants"
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faHeart)
 
 const url = domain + '/users/'
 
 const cardStyle = {
-  width: '100%'
+  width: '100%',
+  backgroundColor: "#DCDCDC"
 }
 
 const postHeaderStyle = {
   display: 'flex',
-  marginBottom: '1rem'
+  marginTop: '1rem',
+  marginBottom: '1rem',
+  padding: '1rem',
+  paddingTop: '1.5rem',
+  paddingLeft: '1.5rem',
+  backgroundColor: "white",
+  borderRadius: '5px'
 }
 
 const cardImgStyle = { 
@@ -70,10 +82,10 @@ export default class TimelinePost extends Component{
               <Card.Subtitle className="mb-2 text-muted">@{ username }</Card.Subtitle>
             </div>
           </div>
-          <Card.Text>
+          <Card.Text style={{ fontSize: "1.6rem", marginLeft: "1rem", marginBottom: "1.5rem" }}>
             { text }
           </Card.Text>
-          <Card.Link href="#">Like</Card.Link>
+          <Card.Link style={{ marginLeft: '0.75rem' }} href="#"><FontAwesomeIcon icon="heart"></FontAwesomeIcon></Card.Link>
           <Card.Link href="#">Dislike</Card.Link>
         </Card.Body>
       </Card>

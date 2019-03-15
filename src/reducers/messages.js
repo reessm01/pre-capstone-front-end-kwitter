@@ -1,5 +1,5 @@
-import { MESSAGES_SUCCEEDED, MESSAGES_FAILED } from '../actions/getMessages'
-import { NEW_KWEET } from '../actions';
+import { MESSAGES_SUCCEEDED, MESSAGES_FAILED } from "../actions/getMessages"
+import { NEW_KWEET } from "../actions"
 
 const initialState = {
   messages: [],
@@ -12,11 +12,11 @@ export default (state = initialState, action) => {
     case MESSAGES_SUCCEEDED:
       return {
         ...state,
-        messages: [ ...state.messages, ...action.payload.messages],
+        messages: [...state.messages, ...action.payload.messages],
         messages_succeeded: true,
         messages_failed: false
       }
-    case MESSAGES_FAILED: 
+    case MESSAGES_FAILED:
       return {
         ...state,
         messages: [],
@@ -26,9 +26,9 @@ export default (state = initialState, action) => {
     case NEW_KWEET:
       return {
         ...state,
-        messages: [...state.messages, action.payload.message]
+        messages: [action.payload.message, ...state.messages]
       }
     default:
-      return state;
+      return state
   }
 }

@@ -9,9 +9,13 @@ class HomePage extends Component {
             <React.Fragment>
                 <GeneralHeader />
                 <div id="main-wrap">
-                    <ProfileBox />
+                    <div className="profile-mobile">
+                        <ProfileBox className="mobile" />
+                    </div>
                     <Timeline />
-                    <UsersSidebar />
+                    <div className="users-mobile">
+                        <UsersSidebar className="mobile" />
+                    </div>
                 </div>
             </React.Fragment>
         )

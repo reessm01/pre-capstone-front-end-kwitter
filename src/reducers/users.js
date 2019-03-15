@@ -7,10 +7,10 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case USERS_OBTAINED:
-    return {
-      ...state,
-      users: [...state.users, ...action.payload.users]
-    }
+      return {
+        ...state,
+        users: [...state.users, ...action.payload.users]
+      }
     default:
       return state
   }
