@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { ProfileBox, Timeline, UsersSidebar } from '.'
-import GeneralHeader from "./GeneralHeader"
+import { ProfileBox, Timeline, UsersSidebar, GeneralHeader } from '../'
 
 class HomePage extends Component {
 

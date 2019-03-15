@@ -31,16 +31,40 @@ code {
   margin: 0 auto;
 }
 
+#timeline-posts {
+  height: 380px;
+  overflow-y: scroll;
+}
+
+#show-users {
+  height: 450px;
+  overflow-y: scroll;
+  width: 18rem;
+  padding: 2rem;
+  background-color: #DCDCDC;
+  display: flex;
+  flex-direction: column;
+}
 
 @media only screen and (max-width: 1300px) {
   .users-mobile {
     display: none;
   }
+
+  #show-users {
+    height: fit-content;
+    overflow-y: auto;
+  }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 950px) {
   .profile-mobile {
     display: none;
+  }
+
+  #timeline-posts {
+    height: fit-content;
+    overflow-y: auto;
   }
 }
 

@@ -1,22 +1,13 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { registerThenGoToUserProfile as register } from "../actions"
+import { registerThenGoToUserProfile as register } from "../../actions"
 import Spinner from "react-spinkit"
 import { Link } from "react-router-dom"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import GeneralHeader from "./GeneralHeader"
-
-const cardStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: '2rem',
-  marginTop: "4rem",
-  width: '20rem',
-  backgroundColor: "#DCDCDC"
-}
+import { GeneralHeader } from "../"
+import { cardStyle } from "./style" 
 
 class Register extends Component {
   state = { username: "", displayName: "", password: "" }
@@ -39,7 +30,7 @@ class Register extends Component {
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Card.Title>Kweet, kweet..</Card.Title>
+              <Card.Title>Kweet, kweet motha...</Card.Title>
             </div>
             <hr />
             <Form onSubmit={this.handleRegister}>

@@ -1,15 +1,11 @@
 import React, { Component } from "react"
-import { TimelinePost, KweetInput } from '.'
-import { getMessages } from '../actions/getMessages'
-import { addLike } from '../actions/likes'
-import { connect } from 'react-redux'
-
-const timelineStyle = {
-  width: '32rem'
-}
+import { TimelinePost, KweetInput } from "../"
+import { getMessages } from "../../actions/"
+import { addLike } from "../../actions/"
+import { connect } from "react-redux"
+import { timelineStyle } from "./style"
 
 class Timeline extends Component {
-
   state = {
     messages: []
   }
@@ -20,12 +16,13 @@ class Timeline extends Component {
 
   render() {
     const timeLinePosts = this.props.messages.map(message => (
-      <TimelinePost text={message.text} id={message.userId}></TimelinePost>
+      <TimelinePost text={message.text} id={message.userId} />
     ))
-    return(
-      <div style={ timelineStyle }>
+
+    return (
+      <div style={timelineStyle}>
         <KweetInput />
-        {timeLinePosts}
+        <div id="timeline-posts">{timeLinePosts}</div>
       </div>
     )
   }
@@ -37,8 +34,8 @@ function mapStateToProps({ messages }) {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return{
+const mapDispatchToProps = dispatch => {
+  return {
     getMessages: () => {
       dispatch(getMessages())
     },
@@ -48,4 +45,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Timeline)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Timeline)

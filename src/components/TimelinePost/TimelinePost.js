@@ -1,40 +1,14 @@
 import React, {Component} from 'react'
 import Card from 'react-bootstrap/Card'
-import { domain, handleJsonResponse } from "../actions/constants"
+import { domain, handleJsonResponse } from "../../actions/constants"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { cardStyle, postHeaderStyle, cardImgStyle, namesDivStyle } from './style'
 
 library.add(faHeart)
 
 const url = domain + '/users/'
-
-const cardStyle = {
-  width: '100%',
-  backgroundColor: "#DCDCDC"
-}
-
-const postHeaderStyle = {
-  display: 'flex',
-  marginTop: '1rem',
-  marginBottom: '1rem',
-  padding: '1rem',
-  paddingTop: '1.5rem',
-  paddingLeft: '1.5rem',
-  backgroundColor: "white",
-  borderRadius: '5px'
-}
-
-const cardImgStyle = { 
-  height: '3rem',
-  width: '3rem',
-  marginRight: '1rem'
-}
-
-const namesDivStyle = {
-  display: 'flex',
-  flexDirection: 'column'
-}
 
 export default class TimelinePost extends Component{
   state = {

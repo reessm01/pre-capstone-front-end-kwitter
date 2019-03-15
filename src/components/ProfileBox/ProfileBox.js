@@ -3,19 +3,13 @@ import { connect } from "react-redux"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
-import { setCurrentUserInfo, editUser } from "../actions"
+import { setCurrentUserInfo, editUser } from "../../actions"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import { cardStyle } from "./style"
 
 library.add(faEdit)
-
-const cardStyle = {
-    width: '18rem',
-    height: 'fit-content',
-    padding: '2rem',
-    backgroundColor: "#DCDCDC"
-}
 
 class ProfileBox extends Component {
     state = {
@@ -87,9 +81,9 @@ class ProfileBox extends Component {
                     </Form>
                 :
                     <Card.Body>
-                        <Card.Title>{ displayName }</Card.Title>
+                        <Card.Title style={{ fontSize: '2rem', marginBottom: '0px' }}>{ displayName }</Card.Title>
                         <small>@{ username }</small>
-                        <Card.Text>
+                        <Card.Text style={{ marginTop: '1rem', marginBottom: '1rem' }}>
                             { bio }
                         </Card.Text>
                         <Button onClick={ () => this.setState({ edit: !edit }) }>
