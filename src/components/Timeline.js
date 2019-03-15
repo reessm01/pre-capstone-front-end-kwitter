@@ -25,7 +25,7 @@ class Timeline extends Component {
     return (
       <div style={timelineStyle}>
         <KweetInput />
-        {timeLinePosts}
+        <div id="timeline-posts">{timeLinePosts}</div>
       </div>
     )
   }

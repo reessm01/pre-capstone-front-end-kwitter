@@ -5,7 +5,8 @@ import {connect} from 'react-redux'
 
 const cardStyle = {
     width: '18rem',
-    padding: '2rem'
+    padding: '2rem',
+    backgroundColor: "#DCDCDC"
 }
 
 export class UsersSidebar extends Component{
@@ -23,7 +24,7 @@ export class UsersSidebar extends Component{
 
         return (
             <React.Fragment>
-                <Card style={cardStyle}>
+                <Card id="show-users" style={cardStyle}>
                     {userBodies}
                 </Card>
             </React.Fragment>

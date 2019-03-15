@@ -14,7 +14,8 @@ const cardStyle = {
   alignItems: 'center',
   padding: '2rem',
   marginTop: "4rem",
-  width: '20rem'
+  width: '20rem',
+  backgroundColor: "#DCDCDC"
 }
 
 class Register extends Component {
@@ -37,11 +38,13 @@ class Register extends Component {
         <Card style={cardStyle}>
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
-            <Card.Title>Welcome to Kwitter</Card.Title>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <Card.Title>Kweet, kweet motha...</Card.Title>
+            </div>
             <hr />
             <Form onSubmit={this.handleRegister}>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label htmlFor="username">Username</Form.Label>
+                <Form.Label htmlFor="username">nickname</Form.Label>
                 <Form.Control 
                   type="text" 
                   placeholder="username"
@@ -53,7 +56,7 @@ class Register extends Component {
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
-                <Form.Label htmlFor="password">Password</Form.Label>
+                <Form.Label htmlFor="password">magic word</Form.Label>
                 <Form.Control 
                   type="password"
                   placeholder="password"
@@ -63,7 +66,7 @@ class Register extends Component {
                 />
               </Form.Group>
               <Form.Group controlId="formBasicDisplay">
-                <Form.Label htmlFor="displayName">Display Name</Form.Label>
+                <Form.Label htmlFor="displayName">stage name</Form.Label>
                 <Form.Control 
                   type="text"
                   placeholder="display name"
@@ -72,13 +75,13 @@ class Register extends Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <Button disabled={registerLoading} variant="primary" type="submit">
-                Register
+              <Button disabled={registerLoading} variant="primary" type="submit" style={{ marginBottom: '2rem' }}>
+                fly away
               </Button>
             </Form>
             {registerLoading && <Spinner name="circle" color="blue" />}
             {registerError && <p style={{ color: "red" }}>{registerError}</p>}
-            <Link to="/">Here to Login</Link>
+            <Link to="/">here to login</Link>
           </Card.Body>
         </Card>
       </React.Fragment>

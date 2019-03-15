@@ -13,7 +13,8 @@ library.add(faEdit)
 const cardStyle = {
     width: '18rem',
     height: 'fit-content',
-    padding: '2rem'
+    padding: '2rem',
+    backgroundColor: "#DCDCDC"
 }
 
 class ProfileBox extends Component {
@@ -30,15 +31,17 @@ class ProfileBox extends Component {
     }
 
     handleEdit = e => {
-        const { displayName, password, about } = this.state
+        const { displayName, password, about, edit } = this.state
 
-        this.setState({ edit: false })
+        this.setState({ edit: !edit })
 
+    
         e.preventDefault()
         this.props.editUser({
             editData: { displayName, password, about },
             token: this.props.token,
         })
+    
     }
 
     render() {
@@ -56,7 +59,7 @@ class ProfileBox extends Component {
                             <Form.Control
                                 type="text"
                                 name="displayName"
-                                placeholder="display name"
+                                placeholder={ displayName }
                                 onChange={ handleChange }
                             />
                         </Form.Group>
@@ -76,22 +79,24 @@ class ProfileBox extends Component {
                                 maxlength="100"
                                 as="textarea"
                                 rows="3"
-                                placeholder="tell us about yourself"
+                                placeholder={ bio }
                                 onChange={ handleChange }
                             />
                         </Form.Group>
-                        <Button type="submit" style={{ marginBottom: "30px" }}>Submit</Button>
+                        <Button type="submit" style={{ marginBottom: "30px" }}>Save</Button>
                     </Form>
                 :
                     <Card.Body>
-                        <Card.Title>{ displayName }</Card.Title>
+                        <Card.Title style={{ fontSize: '2rem', marginBottom: '0px' }}>{ displayName }</Card.Title>
                         <small>@{ username }</small>
-                        <Card.Text>
+                        <Card.Text style={{ marginTop: '1rem', marginBottom: '1rem' }}>
                             { bio }
                         </Card.Text>
+                        <Button onClick={ () => this.setState({ edit: !edit }) }>
+                            <FontAwesomeIcon icon="edit"></FontAwesomeIcon>
+                        </Button>
                     </Card.Body>
                 }
-                <Button onClick={ () => this.setState({ edit: !edit }) }><FontAwesomeIcon icon="edit"></FontAwesomeIcon></Button>
             </Card>
         )
   }

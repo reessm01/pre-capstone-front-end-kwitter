@@ -22,7 +22,6 @@ export const handleKweetSubmit = kweetData => dispatch => {
       })
     })
     .catch(() => {
-      console.log("working")
       return dispatch({
         type: MESSAGES_FAILED
       })
