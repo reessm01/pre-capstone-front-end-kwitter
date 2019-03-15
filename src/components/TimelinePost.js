@@ -61,6 +61,7 @@ export default class TimelinePost extends Component{
           })
         }
       })
+
   }
 
   render(){
@@ -71,6 +72,7 @@ export default class TimelinePost extends Component{
     } = this.state
 
     const { text } = this.props
+    
 
     return(
       <Card style={ cardStyle }>
