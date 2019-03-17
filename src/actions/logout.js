@@ -6,7 +6,7 @@ export const LOGOUT_FAIL = "LOGOUT_FAIL"
 
 const url = domain + "/auth"
 
-export const logout = loginData => dispatch => {
+const logout = () => dispatch => {
   dispatch({
     type: LOGOUT
   })
@@ -14,7 +14,7 @@ export const logout = loginData => dispatch => {
   return fetch(url + "/logout")
     .then(handleJsonResponse)
     .then(result => {
-      localStorage.clearItem("id")
+      localStorage.removeItem("id")
       return dispatch({
         type: LOGOUT,
         payload: result

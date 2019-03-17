@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { logout } from "../../actions"
+import { logoutThenGoToLoginPage as logout } from "../../actions"
 
 import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
@@ -9,8 +9,8 @@ import FormControl from "react-bootstrap/FormControl"
 import Button from "react-bootstrap/Button"
 
 class GeneralHeader extends Component {
-  handleLogout() {
-    this.props.logout(this.props.login.id)
+  handleLogout = () => {
+    this.props.logout()
   }
 
   render() {
@@ -36,14 +36,14 @@ class GeneralHeader extends Component {
             <Nav.Link href="#pricing">Pricing</Nav.Link> */}
           </Nav>
 
-          
-          {login &&
+          {
+            login &&
             <React.Fragment>
               <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                 <Button variant="outline-light">Search</Button>
               </Form>
-              <Button 
+              <Button
                 style={{ marginLeft: '2rem' }}
                 variant="outline-light"
                 type="button"
@@ -60,7 +60,6 @@ class GeneralHeader extends Component {
 export default connect(
   ({ auth }) => ({
     login: auth.login
-  },
+  }),
   { logout }
-  )
 )(GeneralHeader)
