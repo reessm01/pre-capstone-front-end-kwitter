@@ -16,12 +16,12 @@ class KweetInput extends Component {
 
     e.preventDefault()
     handleKweetSubmit({ text: this.state, token })
-    e.target.value = ""
+    this.setState({ text: "" })
   }
 
   render() {
     const { handleSubmit } = this
-    
+
     const ErrorMessage = (
       <div>{"Message text must be between 2 and 255 characters"}</div>
     )
@@ -33,17 +33,14 @@ class KweetInput extends Component {
             <Form.Group>
               <Form.Control
                 onChange={e => this.setState({ text: e.target.value })}
+                value={this.state.text}
                 name="kweet"
                 type="textarea"
                 placeholder="What are you thinking about?"
                 autoComplete="off"
               />
             </Form.Group>
-            <Button
-              style={ submitStyle }
-              variant="primary"
-              type="submit"
-            >
+            <Button style={submitStyle} variant="primary" type="submit">
               Submit
             </Button>
           </Form>
