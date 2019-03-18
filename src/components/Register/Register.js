@@ -36,7 +36,7 @@ class Register extends Component {
             <Form onSubmit={this.handleRegister}>
               <Form.Group controlId="username">
                 <Form.Label>nickname</Form.Label>
-                <Form.Control 
+                <Form.Control
                   type="text" 
                   placeholder="username"
                   name="username"
