@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
         displayName: action.payload.displayName,
         bio: action.payload.about,
         username: action.payload.username,
-        pic:action.payload.pic
+        pic: action.payload.pic
       }
     case EDIT_USER:
       return {
@@ -31,7 +31,7 @@ export default (state = initialState, action) => {
     case EDIT_PICTURE:
       return {
         ...state,
-        pic: action.payload
+        pic: action.payload.pic
       }
     default:
       return state
