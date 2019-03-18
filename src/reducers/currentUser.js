@@ -18,7 +18,6 @@ export default (state = initialState, action) => {
                 username: action.payload.username
             }
         case EDIT_USER:
-            console.log(action.payload)
             return {
                 ...state,
                 id: action.payload.id,
