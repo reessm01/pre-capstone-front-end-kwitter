@@ -30,7 +30,7 @@ export default class TimelinePost extends Component {
       .then(result => {
         this.setState({
           displayName: result.user.displayName,
-          username: result.user.displayName
+          username: result.user.username
         })
       })
 
