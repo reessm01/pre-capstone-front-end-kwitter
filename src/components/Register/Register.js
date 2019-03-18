@@ -30,7 +30,7 @@ class Register extends Component {
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
             <div style={ titleStyle }>
-              <Card.Title>Kweet, kweet motha...</Card.Title>
+              <Card.Title>Kweet, kweet...</Card.Title>
             </div>
             <hr />
             <Form onSubmit={this.handleRegister}>
