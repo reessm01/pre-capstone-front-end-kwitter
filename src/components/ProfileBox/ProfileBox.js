@@ -19,7 +19,10 @@ class ProfileBox extends Component {
   }
 
   componentDidMount() {
-    this.props.setCurrentUserInfo(this.props.id)
+    this.props.setCurrentUserInfo({
+      id: this.props.id,
+      token: this.props.token
+    })
   }
 
   handleChange = e => {
@@ -46,15 +49,12 @@ class ProfileBox extends Component {
 
   render() {
     const { handleChange, handleEdit, handleUpload } = this
-    const { displayName, username, bio } = this.props
+    const { displayName, username, bio, pic } = this.props
     const { edit } = this.state
 
     return (
       <Card style={cardStyle}>
-        <Card.Img
-          variant="top"
-          src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcbsnews1.cbsistatic.com%2Fhub%2Fi%2Fr%2F2016%2F06%2F03%2F1f114c6d-755e-43e4-a8ca-e81854536eef%2Fthumbnail%2F1200x630%2F3105ee7ea685d1c452f01853ebd94310%2Fanthony-zingale.jpg&f=1"
-        />
+        <Card.Img variant="top" src={pic} />
         {edit ? (
           <Form onSubmit={handleUpload} style={{ marginTop: "30px" }}>
             <Form.Group controlId="displayName">

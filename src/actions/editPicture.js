@@ -4,7 +4,6 @@ export const EDIT_PICTURE = "EDIT_PICTURE"
 const url = domain + "/users/picture"
 
 export const editPicture = data => dispatch => {
-  console.log(data)
   return fetch(url, {
     method: "PUT",
     headers: {

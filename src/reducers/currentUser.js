@@ -17,7 +17,8 @@ export default (state = initialState, action) => {
         id: action.payload.id,
         displayName: action.payload.displayName,
         bio: action.payload.about,
-        username: action.payload.username
+        username: action.payload.username,
+        pic:action.payload.pic
       }
     case EDIT_USER:
       return {
