@@ -38,9 +38,6 @@ const mapDispatchToProps = dispatch => {
   return {
     getMessages: () => {
       dispatch(getMessages())
-    },
-    addLike: () => {
-      dispatch(addLike())
     }
   }
 }

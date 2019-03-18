@@ -15,7 +15,6 @@ export const editUser = data => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
-        console.log(result)
         return dispatch({
             type: EDIT_USER,
             payload: result.user

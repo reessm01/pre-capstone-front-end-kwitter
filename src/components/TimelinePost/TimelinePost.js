@@ -21,9 +21,11 @@ export default class TimelinePost extends Component{
     fetch(url + this.props.id)
       .then(handleJsonResponse)
       .then(result => {
+        console.log(result.user.messages)
         this.setState({
           displayName: result.user.displayName,
           username: result.user.displayName,
+          messages: result.user.messages
         })
       })
     
@@ -47,7 +49,7 @@ export default class TimelinePost extends Component{
 
     const { text } = this.props
     
-
+    
     return(
       <Card style={ cardStyle }>
         <Card.Body>
@@ -61,7 +63,7 @@ export default class TimelinePost extends Component{
           <Card.Text style={{ fontSize: "1.6rem", marginLeft: "1rem", marginBottom: "1.5rem" }}>
             { text }
           </Card.Text>
-          <Card.Link style={{ marginLeft: '0.75rem' }} href="#"><FontAwesomeIcon icon="heart"></FontAwesomeIcon></Card.Link>
+          <Card.Link onClick={() => console.log('hello')} style={{ marginLeft: '0.75rem' }} href="#"><FontAwesomeIcon icon="heart"></FontAwesomeIcon>likes</Card.Link>
           <Card.Link href="#">Dislike</Card.Link>
         </Card.Body>
       </Card>

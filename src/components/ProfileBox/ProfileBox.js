@@ -35,7 +35,7 @@ class ProfileBox extends Component {
             editData: { displayName, password, about },
             token: this.props.token,
         })
-    
+
     }
 
     render() {
