@@ -7,7 +7,7 @@ import { setCurrentUserInfo, editUser } from "../../actions"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
-import { cardStyle } from "./style"
+import { cardStyle, cardTitleStyle, cardTextStyle } from "./style"
 
 library.add(faEdit)
 
@@ -25,14 +25,14 @@ class ProfileBox extends Component {
     }
 
     handleEdit = e => {
-        const { displayName, password, about, edit } = this.state
+        const { displayName, about, edit } = this.state
 
         this.setState({ edit: !edit })
 
     
         e.preventDefault()
         this.props.editUser({
-            editData: { displayName, password, about },
+            editData: { displayName, about },
             token: this.props.token,
         })
 
@@ -57,15 +57,6 @@ class ProfileBox extends Component {
                                 onChange={ handleChange }
                             />
                         </Form.Group>
-                        <Form.Group controlId="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="password"
-                                placeholder="password"
-                                onChange={ handleChange }
-                            />
-                        </Form.Group>
                         <Form.Group controlId="bio">
                             <Form.Label>Bio</Form.Label>
                             <Form.Control
@@ -81,9 +72,9 @@ class ProfileBox extends Component {
                     </Form>
                 :
                     <Card.Body>
-                        <Card.Title style={{ fontSize: '2rem', marginBottom: '0px' }}>{ displayName }</Card.Title>
+                        <Card.Title style={ cardTitleStyle }>{ displayName }</Card.Title>
                         <small>@{ username }</small>
-                        <Card.Text style={{ marginTop: '1rem', marginBottom: '1rem' }}>
+                        <Card.Text style={ cardTextStyle }>
                             { bio }
                         </Card.Text>
                         <Button onClick={ () => this.setState({ edit: !edit }) }>

@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 import Spinner from "react-spinkit"
 import { GeneralHeader } from "../"
-import { cardStyle } from "./style"
+import { cardStyle, cardTitleStyle } from "./style"
 
 class LoginForm extends Component {
   state = { username: "", password: "" }
@@ -27,16 +27,16 @@ class LoginForm extends Component {
     return (
       <React.Fragment>
         <GeneralHeader />
-        <Card style={cardStyle}>
+        <Card className="wrap" style={ cardStyle }>
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Card.Title>Kweet, kweet motha...</Card.Title>
+            <div style={ cardTitleStyle }>
+              <Card.Title>Kweet, kweet...</Card.Title>
             </div>
             <hr />
             <Form onSubmit={this.handleLogin}>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label htmlFor="username">nickname</Form.Label>
+              <Form.Group controlId="username">
+                <Form.Label>nickname</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="username"
@@ -47,8 +47,8 @@ class LoginForm extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label htmlFor="password">magic word</Form.Label>
+              <Form.Group controlId="password">
+                <Form.Label>magic word</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="password"

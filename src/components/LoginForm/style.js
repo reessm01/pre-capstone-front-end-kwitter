@@ -7,3 +7,8 @@ export const cardStyle = {
     width: "20rem",
     backgroundColor: "#DCDCDC"
 }
+
+export const cardTitleStyle = {
+    display: 'flex',
+    justifyContent: 'center'
+}

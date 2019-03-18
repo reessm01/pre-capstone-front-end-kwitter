@@ -16,14 +16,15 @@ export const handleKweetSubmit = kweetData => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
-      return dispatch({
-        type: NEW_KWEET,
-        payload: result
-      })
+        console.log(result)
+        return dispatch({
+            type: NEW_KWEET,
+            payload: result
+        })
     })
     .catch(() => {
-      return dispatch({
-        type: MESSAGES_FAILED
-      })
+        return dispatch({
+            type: MESSAGES_FAILED
+        })
     })
 }

@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { GeneralHeader } from "../"
-import { cardStyle } from "./style" 
+import { cardStyle, titleStyle } from "./style" 
 
 class Register extends Component {
   state = { username: "", displayName: "", password: "" }
@@ -26,16 +26,16 @@ class Register extends Component {
     return (
       <React.Fragment>
         <GeneralHeader />
-        <Card style={cardStyle}>
+        <Card lassName="wrap" style={cardStyle}>
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Card.Title>Kweet, kweet motha...</Card.Title>
+            <div style={ titleStyle }>
+              <Card.Title>Kweet, kweet...</Card.Title>
             </div>
             <hr />
             <Form onSubmit={this.handleRegister}>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label htmlFor="username">nickname</Form.Label>
+              <Form.Group controlId="username">
+                <Form.Label>nickname</Form.Label>
                 <Form.Control 
                   type="text" 
                   placeholder="username"
@@ -46,8 +46,8 @@ class Register extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label htmlFor="password">magic word</Form.Label>
+              <Form.Group controlId="password">
+                <Form.Label>magic word</Form.Label>
                 <Form.Control 
                   type="password"
                   placeholder="password"
@@ -56,8 +56,8 @@ class Register extends Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicDisplay">
-                <Form.Label htmlFor="displayName">stage name</Form.Label>
+              <Form.Group controlId="displayName">
+                <Form.Label>stage name</Form.Label>
                 <Form.Control 
                   type="text"
                   placeholder="display name"
