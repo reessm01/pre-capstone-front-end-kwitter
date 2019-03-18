@@ -15,7 +15,6 @@ library.add(faEdit)
 class ProfileBox extends Component {
   state = {
     edit: false,
-    selectedFile: null
   }
 
   componentDidMount() {
@@ -44,7 +43,11 @@ class ProfileBox extends Component {
   handleUpload = e => {
     e.preventDefault()
     const formData = new FormData(e.target)
-    this.props.editPicture({ file: formData, token: this.props.token })
+    this.props.editPicture({
+      file: formData,
+      token: this.props.token,
+      id: this.props.id
+    })
   }
 
   render() {
