@@ -1,7 +1,7 @@
 import { USERS_OBTAINED } from "../actions";
 
 const initialState = {
-  users: []
+  usersArray: []
 }
 
 export default (state = initialState, action) => {
@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
     case USERS_OBTAINED:
       return {
         ...state,
-        users: [...state.users, ...action.payload.users]
+        usersArray: [...state.usersArray, ...action.payload.users]
       }
     default:
       return state

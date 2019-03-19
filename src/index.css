@@ -34,6 +34,7 @@ code {
 
 .wrap {
   border: 1px solid darkgrey;
+  border-radius: 7px;
 }
 
 #timeline-posts {
