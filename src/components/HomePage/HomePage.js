@@ -15,16 +15,7 @@ class HomePage extends Component {
     }
 
     window.onscroll = () => {
-      const {
-        state: {
-          error,
-          isLoading,
-        },
-      } = this;
-
-      if (error || isLoading) return;
-
-      let scrollHeight, totalHeight;
+      let scrollHeight, totalHeight
       scrollHeight = document.body.scrollHeight
       totalHeight = window.scrollY + window.innerHeight
 
