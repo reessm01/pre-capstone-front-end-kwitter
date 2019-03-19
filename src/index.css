@@ -43,13 +43,11 @@ code {
 }
 
 .wrap {
-  border: 1px solid darkgrey;
-  border-radius: 7px;
+  border: none;
 }
 
 #timeline-posts {
   height: 100%;
-  /* overflow-y: scroll; */
 }
 
 .timeline {
@@ -58,12 +56,15 @@ code {
 
 #show-users {
   height: 450px;
-  overflow-y: scroll;
   width: 18rem;
   padding: 2rem;
   background-color: #DCDCDC;
   display: flex;
   flex-direction: column;
+}
+
+#show-users::-webkit-scrollbar {
+  display: none;
 }
 
 .other-profile-card {
