@@ -12,7 +12,7 @@ export default class Timeline extends Component {
     ))
 
     return (
-        <div id="timeline-posts">
+        <div style={{ width: '32rem' }} id="timeline-posts">
           { timeLinePosts }
         </div>
     )

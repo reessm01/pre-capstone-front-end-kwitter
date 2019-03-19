@@ -32,17 +32,18 @@ export class UserCard extends Component{
         const profileLink = `/OtherUserProfile/${this.props.user.id}`
         
         return (
-            <Card key={ index } style={ userCard }>
-                <Card.Img 
-                    style={ cardImgStyle }
-                    src={ photoUrl }
-                ></Card.Img>
-                <div style={ namesDivStyle }>
-                    <Card.Title>{ user.displayName }</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">@{ user.username }</Card.Subtitle>
-                </div>
-                <Link to={profileLink}>Click here to view this users profile</Link>
-            </Card>
+            <Link to={profileLink}>
+                <Card key={ index } style={ userCard }>
+                    <Card.Img 
+                        style={ cardImgStyle }
+                        src={ photoUrl }
+                    ></Card.Img>
+                    <div style={ namesDivStyle }>
+                        <Card.Title>{ user.displayName }</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">@{ user.username }</Card.Subtitle>
+                    </div>
+                </Card>
+            </Link>
         )
     }
 }

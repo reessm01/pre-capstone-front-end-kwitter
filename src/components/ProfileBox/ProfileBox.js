@@ -112,7 +112,6 @@ class ProfileBox extends Component {
             <Button onClick={() => this.setState({ edit: !edit })}>
               <FontAwesomeIcon icon="edit" />
             </Button>
-            <Link to={profileLink}>Click to go to User Profile</Link>
           </Card.Body>
         )}
       </Card>
