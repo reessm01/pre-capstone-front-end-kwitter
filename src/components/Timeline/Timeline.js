@@ -1,23 +1,29 @@
 import React, { Component } from "react"
 import { TimelinePost, KweetInput } from "../"
-import { getMessages } from "../../actions/"
-import { addLike } from "../../actions/"
-import { connect } from "react-redux"
+// import { getMessages } from "../../actions/"
+// import { addLike } from "../../actions/"
+// import { connect } from "react-redux"
 import { timelineStyle } from "./style"
 
-class Timeline extends Component {
+export default class Timeline extends Component {
   state = {
     messages: []
   }
 
-  componentDidMount() {
-    this.props.getMessages()
-  }
+  
 
   render() {
+    // const messages = this.props.messages.filter(message => {
+    //   message.userId === 
+    // })
+
     const timeLinePosts = this.props.messages.map((message, index) => (
       <TimelinePost key={index} text={message.text} id={message.userId} />
     ))
+
+
+
+    
 
     return (
       <div style={timelineStyle}>
@@ -28,21 +34,18 @@ class Timeline extends Component {
   }
 }
 
-function mapStateToProps({ messages }) {
-  return {
-    messages: messages.messages
-  }
-}
+// function mapStateToProps({ messages }) {
+//   return {
+//     messages: messages.messages
+//   }
+// }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getMessages: () => {
-      dispatch(getMessages())
-    }
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getMessages: () => {
+//       dispatch(getMessages())
+//     }
+//   }
+// }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Timeline)
+

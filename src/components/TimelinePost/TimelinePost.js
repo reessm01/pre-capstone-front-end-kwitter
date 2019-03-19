@@ -31,22 +31,6 @@ export default class TimelinePost extends Component {
         console.log(result.user.messages)
         this.setState({
           displayName: result.user.displayName,
-<<<<<<< HEAD
-          username: result.user.displayName,
-          messages: result.user.messages
-        })
-      })
-    
-    fetch(url + this.props.id + '/picture')
-      .then(result => {
-        if(result.status === 200) {
-          this.setState({
-            photoUrl: result.url
-          })
-        }
-      })
-
-=======
           username: result.user.username
         })
       })
@@ -58,7 +42,6 @@ export default class TimelinePost extends Component {
         })
       }
     })
->>>>>>> 77167c5b878dff42af268edb362a17a9bf616c68
   }
 
   componentDidMount() {
@@ -75,16 +58,9 @@ export default class TimelinePost extends Component {
     const { displayName, username, photoUrl } = this.state
 
     const { text } = this.props
-<<<<<<< HEAD
-    
-    
-    return(
-      <Card style={ cardStyle }>
-=======
 
     return (
       <Card style={cardStyle}>
->>>>>>> 77167c5b878dff42af268edb362a17a9bf616c68
         <Card.Body>
           <div style={postHeaderStyle}>
             <Card.Img style={cardImgStyle} src={photoUrl} />
@@ -95,17 +71,10 @@ export default class TimelinePost extends Component {
               </Card.Subtitle>
             </div>
           </div>
-<<<<<<< HEAD
-          <Card.Text style={{ fontSize: "1.6rem", marginLeft: "1rem", marginBottom: "1.5rem" }}>
-            { text }
-          </Card.Text>
-          <Card.Link onClick={() => console.log('hello')} style={{ marginLeft: '0.75rem' }} href="#"><FontAwesomeIcon icon="heart"></FontAwesomeIcon>likes</Card.Link>
-=======
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
           <Card.Link style={{ marginLeft: "0.75rem" }} href="#">
             <FontAwesomeIcon icon="heart" />
           </Card.Link>
->>>>>>> 77167c5b878dff42af268edb362a17a9bf616c68
           <Card.Link href="#">Dislike</Card.Link>
         </Card.Body>
       </Card>
