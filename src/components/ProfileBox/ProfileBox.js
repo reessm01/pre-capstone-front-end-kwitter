@@ -50,16 +50,12 @@ class ProfileBox extends Component {
 
   render() {
     const { handleChange, handleEdit } = this
-    const { displayName, username, bio, pic } = this.props
+    const { displayName, username, bio, pic, updated } = this.props
     const { edit } = this.state
 
     return (
       <Card style={cardStyle}>
-        <Card.Img
-          variant="top"
-          src={pic === null ? null : pic.slice(0, -13)}
-          key={pic}
-        />
+        <Card.Img variant="top" src={pic} key={updated} />
         {edit ? (
           <Form onSubmit={handleEdit} style={{ marginTop: "30px" }}>
             <Form.Group controlId="displayName">
@@ -83,7 +79,7 @@ class ProfileBox extends Component {
               />
             </Form.Group>
             <Form.Group>
-            <Form.Label>Picture Upload</Form.Label>
+              <Form.Label>Picture Upload</Form.Label>
               <Form.Control
                 name="picture"
                 placeholder="picture"
@@ -122,7 +118,8 @@ export default connect(
     displayName: currentUser.displayName,
     username: currentUser.username,
     bio: currentUser.bio,
-    pic: currentUser.pic
+    pic: currentUser.pic,
+    updated: currentUser.updated
   }),
   { setCurrentUserInfo, editUser, editPicture }
 )(ProfileBox)
