@@ -7,6 +7,7 @@ import { local, setCurrentUserInfo } from "../actions"
 class App extends Component {
   componentDidMount() {
     const token = localStorage.getItem("id")
+    
     if (token) {
       const payload = JSON.parse(atob(token.split('.')[1]))
       const userId = payload.id
