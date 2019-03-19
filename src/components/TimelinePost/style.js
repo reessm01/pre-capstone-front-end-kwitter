@@ -1,6 +1,9 @@
+import { palette } from "../ColorTheme/palette"
+
 export const cardStyle = {
     width: '100%',
-    backgroundColor: "#DCDCDC"
+    backgroundColor: "white",
+    marginBottom:"15px"
 }
   
 export const postHeaderStyle = {
@@ -29,4 +32,8 @@ export const cardTextStyle = {
 export const namesDivStyle = {
     display: 'flex',
     flexDirection: 'column'
+}
+
+export const heartStyle = {
+    color: palette.primaryColor
 }

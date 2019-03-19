@@ -9,7 +9,8 @@ import {
   postHeaderStyle,
   cardImgStyle,
   cardTextStyle,
-  namesDivStyle
+  namesDivStyle,
+  heartStyle
 } from "./style"
 
 library.add(faHeart)
@@ -72,7 +73,7 @@ export default class TimelinePost extends Component {
           </div>
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
           <Card.Link style={{ marginLeft: "0.75rem" }} href="#">
-            <FontAwesomeIcon icon="heart" />
+            <FontAwesomeIcon icon="heart" style={heartStyle}/>
           </Card.Link>
         </Card.Body>
       </Card>
