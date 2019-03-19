@@ -1,3 +1,5 @@
+import { palette } from "../ColorTheme/palette"
+
 export const errorStyle = {
     display: "flex",
     flexDirection: "column",
@@ -13,4 +15,9 @@ export const errorStyle = {
 export const submitStyle = {
     color: "black",
     backgroundColor: "#DCDCDC"
+}
+
+export const cardStyle = {
+    padding: "2rem", 
+    backgroundColor: palette.complementaryColor
 }
