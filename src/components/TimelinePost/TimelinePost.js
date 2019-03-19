@@ -74,7 +74,6 @@ export default class TimelinePost extends Component {
           <Card.Link style={{ marginLeft: "0.75rem" }} href="#">
             <FontAwesomeIcon icon="heart" />
           </Card.Link>
-          <Card.Link href="#">Dislike</Card.Link>
         </Card.Body>
       </Card>
     )
