@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { Switch, Route } from "react-router-dom"
 import { LoginForm, HomePage, Register } from "."
 import { local, setCurrentUserInfo } from "../actions"
+import UserProfile from './UserProfile/UserProfile'
 
 class App extends Component {
   componentDidMount() {
@@ -23,6 +24,7 @@ class App extends Component {
       <Switch>
         <Route exact path="/" render={ () => login ? <HomePage /> : <LoginForm /> } />
         <Route exact path="/register" render={ () => <Register /> } />
+        <Route exact path='/userProfile' render={() => <UserProfile /> } />
       </Switch>
     )
   }

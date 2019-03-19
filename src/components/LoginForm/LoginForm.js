@@ -76,6 +76,7 @@ class LoginForm extends Component {
   }
 }
 
+
 export default connect(
   ({ auth }) => ({
     isLoading: auth.loginLoading,
