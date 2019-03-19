@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Card from 'react-bootstrap/Card'
 import { userCard, cardImgStyle, namesDivStyle } from './style'
 import { domain } from "../../actions/constants"
+import {Link} from "react-router-dom"
 
 const url = domain + "/users/"
 
@@ -28,6 +29,7 @@ export class UserCard extends Component{
     render(){
         const { user, index } = this.props
         const { photoUrl } = this.state
+        const profileLink = `/OtherUserProfile/${this.props.user.id}`
         
         return (
             <Card key={ index } style={ userCard }>
@@ -39,6 +41,7 @@ export class UserCard extends Component{
                     <Card.Title>{ user.displayName }</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">@{ user.username }</Card.Subtitle>
                 </div>
+                <Link to={profileLink}>Click here to view this users profile</Link>
             </Card>
         )
     }

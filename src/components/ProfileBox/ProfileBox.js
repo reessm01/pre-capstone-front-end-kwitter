@@ -53,6 +53,9 @@ class ProfileBox extends Component {
     const { handleChange, handleEdit } = this
     const { displayName, username, bio, pic, updated } = this.props
     const { edit } = this.state
+    const profileLink = `/userProfile/${this.props.id}`
+
+    
 
     return (
       <Card style={cardStyle}>
@@ -105,7 +108,7 @@ class ProfileBox extends Component {
             <Button onClick={() => this.setState({ edit: !edit })}>
               <FontAwesomeIcon icon="edit" />
             </Button>
-            <Link to='/userProfile'>Click to go to User Profile</Link>
+            <Link to={profileLink}>Click to go to User Profile</Link>
           </Card.Body>
         )}
       </Card>

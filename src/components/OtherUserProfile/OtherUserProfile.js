@@ -1,31 +1,31 @@
 import React, {Component} from 'react'
-import { GeneralHeader, ProfileBox, Timeline, UsersSidebar} from '../'
+import { GeneralHeader, Timeline} from '../'
+import OtherUserProfileBox from '../OtherUserProfileBox/OtherUserProfileBox'
 import {getMessages} from '../../actions/getMessages'
 import {connect} from 'react-redux'
 
- class UserProfile extends Component {
+ class OtherUserProfile extends Component {
 
     componentDidMount() {
         this.props.getMessages()
-    }
+      }
 
     render() {
-        console.log(this.props)
-
+        const {id} = this.props.match.params
+        
         return (
             <React.Fragment>
                 <GeneralHeader />
                 <div id="main-wrap">
                     <div className="profile-mobile wrap">
-                        <ProfileBox className="mobile" />
+                        <OtherUserProfileBox id={id} className="mobile" />
                     </div>
                     <div className="wrap">
-                        <Timeline id={this.props.currentUserId} messages={this.props.messages.filter(message => {
-                            return this.props.currentUserId === message.userId
+                        <Timeline messages={this.props.messages.filter(message => {
+                            console.log(id, message.userId, id === message.userId)
+                            
+                            return Number(id) === message.userId
                         })}/>
-                    </div>
-                    <div className="users-mobile wrap">
-                        <UsersSidebar className="mobile" />
                     </div>
                 </div>
             </React.Fragment>
@@ -34,10 +34,9 @@ import {connect} from 'react-redux'
 }
 
 function mapStateToProps(state) {
-    console.log(state)
+    
     return {
-      messages: state.messages.messages,
-      currentUserId: state.currentUser.id
+      messages: state.messages.messages
     }
   }
 
@@ -52,4 +51,4 @@ const mapDispatchToProps = dispatch => {
   export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(UserProfile)
+  )(OtherUserProfile)
