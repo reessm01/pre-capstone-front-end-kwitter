@@ -61,7 +61,7 @@ class ProfileBox extends Component {
                             <Form.Label>Bio</Form.Label>
                             <Form.Control
                                 name="about"
-                                maxlength="100"
+                                maxLength="100"
                                 as="textarea"
                                 rows="3"
                                 placeholder={ bio }
