@@ -34,6 +34,7 @@ class HomePage extends Component {
 
   componentDidMount() {
     this.props.getMessages(this.state.messageNum)
+    window.scrollTo(0,0)
   }
 
   render() {

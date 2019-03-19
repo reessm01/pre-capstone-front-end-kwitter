@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { TimelinePost } from "../"
+import { Link } from "react-router-dom"
 
 export default class Timeline extends Component {
   state = {

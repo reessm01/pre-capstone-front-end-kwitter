@@ -8,6 +8,7 @@ import { timelineStyle, mainStyle } from './style'
 
     componentDidMount() {
         this.props.getMessages()
+        window.scrollTo(0,0)
     }
 
     render() {

@@ -8,6 +8,7 @@ class OtherUserProfile extends Component {
 
   componentDidMount() {
     this.props.getMessages()
+    window.scrollTo(0,0)
   }
 
   render() {
