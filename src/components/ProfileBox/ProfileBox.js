@@ -1,13 +1,14 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import Card from "react-bootstrap/Card"
+import {Link} from 'react-router-dom'
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 import { setCurrentUserInfo, editUser, editPicture } from "../../actions"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit } from "@fortawesome/free-solid-svg-icons"
-import { cardStyle, cardTitleStyle, cardTextStyle } from "./style"
+import { cardStyle, cardTitleStyle, cardTextStyle, cardImgStyle } from "./style"
 
 library.add(faEdit)
 
@@ -55,7 +56,7 @@ class ProfileBox extends Component {
 
     return (
       <Card style={cardStyle}>
-        <Card.Img variant="top" src={pic} key={updated} />
+        <Card.Img style={cardImgStyle} variant="top" src={pic} key={updated} />
         {edit ? (
           <Form onSubmit={handleEdit} style={{ marginTop: "30px" }}>
             <Form.Group controlId="displayName">
@@ -98,12 +99,17 @@ class ProfileBox extends Component {
           </Form>
         ) : (
           <Card.Body>
-            <Card.Title style={cardTitleStyle}>{displayName}</Card.Title>
-            <small>@{username}</small>
+            <Link to='/userProfile'>
+                <Card.Title style={cardTitleStyle}>{displayName}</Card.Title>
+            </Link>
+            <Link to='/userProfile'>
+                <small>@{username}</small>
+            </Link>
             <Card.Text style={cardTextStyle}>{bio}</Card.Text>
             <Button onClick={() => this.setState({ edit: !edit })}>
               <FontAwesomeIcon icon="edit" />
             </Button>
+            <Link to='/userProfile'>Click to go to User Profile</Link>
           </Card.Body>
         )}
       </Card>

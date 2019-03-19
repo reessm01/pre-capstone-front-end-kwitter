@@ -68,13 +68,14 @@ class LoginForm extends Component {
             </Form>
             {isLoading && <Spinner name="circle" color="blue" />}
             {err && <p style={{ color: "red" }}>{err}</p>}
-            <Link to="/register">to register</Link>
+            <Link to="/register">register</Link>
           </Card.Body>
         </Card>
       </React.Fragment>
     )
   }
 }
+
 
 export default connect(
   ({ auth }) => ({

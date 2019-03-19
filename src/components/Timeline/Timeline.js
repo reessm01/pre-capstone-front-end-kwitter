@@ -1,16 +1,9 @@
 import React, { Component } from "react"
-import { TimelinePost, KweetInput } from "../"
-import { getMessages, addLike } from "../../actions/"
-import { connect } from "react-redux"
-import { timelineStyle } from "./style"
+import { TimelinePost } from "../"
 
-class Timeline extends Component {
+export default class Timeline extends Component {
   state = {
     messages: []
-  }
-
-  componentDidMount() {
-    this.props.getMessages()
   }
 
   render() {
@@ -19,32 +12,9 @@ class Timeline extends Component {
     ))
 
     return (
-      <div style={ timelineStyle }>
-        <KweetInput />
-        <div id="timeline-posts">{ timeLinePosts }</div>
-      </div>
+        <div id="timeline-posts">
+          { timeLinePosts }
+        </div>
     )
   }
 }
-
-function mapStateToProps({ messages }) {
-  return {
-    messages: messages.messages
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getMessages: () => {
-      dispatch(getMessages())
-    },
-    addLike: () => {
-      dispatch(addLike())
-    }
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Timeline)

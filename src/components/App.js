@@ -3,14 +3,18 @@ import { connect } from "react-redux"
 import { Switch, Route } from "react-router-dom"
 import { LoginForm, HomePage, Register } from "."
 import { local, setCurrentUserInfo } from "../actions"
+import UserProfile from './UserProfile/UserProfile'
 
 class App extends Component {
   componentDidMount() {
     const token = localStorage.getItem("id")
-    const payload = JSON.parse(atob(token.split('.')[1]))
-    const userId = payload.id
+    
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1]))
+      const userId = payload.id
 
-    this.props.local({ id: userId, token: token })
+      this.props.local({ id: userId, token: token })
+    }
   }
 
   render() {
@@ -20,6 +24,7 @@ class App extends Component {
       <Switch>
         <Route exact path="/" render={ () => login ? <HomePage /> : <LoginForm /> } />
         <Route exact path="/register" render={ () => <Register /> } />
+        <Route exact path='/userProfile' render={() => <UserProfile /> } />
       </Switch>
     )
   }

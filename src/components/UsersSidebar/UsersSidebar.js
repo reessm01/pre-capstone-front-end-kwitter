@@ -30,7 +30,7 @@ export class UsersSidebar extends Component{
 
 function mapStateToProps({ users }){
     return {
-       users: users.users
+       users: users.usersArray
     }
 }
 
