@@ -99,8 +99,12 @@ class ProfileBox extends Component {
           </Form>
         ) : (
           <Card.Body>
-            <Card.Title style={cardTitleStyle}>{displayName}</Card.Title>
-            <small>@{username}</small>
+            <Link to='/userProfile'>
+                <Card.Title style={cardTitleStyle}>{displayName}</Card.Title>
+            </Link>
+            <Link to='/userProfile'>
+                <small>@{username}</small>
+            </Link>
             <Card.Text style={cardTextStyle}>{bio}</Card.Text>
             <Button onClick={() => this.setState({ edit: !edit })}>
               <FontAwesomeIcon icon="edit" />
