@@ -14,7 +14,7 @@ library.add(faEdit)
 
 class ProfileBox extends Component {
   state = {
-    edit: false,
+    edit: false
   }
 
   componentDidMount() {
@@ -57,7 +57,11 @@ class ProfileBox extends Component {
 
     return (
       <Card style={cardStyle}>
-        <Card.Img variant="top" src={pic} />
+        <Card.Img
+          variant="top"
+          src={pic === null ? null : pic.slice(0, -13)}
+          key={pic}
+        />
         {edit ? (
           <Form onSubmit={handleUpload} style={{ marginTop: "30px" }}>
             <Form.Group controlId="displayName">
