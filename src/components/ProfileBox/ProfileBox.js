@@ -7,7 +7,7 @@ import { setCurrentUserInfo, editUser, editPicture } from "../../actions"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit } from "@fortawesome/free-solid-svg-icons"
-import { cardStyle, cardTitleStyle, cardTextStyle } from "./style"
+import { cardStyle, cardTitleStyle, cardTextStyle, cardImgStyle } from "./style"
 
 library.add(faEdit)
 
@@ -55,7 +55,7 @@ class ProfileBox extends Component {
 
     return (
       <Card style={cardStyle}>
-        <Card.Img variant="top" src={pic} key={updated} />
+        <Card.Img style={cardImgStyle} variant="top" src={pic} key={updated} />
         {edit ? (
           <Form onSubmit={handleEdit} style={{ marginTop: "30px" }}>
             <Form.Group controlId="displayName">
