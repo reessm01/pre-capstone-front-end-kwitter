@@ -29,21 +29,22 @@ class ProfileBox extends Component {
 
   handleEdit = e => {
     const { displayName, about, edit } = this.state
+    const { token, id, editUser, editPicture } = this.props
 
     this.setState({ edit: !edit })
 
     e.preventDefault()
 
-    this.props.editUser({
+    editUser({
       editData: { displayName, about },
-      token: this.props.token
+      token: token
     })
 
     const formData = new FormData(e.target)
-    this.props.editPicture({
+    editPicture({
       file: formData,
-      token: this.props.token,
-      id: this.props.id
+      token: token,
+      id: id
     })
   }
 
@@ -86,7 +87,7 @@ class ProfileBox extends Component {
                 type="file"
               />
             </Form.Group>
-            {/* <input type="file" name="picture" id="picture" /> */}
+
             <Button
               type="submit"
               value="Submit"
