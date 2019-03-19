@@ -21,7 +21,7 @@ class GeneralHeader extends Component {
         <Navbar bg="primary" variant="dark" fixed="top">
           <Navbar.Brand href="/">
             <img
-              src="./img/cuteBird.png"
+              src="http://localhost:3000/img/cuteBird.png"
               width="50"
               height="50"
               className="d-inline-block align-top"
