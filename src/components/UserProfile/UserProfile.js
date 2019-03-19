@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 
     componentDidMount() {
         this.props.getMessages()
-      }
+    }
 
     render() {
         console.log(this.props)
@@ -19,7 +19,7 @@ import {connect} from 'react-redux'
                     <div className="profile-mobile wrap">
                         <ProfileBox className="mobile" />
                     </div>
-                    <div style={{ width: '32rem' }} className="wrap">
+                    <div className="timeline wrap">
                         <Timeline messages={this.props.messages.filter(message => {
                             return this.props.currentUserId === message.userId
                         })}/>
@@ -39,8 +39,6 @@ function mapStateToProps(state) {
       messages: state.messages.messages,
       currentUserId: state.currentUser.id
     }
-
-    
   }
 
 const mapDispatchToProps = dispatch => {
