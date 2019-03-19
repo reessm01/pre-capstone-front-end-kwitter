@@ -3,8 +3,7 @@ import { connect } from "react-redux"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
-import { setCurrentUserInfo, editUser } from "../../actions"
-import { editPicture } from "../../actions/editPicture"
+import { setCurrentUserInfo, editUser, editPicture } from "../../actions"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit } from "@fortawesome/free-solid-svg-icons"
@@ -30,28 +29,27 @@ class ProfileBox extends Component {
 
   handleEdit = e => {
     const { displayName, about, edit } = this.state
+    const { token, id, editUser, editPicture } = this.props
 
     this.setState({ edit: !edit })
 
     e.preventDefault()
-    this.props.editUser({
-      editData: { displayName, about },
-      token: this.props.token
-    })
-  }
 
-  handleUpload = e => {
-    e.preventDefault()
+    editUser({
+      editData: { displayName, about },
+      token: token
+    })
+
     const formData = new FormData(e.target)
-    this.props.editPicture({
+    editPicture({
       file: formData,
-      token: this.props.token,
-      id: this.props.id
+      token: token,
+      id: id
     })
   }
 
   render() {
-    const { handleChange, handleEdit, handleUpload } = this
+    const { handleChange, handleEdit } = this
     const { displayName, username, bio, pic } = this.props
     const { edit } = this.state
 
@@ -63,7 +61,7 @@ class ProfileBox extends Component {
           key={pic}
         />
         {edit ? (
-          <Form onSubmit={handleUpload} style={{ marginTop: "30px" }}>
+          <Form onSubmit={handleEdit} style={{ marginTop: "30px" }}>
             <Form.Group controlId="displayName">
               <Form.Label>Display Name</Form.Label>
               <Form.Control
@@ -84,7 +82,16 @@ class ProfileBox extends Component {
                 onChange={handleChange}
               />
             </Form.Group>
-            <input type="file" name="picture" id="picture" />
+            <Form.Group>
+            <Form.Label>Picture Upload</Form.Label>
+              <Form.Control
+                name="picture"
+                placeholder="picture"
+                title="picture"
+                type="file"
+              />
+            </Form.Group>
+
             <Button
               type="submit"
               value="Submit"
