@@ -2,7 +2,7 @@ export const cardStyle = {
     width: '18rem',
     height: 'fit-content',
     padding: '2rem',
-    backgroundColor: "#DCDCDC"
+    backgroundColor: "#DCDCDC",
 }
 
 export const cardTitleStyle = {
@@ -13,4 +13,10 @@ export const cardTitleStyle = {
 export const cardTextStyle = {
     marginTop: '1rem',
     marginBottom: '1rem'
+}
+
+export const cardImgStyle = {
+    width: '75%',
+    margin: '0 auto',
+    borderRadius: '5px'
 }

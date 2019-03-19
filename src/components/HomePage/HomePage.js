@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { ProfileBox, Timeline, UsersSidebar, GeneralHeader } from '../'
+import { ProfileBox, Timeline, UsersSidebar, GeneralHeader, KweetInput } from '../'
 
 import {getMessages} from '../../actions/getMessages'
 import {connect} from 'react-redux'
+
+import { timelineStyle } from './style'
 
 class HomePage extends Component {
 
@@ -18,7 +20,8 @@ class HomePage extends Component {
                     <div className="profile-mobile wrap">
                         <ProfileBox className="mobile" />
                     </div>
-                    <div className="wrap">
+                    <div style={timelineStyle} className="wrap">
+                        <KweetInput />
                         <Timeline messages={this.props.messages}/>
                     </div>
                     <div className="users-mobile wrap">

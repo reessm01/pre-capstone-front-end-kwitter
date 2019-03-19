@@ -15,9 +15,9 @@ export class UserCard extends Component{
         fetch(url + this.props.user.id + "/picture")
             .then(result => {
                 if (result.status === 200) {
-                this.setState({
-                    photoUrl: result.url
-                })
+                    this.setState({
+                        photoUrl: result.url
+                    })
                 }
             })
     }
