@@ -1,7 +1,6 @@
 export const userCard = {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: '1rem',
     marginBottom: '1rem',
     padding: '1rem',
     paddingTop: '1.5rem',

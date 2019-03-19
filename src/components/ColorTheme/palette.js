@@ -1,5 +1,4 @@
-
-const palette = {
+export const palette = {
   // Based from primary color of logo
   primaryColor: "#d13a62",
   // The rest of the color palette is derived from the primary logo color
@@ -8,4 +7,3 @@ const palette = {
   secondaryColor: "#6852aa",
   teritaryColor: "#ceffee"
 }
-export {palette}

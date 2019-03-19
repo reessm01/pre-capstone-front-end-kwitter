@@ -4,7 +4,7 @@ import { ProfileBox, Timeline, UsersSidebar, GeneralHeader, KweetInput } from '.
 import {getMessages} from '../../actions/getMessages'
 import {connect} from 'react-redux'
 
-import { timelineStyle } from './style'
+import { timelineStyle, mainStyle } from './style'
 
 class HomePage extends Component {
 
@@ -16,15 +16,15 @@ class HomePage extends Component {
         return (
             <React.Fragment>
                 <GeneralHeader />
-                <div id="main-wrap">
-                    <div className="profile-mobile wrap">
+                <div id="main-wrap" style={mainStyle}>
+                    <div className="profile-mobile wrap" style={{borderWidth:"0px"}}>
                         <ProfileBox className="mobile" />
                     </div>
                     <div style={timelineStyle} className="wrap">
                         <KweetInput />
                         <Timeline messages={this.props.messages}/>
                     </div>
-                    <div className="users-mobile wrap">
+                    <div className="users-mobile wrap" style={{borderWidth:"0px"}}>
                         <UsersSidebar className="mobile" />
                     </div>
                 </div>

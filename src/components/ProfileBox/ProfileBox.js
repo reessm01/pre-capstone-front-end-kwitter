@@ -97,6 +97,7 @@ class ProfileBox extends Component {
               Save
             </Button>
           </Form>
+          
         ) : (
           <Card.Body>
             <Link to='/userProfile'>
@@ -109,7 +110,7 @@ class ProfileBox extends Component {
             <Button onClick={() => this.setState({ edit: !edit })}>
               <FontAwesomeIcon icon="edit" />
             </Button>
-            <Link to='/userProfile'>Click to go to User Profile</Link>
+            {/* <div style={{marginTop:"20px"}}><Link to='/userProfile'>Click to go to User Profile</Link></div> */}
           </Card.Body>
         )}
       </Card>
