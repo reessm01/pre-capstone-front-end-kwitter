@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { TimelinePost, KweetInput } from "../"
-import { getMessages } from "../../actions/"
-import { addLike } from "../../actions/"
+import { getMessages, addLike } from "../../actions/"
 import { connect } from "react-redux"
 import { timelineStyle } from "./style"
 
@@ -16,13 +15,13 @@ class Timeline extends Component {
 
   render() {
     const timeLinePosts = this.props.messages.map((message, index) => (
-      <TimelinePost key={index} text={message.text} id={message.userId} />
+      <TimelinePost key={ index } text={ message.text } id={ message.userId } />
     ))
 
     return (
-      <div style={timelineStyle}>
+      <div style={ timelineStyle }>
         <KweetInput />
-        <div id="timeline-posts">{timeLinePosts}</div>
+        <div id="timeline-posts">{ timeLinePosts }</div>
       </div>
     )
   }
