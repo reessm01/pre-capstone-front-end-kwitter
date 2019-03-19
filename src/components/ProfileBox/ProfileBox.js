@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import Card from "react-bootstrap/Card"
+import {Link} from 'react-router-dom'
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 import { setCurrentUserInfo, editUser, editPicture } from "../../actions"
@@ -104,6 +105,7 @@ class ProfileBox extends Component {
             <Button onClick={() => this.setState({ edit: !edit })}>
               <FontAwesomeIcon icon="edit" />
             </Button>
+            <Link to='/userProfile'>Click to go to User Profile</Link>
           </Card.Body>
         )}
       </Card>

@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
-import { ProfileBox, Timeline, UsersSidebar, GeneralHeader } from '../'
-
+import React, {Component} from 'react'
+import { GeneralHeader, ProfileBox, Timeline, UsersSidebar} from '../'
 import {getMessages} from '../../actions/getMessages'
 import {connect} from 'react-redux'
 
-class HomePage extends Component {
+ class UserProfile extends Component {
 
     componentDidMount() {
         this.props.getMessages()
       }
 
     render() {
+        console.log(this.props)
+
         return (
             <React.Fragment>
                 <GeneralHeader />
@@ -19,7 +20,9 @@ class HomePage extends Component {
                         <ProfileBox className="mobile" />
                     </div>
                     <div className="wrap">
-                        <Timeline messages={this.props.messages}/>
+                        <Timeline messages={this.props.messages.filter(message => {
+                            return this.props.currentUserId === message.userId
+                        })}/>
                     </div>
                     <div className="users-mobile wrap">
                         <UsersSidebar className="mobile" />
@@ -31,12 +34,14 @@ class HomePage extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log(state)
     return {
-      messages: state.messages.messages
-
+      messages: state.messages.messages,
+      currentUserId: state.currentUser.id
     }
-  }
 
+    
+  }
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -49,7 +54,4 @@ const mapDispatchToProps = dispatch => {
   export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(HomePage)
-
-
-
+  )(UserProfile)
