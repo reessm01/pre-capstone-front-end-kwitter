@@ -2,11 +2,8 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { Switch, Route } from "react-router-dom"
 import { LoginForm, HomePage, Register } from "."
-<<<<<<< HEAD
-import  UserProfile  from "./UserProfile/UserProfile";
-=======
 import { local, setCurrentUserInfo } from "../actions"
->>>>>>> a4c64bacf1c94f30ff408a3ac68dd1417b2d8f00
+import UserProfile from './UserProfile/UserProfile'
 
 class App extends Component {
   componentDidMount() {
