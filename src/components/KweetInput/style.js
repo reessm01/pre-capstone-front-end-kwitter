@@ -13,8 +13,9 @@ export const errorStyle = {
 }
 
 export const submitStyle = {
-    color: "black",
-    backgroundColor: "#DCDCDC"
+    color: "white",
+    backgroundColor: palette.primaryColor,
+    border: "none"
 }
 
 export const cardStyle = {
