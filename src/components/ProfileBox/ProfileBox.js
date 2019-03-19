@@ -100,6 +100,7 @@ class ProfileBox extends Component {
               Save
             </Button>
           </Form>
+          
         ) : (
           <Card.Body>
             <Link to='/userProfile'>

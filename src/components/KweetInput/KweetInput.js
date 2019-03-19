@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import { handleKweetSubmit } from "../../actions"
-import { errorStyle, submitStyle } from "./style"
+import { errorStyle, submitStyle, cardStyle } from "./style"
 
 class KweetInput extends Component {
   state = {
@@ -28,7 +28,10 @@ class KweetInput extends Component {
 
     return (
       <React.Fragment>
-        <Card bg="primary" variant="dark" style={{ padding: "2rem" }}>
+        <Card
+          variant="dark"
+          style={cardStyle}
+        >
           <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Control
