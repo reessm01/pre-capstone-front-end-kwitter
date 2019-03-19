@@ -32,6 +32,16 @@ code {
   overflow: hidden;
 }
 
+#other-profile-wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items:flex-start;
+  width: 90%;
+  padding: 50px 0px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .wrap {
   border: 1px solid darkgrey;
   border-radius: 7px;
@@ -40,6 +50,10 @@ code {
 #timeline-posts {
   height: 500px;
   overflow-y: scroll;
+}
+
+.timeline {
+  width: 32rem;
 }
 
 #show-users {
@@ -52,6 +66,13 @@ code {
   flex-direction: column;
 }
 
+.other-profile-card {
+  width: 18rem;
+  height: fit-content;
+  padding: 2rem;
+  background-color: #DCDCDC;
+}
+
 @media only screen and (max-width: 1300px) {
   .users-mobile {
     display: none;
@@ -60,6 +81,34 @@ code {
   #show-users {
     height: fit-content;
     overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .other-profile-mobile {
+    width: 100%;
+    border: none;
+  }
+
+  .other-profile-card {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+
+  #other-profile-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 90%;
+    padding: 50px 0px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .timeline {
+    width: 100%;
   }
 }
 
@@ -74,3 +123,13 @@ code {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .other-profile-mobile {
+    width: 100%;
+    border: none;
+  }
+
+  .other-profile-card {
+    width: 100%;
+  }
+}

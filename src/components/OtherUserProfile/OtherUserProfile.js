@@ -17,11 +17,11 @@ class OtherUserProfile extends Component {
     return (
       <React.Fragment>
           <GeneralHeader />
-          <div id="main-wrap">
-              <div className="profile-mobile wrap">
+          <div id="other-profile-wrap">
+              <div className="other-profile-mobile wrap">
                   <OtherUserProfileBox id={ id } className="mobile" />
               </div>
-              <div className="wrap">
+              <div className="timeline wrap">
                   <Timeline messages={ messages.filter(message => 
                       Number(id) === Number(message.userId)
                   )}/>

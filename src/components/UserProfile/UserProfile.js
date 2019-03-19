@@ -19,7 +19,7 @@ import {connect} from 'react-redux'
                     <div className="profile-mobile wrap">
                         <ProfileBox className="mobile" />
                     </div>
-                    <div style={{ width: '32rem' }} className="wrap">
+                    <div className="timeline wrap">
                         <Timeline messages={this.props.messages.filter(message => {
                             return this.props.currentUserId === message.userId
                         })}/>

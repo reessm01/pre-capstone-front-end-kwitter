@@ -49,7 +49,7 @@ class OtherUserProfileBox extends Component {
     const { photoUrl, displayName, bio, username } = this.state
 
     return (
-      <Card style={ cardStyle }>
+      <Card className="other-profile-card">
         <Card.Img style={ cardImgStyle } variant="top" src={ photoUrl }/>
         <Card.Body>
             <Card.Title style={ cardTitleStyle }>{ displayName }</Card.Title>
