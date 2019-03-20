@@ -14,11 +14,12 @@ export const errorStyle = {
 
 export const submitStyle = {
     color: "white",
+    fontWeight: "bold",
     backgroundColor: palette.primaryColor,
     border: "none"
 }
 
 export const cardStyle = {
-    padding: "2rem", 
+    padding: "2rem",
     backgroundColor: palette.complementaryColor
 }
