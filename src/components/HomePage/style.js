@@ -9,3 +9,8 @@ export const mainStyle = {
     display:"flex",
     justifyContent:"center"
 }
+
+export const userSideStyle = {
+    background: "linear-gradient(transparent, 5%, white, 95%, transparent)",
+    borderWidth:"0px"
+}
