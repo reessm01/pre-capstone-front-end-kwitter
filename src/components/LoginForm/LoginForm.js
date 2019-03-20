@@ -80,11 +80,18 @@ class LoginForm extends Component {
   }
 }
 
-
-export default connect(
-  ({ auth }) => ({
+function mapStateToProps({ auth }) {
+  return {
     isLoading: auth.loginLoading,
     err: auth.loginError
-  }),
-  { login }
+  }
+}
+
+const mapDispatchToProps = {
+  login
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(LoginForm)

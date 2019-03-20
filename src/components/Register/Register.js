@@ -84,10 +84,18 @@ class Register extends Component {
   }
 }
 
-export default connect(
-  ({ auth }) => ({
+function mapStateToProps({ auth }) {
+  return {
     registerLoading: auth.registerLoading,
     registerError: auth.registerError
-  }),
-  { register }
+  }
+}
+
+const mapDispatchToProps = {
+  register
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(Register)

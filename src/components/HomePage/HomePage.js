@@ -11,7 +11,7 @@ class HomePage extends Component {
     super(props)
 
     this.state = {
-      messageNum: 10
+      messageNum: 20
     }
 
     window.onscroll = () => {
@@ -58,10 +58,9 @@ class HomePage extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({ messages }) {
     return {
-      messages: state.messages.messages
-
+      messages: messages.messages
     }
   }
 

@@ -20,8 +20,7 @@ class ProfileBox extends Component {
 
   componentDidMount() {
     this.props.setCurrentUserInfo({
-      id: this.props.id,
-      token: this.props.token
+      id: this.props.id
     })
   }
 
@@ -31,21 +30,19 @@ class ProfileBox extends Component {
 
   handleEdit = e => {
     const { displayName, about, edit } = this.state
-    const { token, id, editUser, editPicture } = this.props
+    const { id, editUser, editPicture } = this.props
 
     this.setState({ edit: !edit })
 
     e.preventDefault()
 
     editUser({
-      editData: { displayName, about },
-      token: token
+      editData: { displayName, about }
     })
 
     const formData = new FormData(e.target)
     editPicture({
       file: formData,
-      token: token,
       id: id
     })
   }
@@ -138,15 +135,24 @@ class ProfileBox extends Component {
   }
 }
 
-export default connect(
-  ({ auth, currentUser }) => ({
+function mapStateToProps({ auth, currentUser }) {
+  return {
     id: auth.login.id,
-    token: auth.login.token,
     displayName: currentUser.displayName,
     username: currentUser.username,
     bio: currentUser.bio,
     pic: currentUser.pic,
     updated: currentUser.updated
-  }),
-  { setCurrentUserInfo, editUser, editPicture }
+  }
+}
+
+const mapDispatchToProps = {
+  setCurrentUserInfo,
+  editUser, 
+  editPicture
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(ProfileBox)

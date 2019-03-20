@@ -1,5 +1,6 @@
 import { MESSAGES_SUCCEEDED, MESSAGES_FAILED } from "../actions/getMessages"
 import { NEW_KWEET } from "../actions"
+import {LIKED} from "../actions/likes"
 
 const initialState = {
   messages: [],
@@ -28,6 +29,12 @@ export default (state = initialState, action) => {
         ...state,
         messages: [action.payload.message, ...state.messages],
         messages_failed: false
+      }
+    case LIKED:
+      return {
+        ...state,
+        messageId: action.messageId,
+        likes: []
       }
     default:
       return state
