@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { GeneralHeader, Timeline } from "../"
+import { GeneralHeader, Timeline, UsersSidebar } from "../"
 import OtherUserProfileBox from "../OtherUserProfileBox/OtherUserProfileBox"
 import { getMessages } from "../../actions/getMessages"
 import { connect } from "react-redux"
