@@ -11,7 +11,7 @@ class HomePage extends Component {
     super(props)
 
     this.state = {
-      messageNum: 20
+      messageNum: 5
     }
 
     window.onscroll = () => {
@@ -25,15 +25,12 @@ class HomePage extends Component {
         this.setState(state => ({
           messageNum: state.messageNum + 5
         }))
-
-        this.props.getMessages(this.state.messageNum)
       }
     }
   }
   
-
   componentDidMount() {
-    this.props.getMessages(this.state.messageNum)
+    this.props.getMessages()
     window.scrollTo(0,0)
   }
 
@@ -47,7 +44,7 @@ class HomePage extends Component {
                   </div>
                   <div style={timelineStyle} className="wrap">
                       <KweetInput />
-                      <Timeline messages={this.props.messages}/>
+                      <Timeline messages={this.props.messages.slice(0,this.state.messageNum)}/>
                   </div>
                   <div className="users-mobile wrap" style={userSideStyle}>
                       <UsersSidebar className="mobile" />

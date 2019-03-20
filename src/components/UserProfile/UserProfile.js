@@ -5,6 +5,27 @@ import {connect} from 'react-redux'
 import { timelineStyle, mainStyle } from './style'
 
  class UserProfile extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      messageNum: 10
+    }
+
+    window.onscroll = () => {
+      let scrollHeight, totalHeight
+      scrollHeight = document.body.scrollHeight
+      totalHeight = window.scrollY + window.innerHeight
+
+      if (
+        totalHeight >= scrollHeight
+      ) {
+        this.setState(state => ({
+          messageNum: state.messageNum + 5
+        }))
+      }
+    }
+  }
 
   componentDidMount() {
     this.props.getMessages()
@@ -22,9 +43,15 @@ import { timelineStyle, mainStyle } from './style'
             <ProfileBox className="mobile" />
           </div>
           <div style={ timelineStyle } className="wrap">
-            <Timeline messages={messages.filter(message => 
-                Number(currentUserId) === Number(message.userId)
-            )}/>
+            <Timeline
+              messages={
+                messages
+                  .filter(
+                    message => Number(currentUserId) === Number(message.userId)
+                  )
+                  .slice(0, this.state.messageNum)
+              }
+            />
           </div>
           <div className="users-mobile wrap">
             <UsersSidebar className="mobile" />

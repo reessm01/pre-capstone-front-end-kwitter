@@ -4,8 +4,8 @@ export const MESSAGES_SUCCEEDED = 'MESSAGES_SUCCEEDED'
 export const MESSAGES_FAILED = 'MESSAGES_FAILED'
 export const UPDATE_MESSAGE = 'UPDATE_MESSAGE'
 
-export const getMessages = (num) => dispatch => {
-    return fetch(`${domain}/messages?limit=${num}`)
+export const getMessages = () => dispatch => {
+    return fetch(`${domain}/messages`)
     .then(handleJsonResponse)
     .then(data => {
        return dispatch({
