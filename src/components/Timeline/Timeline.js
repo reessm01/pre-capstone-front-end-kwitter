@@ -2,19 +2,22 @@ import React, { Component } from "react"
 import { TimelinePost } from "../"
 
 export default class Timeline extends Component {
-  state = {
-    messages: []
-  }
-
   render() {
-    const timeLinePosts = this.props.messages.map((message, index) => (
-      <TimelinePost key={ index } text={ message.text } id={ message.userId } />
+    const { messages } = this.props
+
+    const timeLinePosts = messages.map((message, index) => (
+      <TimelinePost 
+        key={ index }
+        text={ message.text }
+        id={ message.userId }
+        messageId={ message.id }
+      />
     ))
 
     return (
-        <div id="timeline-posts">
-          { timeLinePosts }
-        </div>
+      <div id="timeline-posts">
+        { timeLinePosts }
+      </div>
     )
   }
 }

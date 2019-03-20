@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { GeneralHeader, ProfileBox, Timeline, UsersSidebar} from '../'
-import {getMessages} from '../../actions/getMessages'
+import { getMessages } from '../../actions/getMessages'
 import {connect} from 'react-redux'
 import { timelineStyle, mainStyle } from './style'
 
@@ -12,6 +12,8 @@ import { timelineStyle, mainStyle } from './style'
   }
 
   render() {
+    const { messages, currentUserId } = this.props
+
     return (
       <React.Fragment>
         <GeneralHeader />
@@ -20,9 +22,9 @@ import { timelineStyle, mainStyle } from './style'
             <ProfileBox className="mobile" />
           </div>
           <div style={ timelineStyle } className="wrap">
-            <Timeline messages={this.props.messages.filter(message => {
-                return this.props.currentUserId === message.userId
-            })}/>
+            <Timeline messages={messages.filter(message => 
+                Number(currentUserId) === Number(message.userId)
+            )}/>
           </div>
           <div className="users-mobile wrap">
             <UsersSidebar className="mobile" />

@@ -2,9 +2,11 @@ import React, { Component } from "react"
 import Card from "react-bootstrap/Card"
 import { Link } from "react-router-dom"
 import { domain, handleJsonResponse } from "../../actions/constants"
+import { addLike } from "../../actions/"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import {connect} from 'react-redux'
 import {
   cardStyle,
   postHeaderStyle,
@@ -18,7 +20,7 @@ library.add(faHeart)
 
 const url = domain + "/users/"
 
-export default class TimelinePost extends Component {
+class TimelinePost extends Component {
   state = {
     displayName: "",
     username: "",
@@ -42,6 +44,12 @@ export default class TimelinePost extends Component {
           photoUrl: result.url
         })
       }
+    })
+  }
+
+  handleLike() {
+    this.props.addLike({
+      messageId: this.props.messageId
     })
   }
 
@@ -76,7 +84,7 @@ export default class TimelinePost extends Component {
             </div>
           </Link>
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
-          <Card.Link style={{ marginLeft: "0.75rem" }} href="#">
+          <Card.Link onClick={ () => this.handleLike() } style={{ marginLeft: "0.75rem" }} href="#">
             <FontAwesomeIcon icon="heart" style={heartStyle}/>
           </Card.Link>
         </Card.Body>
@@ -84,3 +92,14 @@ export default class TimelinePost extends Component {
     )
   }
 }
+
+const mapStateToProps = null
+
+const mapDispatchToProps = {
+  addLike
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TimelinePost)

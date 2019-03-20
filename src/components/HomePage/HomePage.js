@@ -11,7 +11,7 @@ class HomePage extends Component {
     super(props)
 
     this.state = {
-      messageNum: 10
+      messageNum: 20
     }
 
     window.onscroll = () => {
