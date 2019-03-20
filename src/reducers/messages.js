@@ -1,6 +1,6 @@
 import { MESSAGES_SUCCEEDED, MESSAGES_FAILED } from "../actions/getMessages"
 import { NEW_KWEET } from "../actions"
-import {LIKED} from "../actions/likes"
+import {LIKED} from "../actions/addLike"
 
 const initialState = {
   messages: [],
