@@ -23,7 +23,6 @@ export const getMessageById = (messageID) => dispatch => {
     return fetch(`${domain}/messages/${messageID}`)
     .then(handleJsonResponse)
     .then(data => {
-        console.log(data)
         dispatch({
             type: UPDATE_MESSAGE,
             payload: data.message

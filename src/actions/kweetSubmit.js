@@ -1,5 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants"
-import { MESSAGES_FAILED } from "../actions/getMessages"
+import { MESSAGES_FAILED } from "./"
 import { store } from "../index"
 
 export const NEW_KWEET = "NEW_KWEET"
@@ -20,11 +20,10 @@ export const handleKweetSubmit = kweetData => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
-        console.log(result)
-        return dispatch({
-            type: NEW_KWEET,
-            payload: result
-        })
+      return dispatch({
+          type: NEW_KWEET,
+          payload: result
+      })
     })
     .catch(() => {
         return dispatch({

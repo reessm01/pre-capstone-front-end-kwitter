@@ -32,7 +32,6 @@ class TimelinePost extends Component {
     fetch(url + this.props.id)
       .then(handleJsonResponse)
       .then(result => {
-        
         this.setState({
           displayName: result.user.displayName,
           username: result.user.username

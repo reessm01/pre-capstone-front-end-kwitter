@@ -37,15 +37,14 @@ export default (state = initialState, action) => {
       return {
         ...state
       }
-    case UPDATE_MESSAGE:{
-        const messages = state.messages.slice()
-        const index = messages.findIndex(message => message.id === action.payload.id)
-        messages[index] = action.payload
-        
-        return {
-          ...state,
-          messages: [...messages]
-        }
+    case UPDATE_MESSAGE:
+      const newMessages = state.messages.slice()
+      const index = newMessages.findIndex(message => message.id === action.payload.id)
+      newMessages[index] = action.payload
+      
+      return {
+        ...state,
+        messages: [...newMessages]
       }
     default:
       return state
