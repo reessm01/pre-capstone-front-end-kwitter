@@ -1,3 +1,5 @@
+import { palette } from "../ColorTheme/palette"
+
 export const userCard = {
     display: 'flex',
     flexDirection: 'row',
@@ -6,10 +8,11 @@ export const userCard = {
     paddingTop: '1.5rem',
     paddingLeft: '1.5rem',
     backgroundColor: "white",
-    borderRadius: '5px'
+    borderRadius: '5px',
+    color: palette.complementaryColor
 }
 
-export const cardImgStyle = { 
+export const cardImgStyle = {
     height: '3rem',
     width: '3rem',
     marginRight: '1rem'
