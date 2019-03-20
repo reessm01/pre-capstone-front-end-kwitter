@@ -10,7 +10,7 @@ export default class Timeline extends Component {
         key={ index }
         text={ message.text }
         id={ message.userId }
-        messageId={ message.id }
+        messageID={ message.id }
         likes={ message.likes }
       />
     ))
