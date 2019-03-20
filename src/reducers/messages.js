@@ -11,6 +11,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case MESSAGES_SUCCEEDED:
+      console.log(action.payload.messages)
       return {
         ...state,
         messages: [...state.messages, ...action.payload.messages],
@@ -33,8 +34,14 @@ export default (state = initialState, action) => {
     case LIKED:
       return {
         ...state,
-        messageId: action.messageId,
-        likes: []
+        messages: [ 
+          state.messages.map(message => {
+            if(message.id === action.payload.like.messageId) {
+              message.likes = [ ...state.message.likes, action.payload.like ]
+            }
+            return message
+          })
+        ]
       }
     default:
       return state

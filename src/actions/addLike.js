@@ -14,10 +14,13 @@ export const addLike = messageId => dispatch => {
             ...jsonHeaders,
             Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify({ messageId: messageId })
+        body: JSON.stringify({ messageId })
     })
         .then(handleJsonResponse)
         .then(result => {
-            console.log(result)
+            dispatch({
+                type: LIKED,
+                payload: result
+            })
         })
 }

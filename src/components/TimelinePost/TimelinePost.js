@@ -6,7 +6,7 @@ import { addLike } from "../../actions/"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import {
   cardStyle,
   postHeaderStyle,
@@ -61,7 +61,7 @@ class TimelinePost extends Component {
   render() {
     const { displayName, username, photoUrl } = this.state
 
-    const { text, likes, messageID, addLike } = this.props
+    const { text, messageID, addLike, likes } = this.props
 
     const profileLink = `/OtherUserProfile/${this.props.id}`
 
@@ -80,9 +80,14 @@ class TimelinePost extends Component {
             </div>
           </Link>
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
-          <Card.Link onClick={() => addLike(messageID)} style={{ marginLeft: "0.75rem" }} href="#">
-            <FontAwesomeIcon icon="heart" style={heartStyle}/>
-          </Card.Link>
+          <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+            <Card.Text onClick={() => addLike(messageID)} style={{ margin: "0 0.75rem 0 2rem" }}>
+              <FontAwesomeIcon icon="heart" style={heartStyle}/>
+            </Card.Text>
+            <Card.Subtitle className="text-muted">
+              { likes.length ? likes.length : '' }
+            </Card.Subtitle>
+          </div>
         </Card.Body>
       </Card>
     )
