@@ -3,9 +3,8 @@ import { connect } from "react-redux"
 import { logoutThenGoToLoginPage as logout } from "../../actions"
 
 import Navbar from "react-bootstrap/Navbar"
-import Nav from "react-bootstrap/Nav"
 import Button from "react-bootstrap/Button"
-import { customNavbar, customButton } from "./style"
+import { customNavbar, customButton, textStyle } from "./style"
 
 class GeneralHeader extends Component {
   handleLogout = () => {
@@ -28,7 +27,7 @@ class GeneralHeader extends Component {
             />
           </Navbar.Brand>
 
-          <Nav className="mr-auto" />
+          <Navbar.Brand style={textStyle}>Kwitter</Navbar.Brand>
 
           {login && (
             <React.Fragment>
