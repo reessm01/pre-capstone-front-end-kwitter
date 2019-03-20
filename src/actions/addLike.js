@@ -1,7 +1,7 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants"
 import { store } from "../index"
 
-export const EDIT_USER = "ADD_LIKE"
+export const LIKED = "ADD_LIKE"
 const url = domain + "/likes/"
 
 export const addLike = messageId => dispatch => {

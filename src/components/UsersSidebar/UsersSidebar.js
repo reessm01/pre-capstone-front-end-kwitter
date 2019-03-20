@@ -1,25 +1,26 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { UserCard } from '../'
 import { getUsers } from '../../actions'
 import { connect } from 'react-redux'
-import {userContainerStyle } from './style'
+import { userContainerStyle, botTextStyle, titleTextStyle, userCardStyle } from './style'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-export class UsersSidebar extends Component{
-    componentDidMount(){
+export class UsersSidebar extends Component {
+    componentDidMount() {
         this.props.getUsers()
     }
-    
-    render(){
+
+    render() {
         const { users } = this.props
-        
+
         const userCards = users.map((user, index) => (
-                <UserCard user={user} index={index} style={{marginTop:"0px"}}/>
-            )
+            <UserCard user={user} index={index} style={userCardStyle} />
+        )
         )
 
         return (
             <React.Fragment>
+                <div style={titleTextStyle}>Who To Follow</div>
                 <div id="show-users" style={userContainerStyle}>
                     <ReactCSSTransitionGroup
                         transitionName="fade"
@@ -30,19 +31,20 @@ export class UsersSidebar extends Component{
                         transitionAppear={false}
                         transitionAppearTimeout={2000}
                     >
-                        <div style={{marginTop:"0px"}}>
-                                { userCards }
+                        <div style={{ marginTop: "0px" }}>
+                            {userCards}
                         </div>
                     </ReactCSSTransitionGroup>
                 </div>
+                <div style={botTextStyle}>Scroll mouse wheel to see more...</div>
             </React.Fragment>
         )
     }
 }
 
-function mapStateToProps({ users }){
+function mapStateToProps({ users }) {
     return {
-       users: users.usersArray
+        users: users.usersArray
     }
 }
 
