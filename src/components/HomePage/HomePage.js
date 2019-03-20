@@ -4,7 +4,7 @@ import { ProfileBox, Timeline, UsersSidebar, GeneralHeader, KweetInput } from '.
 import {getMessages} from '../../actions/getMessages'
 import {connect} from 'react-redux'
 
-import { timelineStyle, mainStyle } from './style'
+import { timelineStyle, mainStyle, userSideStyle } from './style'
 
 class HomePage extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class HomePage extends Component {
                       <KweetInput />
                       <Timeline messages={this.props.messages}/>
                   </div>
-                  <div className="users-mobile wrap" style={{borderWidth:"0px"}}>
+                  <div className="users-mobile wrap" style={userSideStyle}>
                       <UsersSidebar className="mobile" />
                   </div>
               </div>
