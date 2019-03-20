@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { GeneralHeader } from "../"
 import { cardStyle, titleStyle } from "./style" 
+import { buttonStyle } from "../LoginForm/style";
 
 class Register extends Component {
   state = { username: "", displayName: "", password: "" }
@@ -70,13 +71,15 @@ class Register extends Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <Button disabled={registerLoading} variant="primary" type="submit" style={{ marginBottom: '2rem' }}>
-                fly away
-              </Button>
+              <div style={ titleStyle }>
+                <Button disabled={registerLoading} variant="primary" type="submit" style={buttonStyle}>
+                  fly away
+                </Button>
+                <Link to="/">login</Link>
+              </div>
             </Form>
             {registerLoading && <Spinner name="circle" color="blue" />}
             {registerError && <p style={{ color: "red" }}>{registerError}</p>}
-            <Link to="/">login</Link>
           </Card.Body>
         </Card>
       </React.Fragment>

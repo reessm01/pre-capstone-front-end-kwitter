@@ -7,13 +7,13 @@ import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 import Spinner from "react-spinkit"
 import { GeneralHeader } from "../"
-import { cardStyle, cardTitleStyle } from "./style"
+import { cardStyle, cardTitleStyle, buttonStyle } from "./style"
 
 class LoginForm extends Component {
   state = { username: "", password: "" }
 
   componentDidMount() {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }
 
   handleLogin = e => {
@@ -31,15 +31,15 @@ class LoginForm extends Component {
     return (
       <React.Fragment>
         <GeneralHeader />
-        <Card className="wrap" style={ cardStyle }>
+        <Card className="wrap" style={cardStyle}>
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
-            <div style={ cardTitleStyle }>
+            <div style={cardTitleStyle}>
               <Card.Title>Kweet, kweet...</Card.Title>
             </div>
             <hr />
             <Form onSubmit={this.handleLogin}>
-              <Form.Group controlId="username">
+              <Form.Group controlId="username" >
                 <Form.Label>nickname</Form.Label>
                 <Form.Control
                   type="text"
@@ -61,21 +61,24 @@ class LoginForm extends Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              <Button 
-                style={{ marginBottom: '2rem' }}
-                disabled={isLoading}
-                variant="primary"
-                type="submit"
-              >
-                fly away
-              </Button>
+              <div style={cardTitleStyle}>
+                <Button
+                  style={buttonStyle}
+                  disabled={isLoading}
+                  variant="primary"
+                  type="submit"
+                >
+                  fly away
+                </Button>
+                <Link to="/register">register</Link>
+              </div>
             </Form>
-            {isLoading && <Spinner name="circle" color="blue" />}
-            {err && <p style={{ color: "red" }}>{err}</p>}
-            <Link to="/register">register</Link>
+          {isLoading && <Spinner name="circle" color="blue" />}
+          {err && <p style={{ color: "red" }}>{err}</p>}
+          
           </Card.Body>
         </Card>
-      </React.Fragment>
+      </React.Fragment >
     )
   }
 }
