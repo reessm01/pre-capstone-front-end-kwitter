@@ -3,7 +3,7 @@ import { palette } from "../ColorTheme/palette"
 export const cardStyle = {
     width: '100%',
     backgroundColor: "white",
-    marginBottom:"15px"
+    marginBottom: "15px",
 }
   
 export const postHeaderStyle = {
@@ -26,7 +26,8 @@ export const cardImgStyle = {
 export const cardTextStyle = { 
     fontSize: "1.6rem",
     marginLeft: "1rem",
-    marginBottom: "1.5rem"
+    marginBottom: "1.5rem",
+    marginLeft: "2rem"
 }
   
 export const namesDivStyle = {

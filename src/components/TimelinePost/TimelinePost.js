@@ -81,9 +81,9 @@ class TimelinePost extends Component {
           </Link>
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
           <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-            <Card.Link onClick={() => addLike(messageID)} style={{ margin: "0 0.75rem" }} href="#">
+            <Card.Text onClick={() => addLike(messageID)} style={{ margin: "0 0.75rem 0 2rem" }}>
               <FontAwesomeIcon icon="heart" style={heartStyle}/>
-            </Card.Link>
+            </Card.Text>
             <Card.Subtitle className="text-muted">
               { likes.length ? likes.length : '' }
             </Card.Subtitle>

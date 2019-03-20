@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
         messages: [ 
           state.messages.map(message => {
             if(message.id === action.payload.like.messageId) {
-              message.likes.push(action.payload.like)
+              message.likes = [ ...state.message.likes, action.payload.like ]
             }
             return message
           })
