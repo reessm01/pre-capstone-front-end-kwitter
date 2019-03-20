@@ -7,7 +7,7 @@ import { Provider } from "react-redux"
 import { ConnectedRouter } from "connected-react-router"
 import configureStore, { history } from "./configureStore"
 
-const store = configureStore({})
+export const store = configureStore({})
 
 ReactDOM.render(
   <Provider store={store}>
