@@ -56,10 +56,19 @@ class KweetInput extends Component {
   }
 }
 
-export default connect(
-  ({ auth, messages }) => ({
+function mapStateToProps({ auth, messages }) {
+  return {
     token: auth.login.token,
     messages_failed: messages.messages_failed
-  }),
-  { handleKweetSubmit }
+  }
+}
+
+
+const mapDispatchToProps = {
+  handleKweetSubmit
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(KweetInput)

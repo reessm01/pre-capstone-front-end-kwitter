@@ -12,7 +12,7 @@ export const getMessages = (num) => dispatch => {
            type: MESSAGES_SUCCEEDED,
            payload: data
        })
-    }).catch(err=> {
+    }).catch(err => {
         return Promise.reject(
             dispatch({type: MESSAGES_FAILED, payload: err.failed})
         )

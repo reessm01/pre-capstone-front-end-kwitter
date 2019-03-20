@@ -2,11 +2,16 @@ import React, { Component } from "react"
 import Card from "react-bootstrap/Card"
 import { Link } from "react-router-dom"
 import { domain, handleJsonResponse } from "../../actions/constants"
+import { addLike } from "../../actions/"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
+<<<<<<< HEAD
 import{toggleLike} from '../../actions/likes'
 import {connect} from 'react-redux'
+=======
+import { connect } from 'react-redux'
+>>>>>>> d0b74e9353968bc1854ea2be87508a0677a846ce
 import {
   cardStyle,
   postHeaderStyle,
@@ -20,7 +25,7 @@ library.add(faHeart)
 
 const url = domain + "/users/"
 
-export class TimelinePost extends Component {
+class TimelinePost extends Component {
   state = {
     displayName: "",
     username: "",
@@ -61,8 +66,13 @@ export class TimelinePost extends Component {
   render() {
     const { displayName, username, photoUrl } = this.state
 
+<<<<<<< HEAD
     const { text, likes, messageID, toggleLike } = this.props
     console.log(this.props)
+=======
+    const { text, messageID, addLike, likes } = this.props
+
+>>>>>>> d0b74e9353968bc1854ea2be87508a0677a846ce
     const profileLink = `/OtherUserProfile/${this.props.id}`
 
     return (
@@ -80,9 +90,20 @@ export class TimelinePost extends Component {
             </div>
           </Link>
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
+<<<<<<< HEAD
           <Card.Link onClick={() => toggleLike(messageID)} style={{ marginLeft: "0.75rem" }} href="#">
             <FontAwesomeIcon icon="heart" style={heartStyle}/> {likes.length} Like(s)
           </Card.Link>
+=======
+          <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+            <Card.Text onClick={() => addLike(messageID)} style={{ margin: "0 0.75rem 0 2rem" }}>
+              <FontAwesomeIcon icon="heart" style={heartStyle}/>
+            </Card.Text>
+            <Card.Subtitle className="text-muted">
+              { likes.length ? likes.length : '' }
+            </Card.Subtitle>
+          </div>
+>>>>>>> d0b74e9353968bc1854ea2be87508a0677a846ce
         </Card.Body>
       </Card>
     )
@@ -91,11 +112,17 @@ export class TimelinePost extends Component {
 
 const mapStateToProps = null
 
+<<<<<<< HEAD
 const mapDispatchToProps = dispatch => {
   return {
     toggleLike: (messageID) => {dispatch(toggleLike(messageID))}
   }
+=======
+const mapDispatchToProps = {
+  addLike
+>>>>>>> d0b74e9353968bc1854ea2be87508a0677a846ce
 }
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
