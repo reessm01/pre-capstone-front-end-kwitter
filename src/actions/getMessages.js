@@ -2,6 +2,7 @@ import {domain, handleJsonResponse} from './constants'
 
 export const MESSAGES_SUCCEEDED = 'MESSAGES_SUCCEEDED'
 export const MESSAGES_FAILED = 'MESSAGES_FAILED'
+export const UPDATE_MESSAGE = 'UPDATE_MESSAGE'
 
 export const getMessages = (num) => dispatch => {
     return fetch(`${domain}/messages?limit=${num}`)
@@ -17,4 +18,16 @@ export const getMessages = (num) => dispatch => {
         )
     })
   }
+
+export const getMessageById = (messageID) => dispatch => {
+    return fetch(`${domain}/messages/${messageID}`)
+    .then(handleJsonResponse)
+    .then(data => {
+        console.log(data)
+        dispatch({
+            type: UPDATE_MESSAGE,
+            payload: data.message
+        })
+    })
+}
 
