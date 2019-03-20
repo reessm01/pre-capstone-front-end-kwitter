@@ -48,9 +48,17 @@ class GeneralHeader extends Component {
   }
 }
 
-export default connect(
-  ({ auth }) => ({
+function mapStateToProps({ auth }) {
+  return {
     login: auth.login
-  }),
-  { logout }
+  }
+}
+
+const mapDispatchToProps = {
+  logout
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(GeneralHeader)

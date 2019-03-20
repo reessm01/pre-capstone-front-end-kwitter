@@ -35,13 +35,12 @@ function mapStateToProps({ users }){
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getUsers: () => {
-            dispatch(getUsers())
-        }
-    }
+const mapDispatchToProps = {
+    getUsers
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersSidebar)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UsersSidebar)
 

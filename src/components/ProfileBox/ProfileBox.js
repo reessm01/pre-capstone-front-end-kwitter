@@ -117,8 +117,8 @@ class ProfileBox extends Component {
   }
 }
 
-export default connect(
-  ({ auth, currentUser }) => ({
+function mapStateToProps({ auth, currentUser }) {
+  return {
     id: auth.login.id,
     token: auth.login.token,
     displayName: currentUser.displayName,
@@ -126,6 +126,16 @@ export default connect(
     bio: currentUser.bio,
     pic: currentUser.pic,
     updated: currentUser.updated
-  }),
-  { setCurrentUserInfo, editUser, editPicture }
+  }
+}
+
+const mapDispatchToProps = {
+  setCurrentUserInfo,
+  editUser, 
+  editPicture
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(ProfileBox)

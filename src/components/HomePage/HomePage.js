@@ -58,10 +58,9 @@ class HomePage extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({ messages }) {
     return {
-      messages: state.messages.messages
-
+      messages: messages.messages
     }
   }
 

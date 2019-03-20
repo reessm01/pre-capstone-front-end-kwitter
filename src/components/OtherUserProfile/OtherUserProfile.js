@@ -33,19 +33,15 @@ class OtherUserProfile extends Component {
   }
 }
 
-function mapStateToProps(state) {
-    return {
-      messages: state.messages.messages
-    }
+function mapStateToProps({ messages }) {
+  return {
+    messages: messages.messages
   }
+}
 
-const mapDispatchToProps = dispatch => {
-    return {
-      getMessages: () => {
-        dispatch(getMessages())
-      }
-    }
-  }
+const mapDispatchToProps = {
+  getMessages
+}
 
 export default connect(
   mapStateToProps,
