@@ -12,6 +12,10 @@ import { cardStyle, cardTitleStyle } from "./style"
 class LoginForm extends Component {
   state = { username: "", password: "" }
 
+  componentDidMount() {
+    window.scrollTo(0,0)
+  }
+
   handleLogin = e => {
     e.preventDefault()
     this.props.login(this.state)

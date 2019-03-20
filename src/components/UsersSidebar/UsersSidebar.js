@@ -3,6 +3,7 @@ import { UserCard } from '../'
 import { getUsers } from '../../actions'
 import { connect } from 'react-redux'
 import {userContainerStyle } from './style'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 export class UsersSidebar extends Component{
     componentDidMount(){
@@ -12,7 +13,7 @@ export class UsersSidebar extends Component{
     render(){
         const { users } = this.props
         
-        const userBodies = users.map((user, index) => (
+        const userCards = users.map((user, index) => (
                 <UserCard user={user} index={index} style={{marginTop:"0px"}}/>
             )
         )
@@ -20,9 +21,19 @@ export class UsersSidebar extends Component{
         return (
             <React.Fragment>
                 <div id="show-users" style={userContainerStyle}>
-                    <div style={{marginTop:"0px"}}>
-                        {userBodies}
-                    </div>
+                    <ReactCSSTransitionGroup
+                        transitionName="fade"
+                        transitionEnter={true}
+                        transitionEnterTimeout={2000}
+                        transitionLeave={true}
+                        transitionLeaveTimeout={300}
+                        transitionAppear={false}
+                        transitionAppearTimeout={2000}
+                    >
+                        <div style={{marginTop:"0px"}}>
+                                { userCards }
+                        </div>
+                    </ReactCSSTransitionGroup>
                 </div>
             </React.Fragment>
         )

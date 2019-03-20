@@ -44,7 +44,7 @@ class KweetInput extends Component {
               />
             </Form.Group>
             <Button style={submitStyle} variant="primary" type="submit">
-              Submit
+              Send
             </Button>
           </Form>
           {this.props.messages_failed ? (

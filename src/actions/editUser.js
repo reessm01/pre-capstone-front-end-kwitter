@@ -4,7 +4,6 @@ export const EDIT_USER = "EDIT_USER"
 const url = domain + "/users/"
 
 export const editUser = data => dispatch => {
-
   return fetch(url, {
     method: "PATCH",
     headers: {

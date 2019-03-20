@@ -12,6 +12,10 @@ import { cardStyle, titleStyle } from "./style"
 class Register extends Component {
   state = { username: "", displayName: "", password: "" }
 
+  componentDidMount() {
+    window.scrollTo(0,0)
+  }
+
   handleRegister = e => {
     e.preventDefault()
     this.props.register(this.state)

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Card from "react-bootstrap/Card"
+import { Link } from "react-router-dom"
 import { domain, handleJsonResponse } from "../../actions/constants"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -62,18 +63,22 @@ export class TimelinePost extends Component {
 
     const { text, likes, messageID, addLike } = this.props
 
+    const profileLink = `/OtherUserProfile/${this.props.id}`
+
     return (
       <Card style={cardStyle}>
         <Card.Body>
-          <div style={postHeaderStyle}>
-            <Card.Img style={cardImgStyle} src={photoUrl} />
-            <div style={namesDivStyle}>
-              <Card.Title>{displayName}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                @{username}
-              </Card.Subtitle>
+          <Link to={ profileLink }>
+            <div style={postHeaderStyle}>
+              <Card.Img style={cardImgStyle} src={photoUrl} />
+              <div style={namesDivStyle}>
+                <Card.Title>{displayName}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  @{username}
+                </Card.Subtitle>
+              </div>
             </div>
-          </div>
+          </Link>
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
           <Card.Link onClick={() => addLike(messageID)} style={{ marginLeft: "0.75rem" }} href="#">
             <FontAwesomeIcon icon="heart" style={heartStyle}/>

@@ -43,13 +43,11 @@ code {
 }
 
 .wrap {
-  border: 1px solid darkgrey;
-  border-radius: 7px;
+  border: none;
 }
 
 #timeline-posts {
   height: 100%;
-  /* overflow-y: scroll; */
 }
 
 .timeline {
@@ -58,7 +56,6 @@ code {
 
 #show-users {
   height: 450px;
-  overflow-y: scroll;
   width: 18rem;
   padding: 2rem;
   background-color: #DCDCDC;
@@ -66,11 +63,42 @@ code {
   flex-direction: column;
 }
 
+#show-users::-webkit-scrollbar {
+  display: none;
+}
+
 .other-profile-card {
   width: 18rem;
   height: fit-content;
   padding: 2rem;
   background-color: #DCDCDC;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 2000ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
 }
 
 @media only screen and (max-width: 1300px) {

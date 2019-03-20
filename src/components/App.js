@@ -8,7 +8,6 @@ import OtherUserProfile from "./OtherUserProfile/OtherUserProfile";
 
 class App extends Component {
   
-
   componentDidMount() {
     const token = localStorage.getItem("id")
     
