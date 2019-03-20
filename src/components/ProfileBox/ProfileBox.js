@@ -53,9 +53,6 @@ class ProfileBox extends Component {
     const { handleChange, handleEdit } = this
     const { displayName, username, bio, pic, updated } = this.props
     const { edit } = this.state
-    const profileLink = `/userProfile/${this.props.id}`
-
-    
 
     return (
       <Card style={cardStyle}>
