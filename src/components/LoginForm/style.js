@@ -5,7 +5,7 @@ export const cardStyle = {
     padding: "2rem",
     marginTop: "4rem",
     width: "20rem",
-    backgroundColor: "#DCDCDC"
+    backgroundColor: "white"
 }
 
 export const cardTitleStyle = {
