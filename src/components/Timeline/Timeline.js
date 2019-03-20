@@ -11,6 +11,7 @@ export default class Timeline extends Component {
         text={ message.text }
         id={ message.userId }
         messageId={ message.id }
+        likes={ message.likes }
       />
     ))
 
