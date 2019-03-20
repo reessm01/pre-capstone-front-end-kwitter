@@ -14,17 +14,11 @@ class OtherUserProfile extends Component {
     }
 
     window.onscroll = () => {
-      let scrollHeight, totalHeight
-      scrollHeight = document.body.scrollHeight
-      totalHeight = window.scrollY + window.innerHeight
+      let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
-      if (
-        totalHeight >= scrollHeight
-      ) {
-        this.setState(state => ({
-          messageNum: state.messageNum + 5
-        }))
-      }
+      this.setState(state => ({
+        messageNum: newNum
+      }))
     }
   }
 

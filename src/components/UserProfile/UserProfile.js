@@ -4,7 +4,7 @@ import { getMessages } from '../../actions/getMessages'
 import {connect} from 'react-redux'
 import { timelineStyle, mainStyle } from './style'
 
- class UserProfile extends Component {
+class UserProfile extends Component {
   constructor(props) {
     super(props)
 
@@ -13,17 +13,11 @@ import { timelineStyle, mainStyle } from './style'
     }
 
     window.onscroll = () => {
-      let scrollHeight, totalHeight
-      scrollHeight = document.body.scrollHeight
-      totalHeight = window.scrollY + window.innerHeight
+      let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
-      if (
-        totalHeight >= scrollHeight
-      ) {
-        this.setState(state => ({
-          messageNum: state.messageNum + 5
-        }))
-      }
+      this.setState(state => ({
+        messageNum: newNum
+      }))
     }
   }
 
