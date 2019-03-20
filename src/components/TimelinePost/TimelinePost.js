@@ -25,7 +25,8 @@ class TimelinePost extends Component {
     displayName: "",
     username: "",
     photoUrl:
-      "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fmybroadband.co.za%2Fnews%2Fwp-content%2Fuploads%2F2017%2F04%2FTwitter-profile-picture.jpg&f=1"
+      "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fmybroadband.co.za%2Fnews%2Fwp-content%2Fuploads%2F2017%2F04%2FTwitter-profile-picture.jpg&f=1",
+    likes: []
   }
 
   fetchUserInfo() {
@@ -47,12 +48,6 @@ class TimelinePost extends Component {
     })
   }
 
-  handleLike() {
-    this.props.addLike({
-      messageId: this.props.messageId
-    })
-  }
-
   componentDidMount() {
     this.fetchUserInfo()
   }
@@ -65,7 +60,8 @@ class TimelinePost extends Component {
 
   render() {
     const { displayName, username, photoUrl } = this.state
-    const { text } = this.props
+
+    const { text, likes, messageID, addLike } = this.props
 
     const profileLink = `/OtherUserProfile/${this.props.id}`
 
@@ -84,7 +80,7 @@ class TimelinePost extends Component {
             </div>
           </Link>
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
-          <Card.Link onClick={ () => this.handleLike() } style={{ marginLeft: "0.75rem" }} href="#">
+          <Card.Link onClick={() => addLike(messageID)} style={{ marginLeft: "0.75rem" }} href="#">
             <FontAwesomeIcon icon="heart" style={heartStyle}/>
           </Card.Link>
         </Card.Body>
