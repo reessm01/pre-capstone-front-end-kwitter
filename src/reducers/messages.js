@@ -1,10 +1,6 @@
 import { MESSAGES_SUCCEEDED, MESSAGES_FAILED, UPDATE_MESSAGE} from "../actions/getMessages"
 import { NEW_KWEET } from "../actions"
-<<<<<<< HEAD
-import {LIKED, REMOVE_LIKE} from "../actions/likes"
-=======
 import {LIKED} from "../actions/addLike"
->>>>>>> d0b74e9353968bc1854ea2be87508a0677a846ce
 
 const initialState = {
   messages: [],
@@ -37,23 +33,6 @@ export default (state = initialState, action) => {
       }
     case LIKED:
       return {
-<<<<<<< HEAD
-        ...state
-      }
-    case REMOVE_LIKE:
-      return {
-        ...state
-      }
-    case UPDATE_MESSAGE:{
-        const messages = state.messages.slice()
-        const index = messages.findIndex(message => message.id === action.payload.id)
-        messages[index] = action.payload
-        
-        return {
-          ...state,
-          messages: [...messages]
-        }
-=======
         ...state,
         messages: [ 
           state.messages.map(message => {
@@ -63,7 +42,6 @@ export default (state = initialState, action) => {
             return message
           })
         ]
->>>>>>> d0b74e9353968bc1854ea2be87508a0677a846ce
       }
       
       
