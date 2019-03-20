@@ -6,7 +6,7 @@ import { addLike } from "../../actions/"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import {
   cardStyle,
   postHeaderStyle,
@@ -61,7 +61,7 @@ class TimelinePost extends Component {
   render() {
     const { displayName, username, photoUrl } = this.state
 
-    const { text, likes, messageID, addLike } = this.props
+    const { text, messageID, addLike } = this.props
 
     const profileLink = `/OtherUserProfile/${this.props.id}`
 

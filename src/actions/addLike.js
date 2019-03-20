@@ -1,7 +1,7 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants"
 import { store } from "../index"
 
-export const EDIT_USER = "ADD_LIKE"
+export const LIKED = "LIKED"
 const url = domain + "/likes/"
 
 export const addLike = messageId => dispatch => {
@@ -14,10 +14,13 @@ export const addLike = messageId => dispatch => {
             ...jsonHeaders,
             Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify({ messageId: messageId })
+        body: JSON.stringify({ messageId })
     })
         .then(handleJsonResponse)
         .then(result => {
-            console.log(result)
+            dispatch({
+                type: LIKED,
+                payload: result
+            })
         })
 }
