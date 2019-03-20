@@ -4,6 +4,8 @@ import { domain, handleJsonResponse } from "../../actions/constants"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import{addLike} from '../../actions/likes'
+import {connect} from 'react-redux'
 import {
   cardStyle,
   postHeaderStyle,
@@ -17,12 +19,13 @@ library.add(faHeart)
 
 const url = domain + "/users/"
 
-export default class TimelinePost extends Component {
+export class TimelinePost extends Component {
   state = {
     displayName: "",
     username: "",
     photoUrl:
-      "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fmybroadband.co.za%2Fnews%2Fwp-content%2Fuploads%2F2017%2F04%2FTwitter-profile-picture.jpg&f=1"
+      "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fmybroadband.co.za%2Fnews%2Fwp-content%2Fuploads%2F2017%2F04%2FTwitter-profile-picture.jpg&f=1",
+    likes: []
   }
 
   fetchUserInfo() {
@@ -57,7 +60,7 @@ export default class TimelinePost extends Component {
   render() {
     const { displayName, username, photoUrl } = this.state
 
-    const { text } = this.props
+    const { text, likes, messageID, addLike } = this.props
 
     return (
       <Card style={cardStyle}>
@@ -72,7 +75,7 @@ export default class TimelinePost extends Component {
             </div>
           </div>
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
-          <Card.Link style={{ marginLeft: "0.75rem" }} href="#">
+          <Card.Link onClick={() => addLike(messageID)} style={{ marginLeft: "0.75rem" }} href="#">
             <FontAwesomeIcon icon="heart" style={heartStyle}/>
           </Card.Link>
         </Card.Body>
@@ -80,3 +83,15 @@ export default class TimelinePost extends Component {
     )
   }
 }
+
+const mapStateToProps = null
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addLike: (messageID) => {dispatch(addLike(messageID))}
+  }
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TimelinePost)

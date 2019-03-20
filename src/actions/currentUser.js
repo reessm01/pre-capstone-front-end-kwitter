@@ -19,7 +19,7 @@ export const setCurrentUserInfo = data => dispatch => {
           Authorization: `Bearer ${data.token}`
         }
       }).then(res => {
-        console.log(res)
+        
         if (res.status === 404) {
           return dispatch({
             type: SET_USER,
