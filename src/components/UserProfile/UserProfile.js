@@ -15,9 +15,9 @@ class UserProfile extends Component {
     window.onscroll = () => {
       let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
-      this.setState(state => ({
+      this.setState({
         messageNum: newNum
-      }))
+      })
     }
   }
 
@@ -29,6 +29,12 @@ class UserProfile extends Component {
   render() {
     const { messages, currentUserId } = this.props
 
+    const displayedMessages = messages
+      .filter(
+        message => Number(currentUserId) === Number(message.userId)
+      )
+      .slice(0, this.state.messageNum)
+
     return (
       <React.Fragment>
         <GeneralHeader />
@@ -36,17 +42,13 @@ class UserProfile extends Component {
           <div className="profile-mobile wrap">
             <ProfileBox className="mobile" />
           </div>
-          <div style={ timelineStyle } className="wrap">
-            <Timeline
-              messages={
-                messages
-                  .filter(
-                    message => Number(currentUserId) === Number(message.userId)
-                  )
-                  .slice(0, this.state.messageNum)
-              }
-            />
-          </div>
+          {
+            displayedMessages.length > 0
+            &&
+            <div style={ timelineStyle } className="wrap">
+              <Timeline messages={ displayedMessages } />
+            </div>
+          }
           <div className="users-mobile wrap">
             <UsersSidebar className="mobile" />
           </div>
