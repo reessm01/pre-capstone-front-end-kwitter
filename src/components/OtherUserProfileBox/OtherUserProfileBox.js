@@ -1,9 +1,10 @@
 import React, { Component } from "react"
 import Card from "react-bootstrap/Card"
-import {domain, handleJsonResponse} from '../../actions/constants'
+import { domain, handleJsonResponse } from '../../actions/constants'
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { faEdit } from "@fortawesome/free-solid-svg-icons"
-import { cardTitleStyle, cardTextStyle, cardImgStyle } from "./style"
+// import { cardTitleStyle, cardTextStyle, cardImgStyle } from "./style"
+import { cardStyle, cardTitleStyle, cardTextStyle, cardImgStyle } from "../ProfileBox/style"
 
 library.add(faEdit)
 
@@ -17,19 +18,19 @@ class OtherUserProfileBox extends Component {
     photoUrl: 'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fmybroadband.co.za%2Fnews%2Fwp-content%2Fuploads%2F2017%2F04%2FTwitter-profile-picture.jpg&f=1'
   }
 
-  componentDidMount(){
+  componentDidMount() {
     fetch(url + this.props.id)
-    .then(handleJsonResponse)
-    .then(data => {
-      this.setState({
-        displayName: data.user.displayName,
-        bio: data.user.about,
-        username: data.user.username
+      .then(handleJsonResponse)
+      .then(data => {
+        this.setState({
+          displayName: data.user.displayName,
+          bio: data.user.about,
+          username: data.user.username
+        })
       })
-    })
-    .catch(err => {
+      .catch(err => {
         console.log(err)
-    }) 
+      })
 
     this.fetchUserPhoto()
   }
@@ -39,7 +40,7 @@ class OtherUserProfileBox extends Component {
       .then(result => {
         if (result.status === 200) {
           this.setState({
-              photoUrl: result.url
+            photoUrl: result.url
           })
         }
       })
@@ -49,12 +50,12 @@ class OtherUserProfileBox extends Component {
     const { photoUrl, displayName, bio, username } = this.state
 
     return (
-      <Card className="other-profile-card">
-        <Card.Img style={ cardImgStyle } variant="top" src={ photoUrl }/>
+      <Card className="other-profile-card" style={cardStyle}>
+        <Card.Img style={cardImgStyle} variant="top" src={photoUrl} />
         <Card.Body>
-            <Card.Title style={ cardTitleStyle }>{ displayName }</Card.Title>
-            <small>@{ username }</small>
-            <Card.Text style={cardTextStyle}>{ bio }</Card.Text>
+          <Card.Title style={cardTitleStyle}>{displayName}</Card.Title>
+          <small>@{username}</small>
+          <Card.Text style={cardTextStyle}>{bio}</Card.Text>
         </Card.Body>
       </Card>
     )
