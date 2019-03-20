@@ -25,7 +25,6 @@ export const cardImgStyle = {
 
 export const cardTextStyle = { 
     fontSize: "1.6rem",
-    marginLeft: "1rem",
     marginBottom: "1.5rem",
     marginLeft: "2rem"
 }
