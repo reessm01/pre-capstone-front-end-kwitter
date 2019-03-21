@@ -13,11 +13,15 @@ code {
     monospace;
 }
 
+img {
+  border-radius: 5px;
+}
+
 #root {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  width: 100%; 
+  width: 100%;
   padding: 50px 0px;
   margin: 0 auto;
 }
@@ -25,7 +29,7 @@ code {
 #main-wrap {
   display: flex;
   justify-content: center;
-  align-items:flex-start;
+  align-items: flex-start;
   width: 90%;
   padding: 50px 0px;
   margin: 0 auto;
@@ -35,7 +39,7 @@ code {
 #other-profile-wrap {
   display: flex;
   justify-content: space-around;
-  align-items:flex-start;
+  align-items: flex-start;
   width: 90%;
   padding: 50px 0px;
   margin: 0 auto;
@@ -58,7 +62,7 @@ code {
   height: 450px;
   width: 18rem;
   padding: 2rem;
-  background-color: #DCDCDC;
+  background-color: #dcdcdc;
   display: flex;
   flex-direction: column;
 }
@@ -71,7 +75,7 @@ code {
   width: 18rem;
   height: fit-content;
   padding: 2rem;
-  background-color: #DCDCDC;
+  background-color: #dcdcdc;
 }
 
 .fade-enter {

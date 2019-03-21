@@ -6,7 +6,7 @@ import { toggleLike } from "../../actions/"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
-import { connect } from 'react-redux'
+import { connect } from "react-redux"
 import {
   cardStyle,
   postHeaderStyle,
@@ -25,7 +25,7 @@ class TimelinePost extends Component {
     displayName: "",
     username: "",
     photoUrl:
-      "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fmybroadband.co.za%2Fnews%2Fwp-content%2Fuploads%2F2017%2F04%2FTwitter-profile-picture.jpg&f=1",
+      "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fmybroadband.co.za%2Fnews%2Fwp-content%2Fuploads%2F2017%2F04%2FTwitter-profile-picture.jpg&f=1"
   }
 
   fetchUserInfo() {
@@ -61,13 +61,13 @@ class TimelinePost extends Component {
     const { displayName, username, photoUrl } = this.state
 
     const { text, likes, messageID, toggleLike } = this.props
-    
+
     const profileLink = `/OtherUserProfile/${this.props.id}`
 
     return (
       <Card style={cardStyle}>
-        <Card.Body>
-          <Link to={ profileLink }>
+        <Card.Body style={{ paddingTop: "0px" }}>
+          <Link to={profileLink}>
             <div style={postHeaderStyle}>
               <Card.Img style={cardImgStyle} src={photoUrl} />
               <div style={namesDivStyle}>
@@ -79,12 +79,16 @@ class TimelinePost extends Component {
             </div>
           </Link>
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
-          <Card.Link onClick={(event) => {
-            event.preventDefault()
-            toggleLike(messageID)}
-            } 
-            style={{ marginLeft: "0.75rem" }} href="#">
-            <FontAwesomeIcon icon="heart" style={heartStyle}/> {likes.length} Like(s)
+          <Card.Link
+            onClick={event => {
+              event.preventDefault()
+              toggleLike(messageID)
+            }}
+            style={{ marginLeft: "2rem" }}
+            href="#"
+          >
+            <FontAwesomeIcon icon="heart" style={heartStyle} /> {likes.length}{" "}
+            Like(s)
           </Card.Link>
         </Card.Body>
       </Card>
@@ -96,7 +100,9 @@ const mapStateToProps = null
 
 const mapDispatchToProps = dispatch => {
   return {
-    toggleLike: (messageID) => {dispatch(toggleLike(messageID))}
+    toggleLike: messageID => {
+      dispatch(toggleLike(messageID))
+    }
   }
 }
 
