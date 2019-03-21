@@ -25,9 +25,11 @@ export default (state = initialState, action) => {
         messages_failed: true
       }
     case NEW_KWEET:
+      let newMessage = {...action.payload.message, likes: []}
+
       return {
         ...state,
-        messages: [action.payload.message, ...state.messages],
+        messages: [newMessage, ...state.messages],
         messages_failed: false
       }
     case LIKED:
