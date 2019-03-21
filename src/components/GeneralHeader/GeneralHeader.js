@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { logoutThenGoToLoginPage as logout } from "../../actions"
+import { unsetUser } from "../../actions"
 
 import Navbar from "react-bootstrap/Navbar"
 import Button from "react-bootstrap/Button"
@@ -8,6 +9,7 @@ import { customNavbar, customButton, textStyle } from "./style"
 
 class GeneralHeader extends Component {
   handleLogout = () => {
+    this.props.unsetUser()
     this.props.logout()
   }
 
@@ -54,7 +56,7 @@ function mapStateToProps({ auth }) {
 }
 
 const mapDispatchToProps = {
-  logout
+  logout, unsetUser
 }
 
 export default connect(
