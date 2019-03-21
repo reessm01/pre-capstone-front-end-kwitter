@@ -32,7 +32,7 @@ export const addLike = (messageId) => dispatch => {
 export const toggleLike = (messageID) => (dispatch, getState) => {
     const userId = getState().currentUser.id
     const message = getState().messages.messages.find(message => message.id === messageID)
-    const like = message.likes.find(like => like.userId === userId)
+    const like = message.likes !== undefined ? message.likes.find(like => like.userId === userId) : 0
     
     if (like) {
       dispatch(removeLike(like.id)).then(() => {
