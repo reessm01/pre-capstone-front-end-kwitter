@@ -21,5 +21,6 @@ export const submitStyle = {
 
 export const cardStyle = {
     padding: "2rem",
+    marginBottom: "1rem",
     backgroundColor: palette.complementaryColor
 }
