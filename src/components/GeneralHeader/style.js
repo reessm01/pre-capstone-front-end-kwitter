@@ -19,5 +19,6 @@ export const customButton = {
 export const textStyle = {
     fontFamily: "Pacifico",
     fontSize: "xx-large",
+    paddingLeft: "2rem",
     color: palette.primaryColor
 }
