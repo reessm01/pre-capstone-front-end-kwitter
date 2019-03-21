@@ -4,7 +4,22 @@ import { getMessages } from '../../actions/getMessages'
 import {connect} from 'react-redux'
 import { timelineStyle, mainStyle } from './style'
 
- class UserProfile extends Component {
+class UserProfile extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      messageNum: 10
+    }
+
+    window.onscroll = () => {
+      let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
+
+      this.setState({
+        messageNum: newNum
+      })
+    }
+  }
 
   componentDidMount() {
     this.props.getMessages()
@@ -13,6 +28,12 @@ import { timelineStyle, mainStyle } from './style'
 
   render() {
     const { messages, currentUserId } = this.props
+
+    const displayedMessages = messages
+      .filter(
+        message => Number(currentUserId) === Number(message.userId)
+      )
+      .slice(0, this.state.messageNum)
 
     return (
       <React.Fragment>

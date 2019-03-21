@@ -11,7 +11,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case MESSAGES_SUCCEEDED:
-      console.log(action.payload.messages)
       return {
         ...state,
         messages: [...state.messages, ...action.payload.messages],
@@ -49,8 +48,6 @@ export default (state = initialState, action) => {
           messages: [...messages]
         }
       }
-      
-      
     default:
       return state
   }

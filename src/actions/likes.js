@@ -49,8 +49,7 @@ export const toggleLike = (messageID) => (dispatch, getState) => {
     }
 
     dispatch(getMessages())
-     
-  };
+  }
 
 export const removeLike = likeId => {
     return function(dispatch, getState){

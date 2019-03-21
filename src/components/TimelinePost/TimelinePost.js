@@ -2,11 +2,11 @@ import React, { Component } from "react"
 import Card from "react-bootstrap/Card"
 import { Link } from "react-router-dom"
 import { domain, handleJsonResponse } from "../../actions/constants"
+import { toggleLike, getMessageById } from "../../actions/"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
-import{toggleLike} from '../../actions/likes'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import {
   cardStyle,
   postHeaderStyle,
@@ -32,7 +32,6 @@ class TimelinePost extends Component {
     fetch(url + this.props.id)
       .then(handleJsonResponse)
       .then(result => {
-        
         this.setState({
           displayName: result.user.displayName,
           username: result.user.username

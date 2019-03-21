@@ -11,29 +11,20 @@ class HomePage extends Component {
     super(props)
 
     this.state = {
-      messageNum: 20
+      messageNum: 5
     }
 
     window.onscroll = () => {
-      let scrollHeight, totalHeight
-      scrollHeight = document.body.scrollHeight
-      totalHeight = window.scrollY + window.innerHeight
+      let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
-      if (
-        totalHeight >= scrollHeight
-      ) {
-        this.setState(state => ({
-          messageNum: state.messageNum + 5
-        }))
-
-        this.props.getMessages(this.state.messageNum)
-      }
+      this.setState(state => ({
+        messageNum: newNum
+      }))
     }
   }
   
-
   componentDidMount() {
-    this.props.getMessages(this.state.messageNum)
+    this.props.getMessages()
     window.scrollTo(0,0)
   }
 
@@ -47,7 +38,7 @@ class HomePage extends Component {
                   </div>
                   <div style={timelineStyle} className="wrap">
                       <KweetInput />
-                      <Timeline messages={this.props.messages}/>
+                      <Timeline messages={this.props.messages.slice(0,this.state.messageNum)}/>
                   </div>
                   <div className="users-mobile wrap" style={userSideStyle}>
                       <UsersSidebar className="mobile" />

@@ -1,11 +1,27 @@
 import React, { Component } from "react"
-import { GeneralHeader, Timeline } from "../"
+import { GeneralHeader, Timeline, UsersSidebar } from "../"
 import OtherUserProfileBox from "../OtherUserProfileBox/OtherUserProfileBox"
 import { getMessages } from "../../actions/getMessages"
 import { connect } from "react-redux"
 import { mainStyle, timelineStyle } from "../HomePage/style"
 
 class OtherUserProfile extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      messageNum: 5
+    }
+
+    window.onscroll = () => {
+      let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
+
+      this.setState({
+        messageNum: newNum
+      })
+    }
+  }
+
   componentDidMount() {
     this.props.getMessages()
     window.scrollTo(0, 0)
@@ -15,6 +31,12 @@ class OtherUserProfile extends Component {
     const { id } = this.props.match.params
     const { messages } = this.props
 
+    const displayedMessages = messages
+      .filter(
+        message => Number(id) === Number(message.userId)
+      )
+      .slice(0, this.state.messageNum)
+
     return (
       <React.Fragment>
         <GeneralHeader />
@@ -22,13 +44,13 @@ class OtherUserProfile extends Component {
           <div className="other-profile-mobile wrap">
             <OtherUserProfileBox id={id} className="mobile" />
           </div>
-          <div className="timeline wrap" style={timelineStyle}>
-            <Timeline
-              messages={messages.filter(
-                message => Number(id) === Number(message.userId)
-              )}
-            />
-          </div>
+          {
+            displayedMessages.length > 0
+            &&
+            <div className="timeline wrap" style={timelineStyle}>
+              <Timeline messages={ displayedMessages } />
+            </div>
+          }
         </div>
       </React.Fragment>
     )
