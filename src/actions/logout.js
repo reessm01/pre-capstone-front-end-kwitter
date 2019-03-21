@@ -7,10 +7,6 @@ export const LOGOUT_FAIL = "LOGOUT_FAIL"
 const url = domain + "/auth"
 
 const logout = () => dispatch => {
-  dispatch({
-    type: LOGOUT
-  })
-
   return fetch(url + "/logout")
     .then(handleJsonResponse)
     .then(result => {
@@ -28,5 +24,10 @@ const logout = () => dispatch => {
 }
 
 export const logoutThenGoToLoginPage = loginData => dispatch => {
-    return dispatch(logout(loginData)).then(() => dispatch(push("/")))
+    dispatch(push("/"))
+
+    return dispatch(logout(loginData))
 }
+
+
+// dispatch(logout(loginData)).then(() => dispatch(push("/")))

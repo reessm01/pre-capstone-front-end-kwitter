@@ -79,8 +79,12 @@ class TimelinePost extends Component {
             </div>
           </Link>
           <Card.Text style={cardTextStyle}>{text}</Card.Text>
-          <Card.Link onClick={() => toggleLike(messageID)} style={{ marginLeft: "0.75rem" }}>
-            <FontAwesomeIcon icon="heart" style={heartStyle}/> {likes !== undefined ? likes.length : 0} Like(s)
+          <Card.Link onClick={(event) => {
+            event.preventDefault()
+            toggleLike(messageID)}
+            } 
+            style={{ marginLeft: "0.75rem" }} href="#">
+            <FontAwesomeIcon icon="heart" style={heartStyle}/> {likes.length} Like(s)
           </Card.Link>
         </Card.Body>
       </Card>

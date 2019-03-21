@@ -1,5 +1,6 @@
 import { MESSAGES_SUCCEEDED, MESSAGES_FAILED, UPDATE_MESSAGE} from "../actions/getMessages"
-import { NEW_KWEET, LIKED, REMOVE_LIKE } from "../actions/"
+import { NEW_KWEET } from "../actions"
+import {LIKED, REMOVE_LIKE} from "../actions/likes"
 
 const initialState = {
   messages: [],
@@ -37,14 +38,15 @@ export default (state = initialState, action) => {
       return {
         ...state
       }
-    case UPDATE_MESSAGE:
-      const newMessages = state.messages.slice()
-      const index = newMessages.findIndex(message => message.id === action.payload.id)
-      newMessages[index] = action.payload
-      
-      return {
-        ...state,
-        messages: [...newMessages]
+    case UPDATE_MESSAGE:{
+        const messages = state.messages.slice()
+        const index = messages.findIndex(message => message.id === action.payload.id)
+        messages[index] = action.payload
+        
+        return {
+          ...state,
+          messages: [...messages]
+        }
       }
     default:
       return state

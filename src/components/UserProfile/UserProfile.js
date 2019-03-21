@@ -42,13 +42,11 @@ class UserProfile extends Component {
           <div className="profile-mobile wrap">
             <ProfileBox className="mobile" />
           </div>
-          {
-            displayedMessages.length > 0
-            &&
-            <div style={ timelineStyle } className="wrap">
-              <Timeline messages={ displayedMessages } />
-            </div>
-          }
+          <div style={ timelineStyle } className="wrap">
+            <Timeline messages={messages.filter(message => 
+                Number(currentUserId) === message.userId
+            )}/>
+          </div>
           <div className="users-mobile wrap">
             <UsersSidebar className="mobile" />
           </div>

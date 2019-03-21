@@ -20,6 +20,7 @@ export default (state = initialState, action) => {
         ...state,
         login: action.payload,
         loginLoading: false,
+        loggedIn: true
       }
     case LOGIN_FAIL:
       return { 
@@ -31,6 +32,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         login: null,
+        loggedIn: false,
         loginLoading: false
       }
     case LOCAL:
