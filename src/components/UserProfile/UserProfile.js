@@ -23,7 +23,7 @@ import { timelineStyle, mainStyle } from './style'
           </div>
           <div style={ timelineStyle } className="wrap">
             <Timeline messages={messages.filter(message => 
-                Number(currentUserId) === Number(message.userId)
+                Number(currentUserId) === message.userId
             )}/>
           </div>
           <div className="users-mobile wrap">

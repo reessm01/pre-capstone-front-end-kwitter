@@ -10,7 +10,7 @@ class App extends Component {
   
   componentDidMount() {
     const token = localStorage.getItem("id")
-    
+    console.log(this.props)
     
     if (token) {
       const payload = JSON.parse(atob(token.split('.')[1]))
