@@ -13,9 +13,13 @@ export class UsersSidebar extends Component {
     render() {
         const { users } = this.props
 
-        const userCards = users.map((user, index) => (
-            <UserCard user={user} index={index} style={userCardStyle} />
-        )
+        const userCards = users.map((user, index) => 
+            <UserCard 
+                key={index}
+                user={user}
+                index={index}
+                style={userCardStyle}
+            />
         )
 
         return (
