@@ -28,6 +28,3 @@ export const logoutThenGoToLoginPage = loginData => dispatch => {
 
     return dispatch(logout(loginData))
 }
-
-
-// dispatch(logout(loginData)).then(() => dispatch(push("/")))
