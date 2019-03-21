@@ -1,4 +1,4 @@
-import { SET_USER, EDIT_USER } from "../actions"
+import { SET_USER, EDIT_USER, UNSET_USER } from "../actions"
 import { EDIT_PICTURE } from "../actions/editPicture"
 
 const initialState = {
@@ -35,6 +35,10 @@ export default (state = initialState, action) => {
         ...state,
         pic: action.payload.pic,
         updated: Date.now()
+      }
+    case UNSET_USER:
+      return {
+        ...initialState
       }
     default:
       return state
