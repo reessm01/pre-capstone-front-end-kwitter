@@ -7,7 +7,7 @@ import {
   KweetInput
 } from '../'
 
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { getMessages } from '../../actions/'
 
 import { 
