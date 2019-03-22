@@ -16,7 +16,8 @@ import {
   cardImgStyle,
   cardTextStyle,
   namesDivStyle,
-  heartStyle
+  heartStyle,
+  textColor
 } from "./style"
 
 library.add(faHeart)
@@ -81,7 +82,7 @@ class TimelinePost extends Component {
             <div style={postHeaderStyle}>
               <Card.Img style={cardImgStyle} src={photoUrl} />
               <div style={namesDivStyle}>
-                <Card.Title>{displayName}</Card.Title>
+                <Card.Title style={textColor}>{displayName}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   @{username}
                 </Card.Subtitle>
@@ -94,7 +95,7 @@ class TimelinePost extends Component {
               event.preventDefault()
               toggleLike(messageID)
             }}
-            style={{ marginLeft: "2rem" }}
+            style={{ marginLeft: "2rem", color: "#6c757d" }}
             href="#"
           >
             <FontAwesomeIcon icon="heart" style={heartStyle} /> {likes.length}{" "}

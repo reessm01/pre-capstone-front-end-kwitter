@@ -7,7 +7,7 @@ import { connect } from "react-redux"
 import { handleKweetSubmit } from "../../actions"
 
 import { errorStyle, submitStyle, cardStyle } from "./style"
-import { faFlushed } from "@fortawesome/free-solid-svg-icons";
+// import { faFlushed } from "@fortawesome/free-solid-svg-icons";
 
 class KweetInput extends Component {
   state = {
@@ -62,7 +62,7 @@ class KweetInput extends Component {
             </Button>
           </Form>
           {
-            (text.length > 0 && text.length < 2 || text.length > 255)
+            (text.length > 0 & text.length < 2 || text.length > 255)
             ?
             <div style={errorStyle}>{ErrorMessage}</div>
             : 

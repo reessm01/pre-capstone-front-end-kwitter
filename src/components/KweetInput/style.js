@@ -13,7 +13,7 @@ export const errorStyle = {
 }
 
 export const submitStyle = {
-    color: "white",
+    color: palette.backgroundColor,
     fontWeight: "bold",
     backgroundColor: palette.primaryColor,
     border: "none"
