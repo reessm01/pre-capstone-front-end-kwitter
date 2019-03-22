@@ -124,7 +124,7 @@ class ProfileBox extends Component {
                 <Link to='/userProfile'>
                   <Card.Title style={cardTitleStyle}>{displayName}</Card.Title>
                 </Link>
-                <Link to='/userProfile'>
+                <Link to='/userProfile' style={{ color: "#6c757d" }}>
                   <small>@{username}</small>
                 </Link>
                 <Card.Text style={cardTextStyle}>{bio}</Card.Text>
