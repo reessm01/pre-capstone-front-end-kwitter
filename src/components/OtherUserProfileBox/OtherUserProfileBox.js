@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import Card from "react-bootstrap/Card"
-import { domain, handleJsonResponse } from '../../actions/constants'
+
+import { cardStyle, cardTitleStyle, cardTextStyle, cardImgStyle } from "../ProfileBox/style"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { faEdit } from "@fortawesome/free-solid-svg-icons"
-import { cardStyle, cardTitleStyle, cardTextStyle, cardImgStyle } from "../ProfileBox/style"
+
+import { domain, handleJsonResponse } from '../../actions/constants'
 
 library.add(faEdit)
 

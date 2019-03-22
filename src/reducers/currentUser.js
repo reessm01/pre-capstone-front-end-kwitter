@@ -1,5 +1,9 @@
-import { SET_USER, EDIT_USER, CLEAR_USER_DATA } from "../actions"
-import { EDIT_PICTURE } from "../actions/editPicture"
+import {
+  SET_USER,
+  EDIT_USER,
+  EDIT_PICTURE,
+  CLEAR_USER_DATA
+} from "../actions"
 
 const initialState = {
   id: null,

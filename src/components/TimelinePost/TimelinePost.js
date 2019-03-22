@@ -1,12 +1,15 @@
 import React, { Component } from "react"
 import Card from "react-bootstrap/Card"
 import { Link } from "react-router-dom"
+
 import { domain, handleJsonResponse } from "../../actions/constants"
+
+import { connect } from "react-redux"
 import { toggleLike } from "../../actions/"
+
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
-import { connect } from "react-redux"
 import {
   cardStyle,
   postHeaderStyle,
@@ -59,9 +62,7 @@ class TimelinePost extends Component {
 
   render() {
     const { displayName, username, photoUrl } = this.state
-
     const { text, likes, messageID, toggleLike } = this.props
-
     const profileLink = `/OtherUserProfile/${this.props.id}`
 
     return (
@@ -98,12 +99,8 @@ class TimelinePost extends Component {
 
 const mapStateToProps = null
 
-const mapDispatchToProps = dispatch => {
-  return {
-    toggleLike: messageID => {
-      dispatch(toggleLike(messageID))
-    }
-  }
+const mapDispatchToProps = {
+  toggleLike
 }
 
 export default connect(

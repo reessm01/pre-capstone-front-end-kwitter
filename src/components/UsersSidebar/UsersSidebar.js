@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import { UserCard } from '../'
-import { getUsers } from '../../actions'
+
 import { connect } from 'react-redux'
-import { userContainerStyle, botTextStyle, titleTextStyle, userCardStyle } from './style'
+import { getUsers } from '../../actions'
+
+import {
+    userContainerStyle,
+    botTextStyle,
+    titleTextStyle,
+    userCardStyle
+} from './style'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 export class UsersSidebar extends Component {

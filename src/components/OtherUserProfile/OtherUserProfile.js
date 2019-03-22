@@ -1,8 +1,9 @@
 import React, { Component } from "react"
-import { GeneralHeader, Timeline, UsersSidebar } from "../"
-import OtherUserProfileBox from "../OtherUserProfileBox/OtherUserProfileBox"
-import { getMessages } from "../../actions/getMessages"
+import { GeneralHeader, Timeline, OtherUserProfileBox } from "../"
+
 import { connect } from "react-redux"
+import { getMessages } from "../../actions/getMessages"
+
 import { mainStyle, timelineStyle } from "../HomePage/style"
 
 class OtherUserProfile extends Component {

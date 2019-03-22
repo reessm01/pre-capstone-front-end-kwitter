@@ -6,10 +6,10 @@ import {
   UserProfile,
   OtherUserProfile
 } from "."
+import { Switch, Route } from "react-router-dom"
 
 import { connect } from "react-redux"
 import { local } from "../actions"
-import { Switch, Route } from "react-router-dom"
 
 class App extends Component {
   
