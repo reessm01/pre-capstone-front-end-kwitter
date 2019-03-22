@@ -29,5 +29,6 @@ export const cardImgStyle = {
 export const buttonStyle = {
     backgroundColor: palette.primaryColor,
     fontWeight: "bold",
-    color: palette.backgroundColor
+    color: palette.backgroundColor,
+    borderStyle: "none"
 }
