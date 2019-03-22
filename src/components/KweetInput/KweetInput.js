@@ -1,9 +1,11 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
 import Card from "react-bootstrap/Card"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+
+import { connect } from "react-redux"
 import { handleKweetSubmit } from "../../actions"
+
 import { errorStyle, submitStyle, cardStyle } from "./style"
 
 class KweetInput extends Component {
@@ -12,15 +14,19 @@ class KweetInput extends Component {
   }
 
   handleSubmit = e => {
-    const { handleKweetSubmit, token } = this.props
+    const { handleKweetSubmit } = this.props
 
     e.preventDefault()
-    handleKweetSubmit({ text: this.state, token })
+    handleKweetSubmit(this.state)
     this.setState({ text: "" })
   }
 
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
   render() {
-    const { handleSubmit } = this
+    const { handleSubmit, handleChange } = this
 
     const ErrorMessage = (
       <div>{"Message text must be between 2 and 255 characters"}</div>
@@ -35,9 +41,8 @@ class KweetInput extends Component {
           <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Control
-                onChange={e => this.setState({ text: e.target.value })}
-                value={this.state.text}
-                name="kweet"
+                onChange={handleChange}
+                name="text"
                 type="textarea"
                 placeholder="What are you thinking about?"
                 autoComplete="off"
@@ -56,13 +61,11 @@ class KweetInput extends Component {
   }
 }
 
-function mapStateToProps({ auth, messages }) {
+function mapStateToProps({ messages }) {
   return {
-    token: auth.login.token,
     messages_failed: messages.messages_failed
   }
 }
-
 
 const mapDispatchToProps = {
   handleKweetSubmit

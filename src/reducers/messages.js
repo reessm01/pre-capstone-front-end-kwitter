@@ -1,6 +1,9 @@
-import { MESSAGES_SUCCEEDED, MESSAGES_FAILED, UPDATE_MESSAGE} from "../actions/getMessages"
-import { NEW_KWEET } from "../actions"
-import {LIKED, REMOVE_LIKE} from "../actions/likes"
+import {
+  MESSAGES_SUCCEEDED,
+  MESSAGES_FAILED,
+  UPDATE_MESSAGE,
+  NEW_KWEET
+} from "../actions/"
 
 const initialState = {
   messages: [],

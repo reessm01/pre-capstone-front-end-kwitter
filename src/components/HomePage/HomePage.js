@@ -47,7 +47,7 @@ class HomePage extends Component {
                 </div>
                 <div style={ timelineStyle } className="wrap">
                     <KweetInput />
-                    <Timeline messages={ messages.slice(messageNum) }/>
+                    <Timeline messages={ messages.slice(0, messageNum) }/>
                 </div>
                 <div className="users-mobile wrap" style={ userSideStyle }>
                     <UsersSidebar className="mobile" />
