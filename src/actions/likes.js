@@ -27,50 +27,44 @@ export const addLike = (messageID) => (dispatch, getState) => {
                 payload: result.like
             })
         })
-
-    
 }
 
 export const toggleLike = (messageID) => (dispatch, getState) => {
-    const userId = getState().currentUser.id
-    console.log(getState().messages.messages)
-    const message = getState().messages.messages.find(message => message.id === messageID)
+  const userId = getState().currentUser.id
+  const message = getState().messages.messages.find(message => message.id === messageID)
 
-    const like = message.likes.find(like => like.userId === userId)
+  const like = message.likes.find(like => like.userId === userId)
 
-    if (like) {
-      dispatch(removeLike(like.id)).then(() => {
-        dispatch(getMessageById(messageID));
-      })
-    } else {
-      dispatch(addLike(messageID)).then(() => {
-        dispatch(getMessageById(messageID));
-      })
-    }
-
-    dispatch(getMessages())
+  if (like) {
+    dispatch(removeLike(like.id)).then(() => {
+      dispatch(getMessageById(messageID));
+    })
+  } else {
+    dispatch(addLike(messageID)).then(() => {
+      dispatch(getMessageById(messageID));
+    })
   }
 
-export const removeLike = likeId => {
-    return function(dispatch, getState){
-
-        const token = getState().auth.login.token
-
-        return fetch(url + likeId, {
-            method: 'DELETE',
-            headers: {
-                Authorization: `bearer ${token}`,
-                "Content-Type": "application/json"
-            }
-        })
-        .then(response => {
-            dispatch({
-                type: REMOVE_LIKE,
-                payload: response.like
-            })
-        })
-    }
-   
+  dispatch(getMessages())
 }
-    
-    
+
+export const removeLike = likeId => {
+  return function(dispatch, getState){
+
+      const token = getState().auth.login.token
+
+      return fetch(url + likeId, {
+          method: 'DELETE',
+          headers: {
+              Authorization: `bearer ${token}`,
+              "Content-Type": "application/json"
+          }
+      })
+      .then(response => {
+          dispatch({
+              type: REMOVE_LIKE,
+              payload: response.like
+          })
+      })
+  }
+}
