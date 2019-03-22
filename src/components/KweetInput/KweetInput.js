@@ -1,30 +1,45 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
 import Card from "react-bootstrap/Card"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+
+import { connect } from "react-redux"
 import { handleKweetSubmit } from "../../actions"
+
 import { errorStyle, submitStyle, cardStyle } from "./style"
+import { faFlushed } from "@fortawesome/free-solid-svg-icons";
 
 class KweetInput extends Component {
   state = {
     text: ""
   }
 
+  messageLength = false
+
   handleSubmit = e => {
-    const { handleKweetSubmit, token } = this.props
+    const { handleKweetSubmit } = this.props
+    const { text } = this.state
 
     e.preventDefault()
-    handleKweetSubmit({ text: this.state, token })
-    this.setState({ text: "" })
+    if(text.length >= 2 && text.length <= 255) {
+      handleKweetSubmit(this.state)
+      e.target.text.value = ''
+      this.setState({ text: "" })
+    }
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   render() {
-    const { handleSubmit } = this
+    const { handleSubmit, handleChange } = this
+    const { text } = this.state
 
     const ErrorMessage = (
       <div>{"Message text must be between 2 and 255 characters"}</div>
     )
+
 
     return (
       <React.Fragment>
@@ -35,34 +50,35 @@ class KweetInput extends Component {
           <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Control
-                onChange={e => this.setState({ text: e.target.value })}
-                value={this.state.text}
-                name="kweet"
+                onChange={handleChange}
+                name="text"
                 type="textarea"
                 placeholder="What are you thinking about?"
                 autoComplete="off"
               />
             </Form.Group>
-            <Button style={submitStyle} variant="primary" type="submit">
+            <Button style={ submitStyle } variant="primary" type="submit">
               Send
             </Button>
           </Form>
-          {this.props.messages_failed ? (
+          {
+            (text.length > 0 && text.length < 2 || text.length > 255)
+            ?
             <div style={errorStyle}>{ErrorMessage}</div>
-          ) : null}
+            : 
+            null
+          }
         </Card>
       </React.Fragment>
     )
   }
 }
 
-function mapStateToProps({ auth, messages }) {
+function mapStateToProps({ messages }) {
   return {
-    token: auth.login.token,
     messages_failed: messages.messages_failed
   }
 }
-
 
 const mapDispatchToProps = {
   handleKweetSubmit

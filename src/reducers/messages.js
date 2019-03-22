@@ -1,6 +1,9 @@
-import { MESSAGES_SUCCEEDED, MESSAGES_FAILED, UPDATE_MESSAGE} from "../actions/getMessages"
-import { NEW_KWEET } from "../actions"
-import {LIKED, REMOVE_LIKE} from "../actions/likes"
+import {
+  MESSAGES_SUCCEEDED,
+  MESSAGES_FAILED,
+  UPDATE_MESSAGE,
+  NEW_KWEET
+} from "../actions/"
 
 const initialState = {
   messages: [],
@@ -12,33 +15,22 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case MESSAGES_SUCCEEDED:
       return {
-        ...state,
         messages: [...action.payload.messages],
         messages_succeeded: true,
         messages_failed: false
       }
     case MESSAGES_FAILED:
       return {
-        ...state,
         messages: [...state.messages],
         messages_succeeded: false,
         messages_failed: true
       }
     case NEW_KWEET:
-      let newMessage = {...action.payload.message, likes: []}
-     
+      const newMessage = {...action.payload.message, likes: []}
+
       return {
         ...state,
-        messages: [newMessage, ...state.messages],
-        messages_failed: false
-      }
-    case LIKED:
-      return {
-        ...state
-      }
-    case REMOVE_LIKE:
-      return {
-        ...state
+        messages: [newMessage, ...state.messages]
       }
     case UPDATE_MESSAGE:{
         const messages = state.messages.slice()

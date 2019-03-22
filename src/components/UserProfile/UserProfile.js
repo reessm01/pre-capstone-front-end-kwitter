@@ -1,23 +1,26 @@
 import React, {Component} from 'react'
-import { GeneralHeader, ProfileBox, Timeline, UsersSidebar} from '../'
-import { getMessages } from '../../actions/getMessages'
+import {
+  GeneralHeader,
+  ProfileBox,
+  Timeline,
+  UsersSidebar
+} from '../'
+
 import {connect} from 'react-redux'
-import { timelineStyle, mainStyle } from './style'
+import { getMessages } from '../../actions/getMessages'
+
+import { timelineStyle, mainStyle, noMessages } from './style'
 
 class UserProfile extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
-    this.state = {
-      messageNum: 10
-    }
+    this.state = { messageNum: 5 }
 
     window.onscroll = () => {
-      let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
+      const newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
-      this.setState({
-        messageNum: newNum
-      })
+      this.setState({ messageNum: newNum })
     }
   }
 
@@ -43,7 +46,13 @@ class UserProfile extends Component {
             <ProfileBox className="mobile" />
           </div>
           <div style={ timelineStyle } className="wrap">
-            <Timeline messages={ displayedMessages }/>
+            { 
+              displayedMessages.length > 0 
+              ?
+              <Timeline messages={ displayedMessages }/>
+              :
+              <h2 style={{ noMessages }}>you have no kweets yet..</h2>
+            }
           </div>
           <div className="users-mobile wrap">
             <UsersSidebar className="mobile" />

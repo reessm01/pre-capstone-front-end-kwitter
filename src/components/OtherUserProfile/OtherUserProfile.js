@@ -1,24 +1,21 @@
 import React, { Component } from "react"
-import { GeneralHeader, Timeline, UsersSidebar } from "../"
-import OtherUserProfileBox from "../OtherUserProfileBox/OtherUserProfileBox"
-import { getMessages } from "../../actions/getMessages"
+import { GeneralHeader, Timeline, OtherUserProfileBox } from "../"
+
 import { connect } from "react-redux"
+import { getMessages } from "../../actions/getMessages"
+
 import { mainStyle, timelineStyle } from "../HomePage/style"
 
 class OtherUserProfile extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
-    this.state = {
-      messageNum: 5
-    }
+    this.state = { messageNum: 5 }
 
     window.onscroll = () => {
-      let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
+      const newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
-      this.setState({
-        messageNum: newNum
-      })
+      this.setState({ messageNum: newNum })
     }
   }
 

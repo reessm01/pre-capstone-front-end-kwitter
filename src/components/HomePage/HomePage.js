@@ -1,51 +1,60 @@
 import React, { Component } from 'react'
-import { ProfileBox, Timeline, UsersSidebar, GeneralHeader, KweetInput } from '../'
+import {
+  GeneralHeader,
+  ProfileBox,
+  Timeline,
+  UsersSidebar,
+  KweetInput
+} from '../'
 
-import {getMessages} from '../../actions/getMessages'
 import {connect} from 'react-redux'
+import { getMessages } from '../../actions/'
 
-import { timelineStyle, mainStyle, userSideStyle } from './style'
+import { 
+  mainStyle,
+  timelineStyle,
+  userSideStyle
+} from './style'
 
 class HomePage extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
-    this.state = {
-      messageNum: 5
-    }
+    this.state = { messageNum: 5 }
 
     window.onscroll = () => {
-      let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
+      const newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
-      this.setState(state => ({
-        messageNum: newNum
-      }))
+      this.setState({ messageNum: newNum })
     }
   }
   
   componentDidMount() {
-    this.props.getMessages()
     window.scrollTo(0,0)
+    this.props.getMessages()
   }
 
   render() {
-      return (
-          <React.Fragment>
-              <GeneralHeader />
-              <div id="main-wrap" style={mainStyle}>
-                  <div className="profile-mobile wrap" style={{borderWidth:"0px"}}>
-                      <ProfileBox className="mobile" />
-                  </div>
-                  <div style={timelineStyle} className="wrap">
-                      <KweetInput />
-                      <Timeline messages={this.props.messages.slice(0,this.state.messageNum)}/>
-                  </div>
-                  <div className="users-mobile wrap" style={userSideStyle}>
-                      <UsersSidebar className="mobile" />
-                  </div>
-              </div>
-          </React.Fragment>
-      )
+    const { messages } = this.props
+    const { messageNum } = this.state
+
+    return (
+        <React.Fragment>
+            <GeneralHeader />
+            <div id="main-wrap" style={ mainStyle }>
+                <div className="profile-mobile wrap">
+                    <ProfileBox className="mobile" />
+                </div>
+                <div style={ timelineStyle } className="wrap">
+                    <KweetInput />
+                    <Timeline messages={ messages.slice(0, messageNum) }/>
+                </div>
+                <div className="users-mobile wrap" style={ userSideStyle }>
+                    <UsersSidebar className="mobile" />
+                </div>
+            </div>
+        </React.Fragment>
+    )
   }
 }
 

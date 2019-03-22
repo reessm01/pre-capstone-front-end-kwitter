@@ -1,14 +1,16 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
-import { registerThenGoToUserProfile as register } from "../../actions"
+import { GeneralHeader } from "../"
+import Card from 'react-bootstrap/Card'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 import Spinner from "react-spinkit"
 import { Link } from "react-router-dom"
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
-import { GeneralHeader } from "../"
+
+import { connect } from "react-redux"
+import { registerThenGoToUserProfile as register } from "../../actions"
+
 import { cardStyle, titleStyle } from "./style" 
-import { buttonStyle } from "../LoginForm/style";
+import { buttonStyle } from "../LoginForm/style"
 
 class Register extends Component {
   state = { username: "", displayName: "", password: "" }
@@ -27,18 +29,20 @@ class Register extends Component {
   }
 
   render() {
+    const { handleRegister, handleChange } = this
     const { registerLoading, registerError } = this.props
+
     return (
       <React.Fragment>
         <GeneralHeader />
-        <Card lassName="wrap" style={cardStyle}>
+        <Card lassName="wrap" style={ cardStyle }>
           <Card.Img variant="top" src="./img/cuteBird.png" />
           <Card.Body>
             <div style={ titleStyle }>
               <Card.Title>Kweet, kweet...</Card.Title>
             </div>
             <hr />
-            <Form onSubmit={this.handleRegister}>
+            <Form onSubmit={ handleRegister }>
               <Form.Group controlId="username">
                 <Form.Label>nickname</Form.Label>
                 <Form.Control
@@ -47,7 +51,7 @@ class Register extends Component {
                   name="username"
                   autoFocus
                   required
-                  onChange={this.handleChange}
+                  onChange={ handleChange }
                 />
               </Form.Group>
 
@@ -58,7 +62,7 @@ class Register extends Component {
                   placeholder="password"
                   name="password"
                   required
-                  onChange={this.handleChange}
+                  onChange={ handleChange }
                 />
               </Form.Group>
               <Form.Group controlId="displayName">
@@ -68,18 +72,23 @@ class Register extends Component {
                   placeholder="display name"
                   name="displayName"
                   required
-                  onChange={this.handleChange}
+                  onChange={ handleChange }
                 />
               </Form.Group>
               <div style={ titleStyle }>
-                <Button disabled={registerLoading} variant="primary" type="submit" style={buttonStyle}>
+                <Button
+                  disabled={ registerLoading }
+                  variant="primary"
+                  type="submit"
+                  style={ buttonStyle }
+                >
                   fly away
                 </Button>
                 <Link to="/">login</Link>
               </div>
             </Form>
-            {registerLoading && <Spinner name="circle" color="blue" />}
-            {registerError && <p style={{ color: "red" }}>{registerError}</p>}
+            { registerLoading && <Spinner name="circle" color="blue" /> }
+            { registerError && <p style={{ color: "red" }}>{ registerError }</p> }
           </Card.Body>
         </Card>
       </React.Fragment>

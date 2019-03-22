@@ -16,7 +16,7 @@ export const handleKweetSubmit = kweetData => dispatch => {
       ...jsonHeaders,
       Authorization: `Bearer ${token}`
     },
-    body: JSON.stringify(kweetData.text)
+    body: JSON.stringify(kweetData)
   })
     .then(handleJsonResponse)
     .then(result => {

@@ -18,7 +18,6 @@ const register = registerData => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
-      localStorage.setItem("id", result.token)
       return dispatch({
         type: REGISTER_SUCCESS,
         payload: result

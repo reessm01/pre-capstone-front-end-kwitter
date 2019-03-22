@@ -23,8 +23,7 @@ const logout = () => dispatch => {
     })
 }
 
-export const logoutThenGoToLoginPage = loginData => dispatch => {
+export const logoutThenGoToLoginPage = () => dispatch => {
     dispatch(push("/"))
-
-    return dispatch(logout(loginData))
+    return dispatch(logout())
 }

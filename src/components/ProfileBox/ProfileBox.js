@@ -1,14 +1,23 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
 import Card from "react-bootstrap/Card"
-import {Link} from 'react-router-dom'
-import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
+import { Link } from 'react-router-dom'
+
+import { connect } from "react-redux"
 import { setCurrentUserInfo, editUser, editPicture } from "../../actions"
+
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit } from "@fortawesome/free-solid-svg-icons"
-import { cardStyle, cardTitleStyle, cardTextStyle, cardImgStyle } from "./style"
+
+import {
+  cardStyle,
+  cardTitleStyle,
+  cardTextStyle,
+  cardImgStyle
+} from "./style"
+
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 library.add(faEdit)
@@ -19,10 +28,7 @@ class ProfileBox extends Component {
   }
 
   componentDidMount() {
-    this.props.setCurrentUserInfo({
-      id: this.props.id,
-      token: this.props.token
-    })
+    this.props.setCurrentUserInfo(this.props.id)
   }
 
   handleChange = e => {
@@ -30,24 +36,18 @@ class ProfileBox extends Component {
   }
 
   handleEdit = e => {
+    e.preventDefault()
+
     const { displayName, about, edit } = this.state
-    const { token, id, editUser, editPicture } = this.props
+    const { editUser, editPicture } = this.props
 
     this.setState({ edit: !edit })
 
-    e.preventDefault()
-
-    editUser({
-      editData: { displayName, about },
-      token: token
-    })
+    editUser({ displayName, about })
 
     const formData = new FormData(e.target)
-    editPicture({
-      file: formData,
-      token: token,
-      id: id
-    })
+
+    editPicture(formData)
   }
 
   render() {
@@ -121,12 +121,12 @@ class ProfileBox extends Component {
                 ) : (
                   <Card.Body>
                       <Link to='/userProfile'>
-                          <Card.Title style={cardTitleStyle}>{displayName}</Card.Title>
+                          <Card.Title style={ cardTitleStyle }>{ displayName }</Card.Title>
                       </Link>
                       <Link to='/userProfile'>
-                          <small>@{username}</small>
+                          <small>@{ username }</small>
                       </Link>
-                      <Card.Text style={cardTextStyle}>{bio}</Card.Text>
+                      <Card.Text style={ cardTextStyle }>{ bio }</Card.Text>
                       <Button onClick={() => this.setState({ edit: !edit })}>
                         <FontAwesomeIcon icon="edit" />
                       </Button>
@@ -138,15 +138,24 @@ class ProfileBox extends Component {
   }
 }
 
-export default connect(
-  ({ auth, currentUser }) => ({
+function mapStateToProps({ auth, currentUser }) {
+  return {
     id: auth.login.id,
-    token: auth.login.token,
     displayName: currentUser.displayName,
     username: currentUser.username,
     bio: currentUser.bio,
     pic: currentUser.pic,
     updated: currentUser.updated
-  }),
-  { setCurrentUserInfo, editUser, editPicture }
+  }
+}
+
+const mapDispatchToProps = {
+  setCurrentUserInfo,
+  editUser,
+  editPicture
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(ProfileBox)

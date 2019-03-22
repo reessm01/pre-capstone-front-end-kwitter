@@ -1,12 +1,14 @@
 import React, { Component } from "react"
+import { GeneralHeader } from "../"
+import Card from "react-bootstrap/Card"
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
+import Spinner from "react-spinkit"
+import { Link } from "react-router-dom"
+
 import { connect } from "react-redux"
 import { loginThenGoToUserProfile as login } from "../../actions"
-import { Link } from "react-router-dom"
-import Card from "react-bootstrap/Card"
-import Button from "react-bootstrap/Button"
-import Form from "react-bootstrap/Form"
-import Spinner from "react-spinkit"
-import { GeneralHeader } from "../"
+
 import { cardStyle, cardTitleStyle, buttonStyle } from "./style"
 
 class LoginForm extends Component {
@@ -26,6 +28,7 @@ class LoginForm extends Component {
   }
 
   render() {
+    const { handleLogin, handleChange } = this
     const { isLoading, err } = this.props
 
     return (
@@ -38,7 +41,7 @@ class LoginForm extends Component {
               <Card.Title>Kweet, kweet...</Card.Title>
             </div>
             <hr />
-            <Form onSubmit={this.handleLogin}>
+            <Form onSubmit={handleLogin}>
               <Form.Group controlId="username" >
                 <Form.Label>nickname</Form.Label>
                 <Form.Control
@@ -47,7 +50,7 @@ class LoginForm extends Component {
                   name="username"
                   autoFocus
                   required
-                  onChange={this.handleChange}
+                  onChange={handleChange}
                 />
               </Form.Group>
 
@@ -58,7 +61,7 @@ class LoginForm extends Component {
                   placeholder="password"
                   name="password"
                   required
-                  onChange={this.handleChange}
+                  onChange={handleChange}
                 />
               </Form.Group>
               <div style={cardTitleStyle}>
@@ -73,8 +76,8 @@ class LoginForm extends Component {
                 <Link to="/register">register</Link>
               </div>
             </Form>
-          {isLoading && <Spinner name="circle" color="blue" />}
-          {err && <p style={{ color: "red" }}>{err}</p>}
+          { isLoading && <Spinner name="circle" color="blue" /> }
+          { err && <p style={{ color: "red" }}>{err}</p> }
           
           </Card.Body>
         </Card>

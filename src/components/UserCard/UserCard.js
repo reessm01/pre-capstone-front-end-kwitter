@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import Card from 'react-bootstrap/Card'
-import { userCard, cardImgStyle, namesDivStyle } from './style'
-import { domain } from "../../actions/constants"
 import { Link } from "react-router-dom"
+
+import { domain } from "../../actions/constants"
+
+import { userCard, cardImgStyle, namesDivStyle } from './style'
 
 const url = domain + "/users/"
 
-export class UserCard extends Component{
+class UserCard extends Component{
     state = {
         photoUrl: 'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fmybroadband.co.za%2Fnews%2Fwp-content%2Fuploads%2F2017%2F04%2FTwitter-profile-picture.jpg&f=1'
     }
@@ -18,9 +20,13 @@ export class UserCard extends Component{
                     this.setState({
                         photoUrl: result.url
                     })
+                } else {
+                    throw result
                 }
             })
-            
+            .catch(err => {
+                
+            })
     }
 
     componentDidMount() {
@@ -30,7 +36,7 @@ export class UserCard extends Component{
     render(){
         const { user, index } = this.props
         const { photoUrl } = this.state
-        const profileLink = `/OtherUserProfile/${this.props.user.id}`
+        const profileLink = `/OtherUserProfile/${user.id}`
         
         return (
             <Link to={ profileLink }>

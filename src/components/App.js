@@ -1,10 +1,15 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
+import {
+  LoginForm,
+  HomePage,
+  Register,
+  UserProfile,
+  OtherUserProfile
+} from "."
 import { Switch, Route } from "react-router-dom"
-import { LoginForm, HomePage, Register } from "."
-import { local, setCurrentUserInfo } from "../actions"
-import UserProfile from './UserProfile/UserProfile'
-import OtherUserProfile from "./OtherUserProfile/OtherUserProfile";
+
+import { connect } from "react-redux"
+import { local } from "../actions"
 
 class App extends Component {
   
@@ -22,7 +27,6 @@ class App extends Component {
   render() {
     const { login } = this.props
     
-
     return (
       <Switch>
         <Route exact path="/" render={ () => login ? <HomePage /> : <LoginForm /> } />
@@ -35,10 +39,8 @@ class App extends Component {
 }
 
 export default connect(
-  ({ auth, currentUser }) => ({
-    login: auth.login,
-    displayName: currentUser.displayName,
-    username: currentUser.username
+  ({ auth }) => ({
+    login: auth.login
   }),
-  { local, setCurrentUserInfo }
+  { local }
 )(App)
