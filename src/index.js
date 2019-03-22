@@ -5,7 +5,6 @@ import { App } from "./components"
 import * as serviceWorker from "./serviceWorker"
 import { Provider } from "react-redux"
 import {BrowserRouter} from 'react-router-dom'
-import { ConnectedRouter } from "connected-react-router"
 import { Route } from "react-router-dom"
 import configureStore, { history } from "./configureStore"
 
