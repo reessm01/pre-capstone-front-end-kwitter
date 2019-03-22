@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import Navbar from "react-bootstrap/Navbar"
 import Button from "react-bootstrap/Button"
+import { Link } from 'react-router-dom'
 
 import { connect } from "react-redux"
 import { clearUserData, logoutThenGoToLoginPage as logout } from "../../actions"
@@ -20,17 +21,21 @@ class GeneralHeader extends Component {
     return (
       <React.Fragment>
         <Navbar variant="light" fixed="top" style={ customNavbar }>
-          <Navbar.Brand href="/">
-            <img
-              src="./img/cuteBird.png"
-              width="50"
-              height="50"
-              className="d-inline-block align-top"
-              alt="React Bootstrap logo"
-            />
-          </Navbar.Brand>
+          <Link to="./">
+            <Navbar.Brand>
+              <img
+                src="./img/cuteBird.png"
+                width="50"
+                height="50"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+              />
+            </Navbar.Brand>
+          </Link>
 
-          <Navbar.Brand href="/" style={ textStyle }>Kwitter</Navbar.Brand>
+          <Link to="./">
+            <Navbar.Brand style={ textStyle }>Kwitter</Navbar.Brand>
+          </Link>
 
           { login && (
             <React.Fragment>
