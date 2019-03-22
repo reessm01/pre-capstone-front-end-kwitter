@@ -1,10 +1,15 @@
 import React, { Component } from "react"
+import {
+  LoginForm,
+  HomePage,
+  Register,
+  UserProfile,
+  OtherUserProfile
+} from "."
+
 import { connect } from "react-redux"
-import { Switch, Route } from "react-router-dom"
-import { LoginForm, HomePage, Register } from "."
 import { local } from "../actions"
-import UserProfile from './UserProfile/UserProfile'
-import OtherUserProfile from "./OtherUserProfile/OtherUserProfile";
+import { Switch, Route } from "react-router-dom"
 
 class App extends Component {
   

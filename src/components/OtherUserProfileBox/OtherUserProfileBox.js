@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card"
 import { domain, handleJsonResponse } from '../../actions/constants'
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { faEdit } from "@fortawesome/free-solid-svg-icons"
-// import { cardTitleStyle, cardTextStyle, cardImgStyle } from "./style"
 import { cardStyle, cardTitleStyle, cardTextStyle, cardImgStyle } from "../ProfileBox/style"
 
 library.add(faEdit)
