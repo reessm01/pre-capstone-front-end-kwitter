@@ -25,3 +25,9 @@ export const cardImgStyle = {
     borderWidth: "0px",
     borderRadius: '5px'
 }
+
+export const buttonStyle = {
+    backgroundColor: palette.primaryColor,
+    fontWeight: "bold",
+    color: palette.backgroundColor
+}
