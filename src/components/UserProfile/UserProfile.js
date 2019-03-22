@@ -51,7 +51,7 @@ class UserProfile extends Component {
               ?
               <Timeline messages={ displayedMessages }/>
               :
-              <h2 style={{ noMessages }}>you have no kweets yet..</h2>
+              <div style={ noMessages }><h2 >You have no kweets yet...</h2></div>
             }
           </div>
           <div className="users-mobile wrap">

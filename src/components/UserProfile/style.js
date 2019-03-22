@@ -13,5 +13,6 @@ export const mainStyle = {
 }
 
 export const noMessages = {
-    color: palette.complementaryColor
+    color: palette.complementaryColor,
+    textAlign: "center"
 }
