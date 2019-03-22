@@ -11,6 +11,7 @@ const login = loginData => dispatch => {
   dispatch({
     type: LOGIN
   })
+
   return fetch(url + "/login", {
     method: "POST",
     headers: jsonHeaders,
@@ -19,6 +20,7 @@ const login = loginData => dispatch => {
     .then(handleJsonResponse)
     .then(result => {
       localStorage.setItem("id", result.token)
+      
       return dispatch({
         type: LOGIN_SUCCESS,
         payload: result
