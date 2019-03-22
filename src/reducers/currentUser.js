@@ -1,4 +1,4 @@
-import { SET_USER, EDIT_USER, UNSET_USER } from "../actions"
+import { SET_USER, EDIT_USER, CLEAR_USER_DATA } from "../actions"
 import { EDIT_PICTURE } from "../actions/editPicture"
 
 const initialState = {
@@ -14,7 +14,6 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SET_USER:
       return {
-        ...state,
         id: action.payload.id,
         displayName: action.payload.displayName,
         bio: action.payload.about,
@@ -28,7 +27,8 @@ export default (state = initialState, action) => {
         id: action.payload.id,
         displayName: action.payload.displayName,
         bio: action.payload.about,
-        username: action.payload.username
+        username: action.payload.username,
+        updated: Date.now()
       }
     case EDIT_PICTURE:
       return {
@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
         pic: action.payload.pic,
         updated: Date.now()
       }
-    case UNSET_USER:
+    case CLEAR_USER_DATA:
       return {
         ...initialState
       }

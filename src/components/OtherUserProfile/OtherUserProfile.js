@@ -6,19 +6,15 @@ import { connect } from "react-redux"
 import { mainStyle, timelineStyle } from "../HomePage/style"
 
 class OtherUserProfile extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
-    this.state = {
-      messageNum: 5
-    }
+    this.state = { messageNum: 5 }
 
     window.onscroll = () => {
       let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
-      this.setState({
-        messageNum: newNum
-      })
+      this.setState({ messageNum: newNum })
     }
   }
 

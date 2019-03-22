@@ -1,24 +1,25 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
-import { logoutThenGoToLoginPage as logout } from "../../actions"
-import { unsetUser } from "../../actions"
-
 import Navbar from "react-bootstrap/Navbar"
 import Button from "react-bootstrap/Button"
+
+import { connect } from "react-redux"
+import { clearUserData, logoutThenGoToLoginPage as logout } from "../../actions"
+
 import { customNavbar, customButton, textStyle } from "./style"
 
 class GeneralHeader extends Component {
   handleLogout = () => {
-    this.props.unsetUser()
+    this.props.clearUserData()
     this.props.logout()
   }
 
   render() {
+    const { handleLogout } = this
     const { login } = this.props
 
     return (
       <React.Fragment>
-        <Navbar variant="light" fixed="top" style={customNavbar}>
+        <Navbar variant="light" fixed="top" style={ customNavbar }>
           <Navbar.Brand href="/">
             <img
               src="../img/cuteBird.png"
@@ -29,15 +30,15 @@ class GeneralHeader extends Component {
             />
           </Navbar.Brand>
 
-          <Navbar.Brand href="/" style={textStyle}>Kwitter</Navbar.Brand>
+          <Navbar.Brand href="/" style={ textStyle }>Kwitter</Navbar.Brand>
 
-          {login && (
+          { login && (
             <React.Fragment>
               <Button
-                style={customButton}
+                style={ customButton }
                 variant="outline-dark"
                 type="button"
-                onClick={this.handleLogout}
+                onClick={ handleLogout }
               >
                 Logout
               </Button>
@@ -56,7 +57,7 @@ function mapStateToProps({ auth }) {
 }
 
 const mapDispatchToProps = {
-  logout, unsetUser
+  logout, clearUserData
 }
 
 export default connect(

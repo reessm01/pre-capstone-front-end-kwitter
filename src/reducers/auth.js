@@ -33,11 +33,7 @@ export default (state = initialState, action) => {
         loginLoading: false
       }
     case LOGOUT:
-      return {
-        ...state,
-        login: null,
-        loginLoading: false
-      }
+      return initialState
     case LOCAL:
       return {
         ...state,

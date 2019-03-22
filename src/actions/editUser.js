@@ -5,7 +5,6 @@ export const EDIT_USER = "EDIT_USER"
 const url = domain + "/users/"
 
 export const editUser = data => dispatch => {
-
   const token = store.getState().auth.login.token
 
   return fetch(url, {
@@ -14,7 +13,7 @@ export const editUser = data => dispatch => {
         ...jsonHeaders,
         Authorization: `Bearer ${token}`
     },
-    body: JSON.stringify(data.editData)
+    body: JSON.stringify(data)
   })
     .then(handleJsonResponse)
     .then(result => {

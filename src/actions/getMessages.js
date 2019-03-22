@@ -1,4 +1,4 @@
-import {domain, handleJsonResponse} from './constants'
+import { domain, handleJsonResponse } from './constants'
 
 export const MESSAGES_SUCCEEDED = 'MESSAGES_SUCCEEDED'
 export const MESSAGES_FAILED = 'MESSAGES_FAILED'
@@ -14,7 +14,7 @@ export const getMessages = () => dispatch => {
        })
     }).catch(err => {
         return Promise.reject(
-            dispatch({type: MESSAGES_FAILED, payload: err.failed})
+            dispatch({ type: MESSAGES_FAILED, payload: err.failed })
         )
     })
   }

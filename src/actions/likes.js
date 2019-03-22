@@ -1,5 +1,5 @@
-import {handleJsonResponse, jsonHeaders, domain} from '../actions/constants'
-import {getMessageById, getMessages} from '../actions/getMessages'
+import { jsonHeaders, domain } from '../actions/constants'
+import { getMessageById, getMessages } from '../actions/'
 
 export const LIKED = 'LIKED'
 export const REMOVE_LIKE = 'REMOVE_LIKE'
@@ -7,26 +7,18 @@ export const REMOVE_LIKE = 'REMOVE_LIKE'
 const url = domain + '/likes/'
 
 export const addLike = (messageID) => (dispatch, getState) => {
-
   const token = getState().auth.login.token
 
     return fetch(url, {
-        method: "POST",
-        headers: {
-            ...jsonHeaders,
-            Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({
-            messageId: messageID
-        })
-    }).then(handleJsonResponse) 
-        .then(result => {
-            console.log(result)
-            dispatch({
-                type: LIKED,
-                payload: result.like
-            })
-        })
+      method: "POST",
+      headers: {
+          ...jsonHeaders,
+          Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({
+          messageId: messageID
+      })
+    })
 }
 
 export const toggleLike = (messageID) => (dispatch, getState) => {
@@ -50,21 +42,14 @@ export const toggleLike = (messageID) => (dispatch, getState) => {
 
 export const removeLike = likeId => {
   return function(dispatch, getState){
-
       const token = getState().auth.login.token
 
       return fetch(url + likeId, {
-          method: 'DELETE',
-          headers: {
-              Authorization: `bearer ${token}`,
-              "Content-Type": "application/json"
-          }
-      })
-      .then(response => {
-          dispatch({
-              type: REMOVE_LIKE,
-              payload: response.like
-          })
+        method: 'DELETE',
+        headers: {
+            Authorization: `bearer ${token}`,
+            "Content-Type": "application/json"
+        }
       })
   }
 }

@@ -5,19 +5,15 @@ import {connect} from 'react-redux'
 import { timelineStyle, mainStyle } from './style'
 
 class UserProfile extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
-    this.state = {
-      messageNum: 10
-    }
+    this.state = { messageNum: 5 }
 
     window.onscroll = () => {
       let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
-      this.setState({
-        messageNum: newNum
-      })
+      this.setState({ messageNum: newNum })
     }
   }
 
