@@ -33,7 +33,7 @@ export const addLike = (messageID) => (dispatch, getState) => {
 
 export const toggleLike = (messageID) => (dispatch, getState) => {
     const userId = getState().currentUser.id
-    console.log(getState().messages.messages)
+    
     const message = getState().messages.messages.find(message => message.id === messageID)
 
     const like = message.likes.find(like => like.userId === userId)

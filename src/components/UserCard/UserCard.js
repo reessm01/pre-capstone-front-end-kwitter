@@ -20,6 +20,7 @@ export class UserCard extends Component{
                     })
                 }
             })
+            
     }
 
     componentDidMount() {
