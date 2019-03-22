@@ -20,16 +20,22 @@ class HomePage extends Component {
   constructor() {
     super()
 
+    this._isMounted = false
     this.state = { messageNum: 5 }
 
     window.onscroll = () => {
       const newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
-      this.setState({ messageNum: newNum })
+      this._isMounted && this.setState({ messageNum: newNum })
     }
+  }
+
+  componentWillUnmount(){
+    this._isMounted = false
   }
   
   componentDidMount() {
+    this._isMounted = true
     window.scrollTo(0,0)
     this.props.getMessages()
   }

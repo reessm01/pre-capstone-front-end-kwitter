@@ -48,27 +48,30 @@ class TimelinePost extends Component {
             photoUrl: result.url
           })
         } else {
-          throw result
+          this.setState({
+            photoUrl: 'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fmybroadband.co.za%2Fnews%2Fwp-content%2Fuploads%2F2017%2F04%2FTwitter-profile-picture.jpg&f=1'
+          })
         }
       })
-      .catch(err => {
-
-      })
+      
   }
 
   componentDidMount() {
     this.fetchUserInfo()
   }
+  
 
   componentDidUpdate(prevProps) {
     if (this.props.id !== prevProps.id) {
+     
       this.fetchUserInfo()
     }
   }
 
   render() {
     const { displayName, username, photoUrl } = this.state
-    const { text, likes, messageID, toggleLike } = this.props
+   
+    const {text, likes, messageID, toggleLike } = this.props
     const profileLink = `/OtherUserProfile/${this.props.id}`
 
     return (

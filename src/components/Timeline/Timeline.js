@@ -1,7 +1,12 @@
 import React, { Component } from "react"
 import { TimelinePost } from "../"
+import {domain} from '../../actions/constants'
+
+
 
 export default class Timeline extends Component {
+  
+
   render() {
     const { messages } = this.props
 
