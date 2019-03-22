@@ -38,3 +38,7 @@ export const heartStyle = {
   color: palette.primaryColor,
   paddingLeft: "0px"
 }
+
+export const textColor = {
+  color: palette.complementaryColor
+}
