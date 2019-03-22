@@ -21,10 +21,10 @@ class GeneralHeader extends Component {
     return (
       <React.Fragment>
         <Navbar variant="light" fixed="top" style={ customNavbar }>
-          <Link to="./">
+          <Link to="/">
             <Navbar.Brand>
               <img
-                src="./img/cuteBird.png"
+                src="/img/cuteBird.png"
                 width="50"
                 height="50"
                 className="d-inline-block align-top"
@@ -33,7 +33,7 @@ class GeneralHeader extends Component {
             </Navbar.Brand>
           </Link>
 
-          <Link to="./">
+          <Link to="/">
             <Navbar.Brand style={ textStyle }>Kwitter</Navbar.Brand>
           </Link>
 
