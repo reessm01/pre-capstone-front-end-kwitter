@@ -20,7 +20,12 @@ class UserCard extends Component{
                     this.setState({
                         photoUrl: result.url
                     })
+                } else {
+                    throw result
                 }
+            })
+            .catch(err => {
+                
             })
     }
 

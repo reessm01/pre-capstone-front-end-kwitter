@@ -5,6 +5,7 @@ import { App } from "./components"
 import * as serviceWorker from "./serviceWorker"
 import { Provider } from "react-redux"
 import { ConnectedRouter } from "connected-react-router"
+import { Route } from "react-router-dom"
 import configureStore, { history } from "./configureStore"
 
 export const store = configureStore({})
@@ -12,7 +13,7 @@ export const store = configureStore({})
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <Route component={App} />
     </ConnectedRouter>
   </Provider>,
   document.getElementById("root")

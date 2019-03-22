@@ -41,13 +41,19 @@ class TimelinePost extends Component {
         })
       })
 
-    fetch(url + this.props.id + "/picture").then(result => {
-      if (result.status === 200) {
-        this.setState({
-          photoUrl: result.url
-        })
-      }
-    })
+    fetch(url + this.props.id + "/picture")
+      .then(result => {
+        if (result.status === 200) {
+          this.setState({
+            photoUrl: result.url
+          })
+        } else {
+          throw result
+        }
+      })
+      .catch(err => {
+
+      })
   }
 
   componentDidMount() {
