@@ -18,7 +18,7 @@ class UserProfile extends Component {
     this.state = { messageNum: 5 }
 
     window.onscroll = () => {
-      let newNum = Math.floor(window.scrollY / 1000 * 5) + 4
+      const newNum = Math.floor(window.scrollY / 1000 * 5) + 4
 
       this.setState({ messageNum: newNum })
     }
