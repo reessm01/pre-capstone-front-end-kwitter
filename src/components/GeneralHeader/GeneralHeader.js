@@ -24,7 +24,7 @@ class GeneralHeader extends Component {
           <Link to="/">
             <Navbar.Brand>
               <img
-                src="%PUBLIC_URL%/img/cuteBird.png"
+                src={`${process.env.PUBLIC_URL}/img/cuteBird.png`}
                 width="50"
                 height="50"
                 className="d-inline-block align-top"
