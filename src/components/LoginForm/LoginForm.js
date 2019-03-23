@@ -35,7 +35,10 @@ class LoginForm extends Component {
       <React.Fragment>
         <GeneralHeader />
         <Card className="wrap" style={cardStyle}>
-          <Card.Img variant="top" src="./img/cuteBird.png" />
+          <Card.Img
+            variant="top" 
+            src={`${process.env.PUBLIC_URL}/img/cuteBird.png`} 
+          />
           <Card.Body>
             <div style={cardTitleStyle}>
               <Card.Title>Kweet, kweet...</Card.Title>

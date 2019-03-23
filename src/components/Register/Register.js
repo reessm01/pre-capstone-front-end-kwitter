@@ -35,8 +35,11 @@ class Register extends Component {
     return (
       <React.Fragment>
         <GeneralHeader />
-        <Card lassName="wrap" style={ cardStyle }>
-          <Card.Img variant="top" src="./img/cuteBird.png" />
+        <Card className="wrap" style={ cardStyle }>
+          <Card.Img 
+            variant="top" 
+            src={ `${process.env.PUBLIC_URL}/img/cuteBird.png` } 
+          />
           <Card.Body>
             <div style={ titleStyle }>
               <Card.Title>Kweet, kweet...</Card.Title>
