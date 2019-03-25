@@ -1,5 +1,4 @@
-export const domain = "https://kwitter-api.herokuapp.com"
-//  export const domain = "http://localhost:3000"
+export const domain = "https://stormy-ocean-56841.herokuapp.com/"
 
 export const jsonHeaders = {
   "Content-Type": "application/json",
