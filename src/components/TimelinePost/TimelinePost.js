@@ -37,7 +37,7 @@ class TimelinePost extends Component {
       .then(handleJsonResponse)
       .then(result => {
         this.setState({
-          displayName: result.user.displayName===null ? "user":result.user.displayName,
+          displayName: result.user.displayName,
           username: result.user.username
         })
       })
