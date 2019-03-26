@@ -1,5 +1,4 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants"
-import { push } from "connected-react-router"
 import { history } from '../configureStore'
 
 export const LOGIN = "LOGIN"
