@@ -5,17 +5,15 @@ import { App } from "./components"
 import * as serviceWorker from "./serviceWorker"
 import { Provider } from "react-redux"
 import { ConnectedRouter } from 'connected-react-router'
-import { Route, Switch } from "react-router-dom"
+import { Route } from "react-router-dom"
 import configureStore, { history } from "./configureStore"
 
-export const store = configureStore({})
+export const store = configureStore({ basename: process.env.PUBLIC_URL })
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history} basename={process.env.PUBLIC_URL}>
-      <Switch>
-        <Route component={App} />
-      </Switch>
+      <Route component={App} />
     </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
