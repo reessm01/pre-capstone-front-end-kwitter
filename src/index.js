@@ -8,7 +8,7 @@ import { ConnectedRouter } from 'connected-react-router'
 import { Route } from "react-router-dom"
 import configureStore, { history } from "./configureStore"
 
-export const store = configureStore({ basename: process.env.PUBLIC_URL })
+export const store = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
