@@ -1,5 +1,6 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants"
 import { push } from "connected-react-router"
+import { history } from '../configureStore'
 
 export const LOGIN = "LOGIN"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
@@ -35,5 +36,5 @@ const login = loginData => dispatch => {
 
 export const loginThenGoToUserProfile = loginData => dispatch => {
   dispatch(login(loginData))
-  return dispatch(push("/"))
+  return history.push('/')
 }
